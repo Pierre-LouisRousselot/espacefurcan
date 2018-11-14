@@ -42,7 +42,7 @@ class Elements extends Component
         ],
         'navbar-right' => [
             'session' => [
-                'caption' => 'Se connecter',
+                'caption' => 'Se connecter / S\'inscrire',
                 'action' => 'index'
             ],
         ]
@@ -107,7 +107,7 @@ class Elements extends Component
                 echo $this->tag->linkTo($controller . '/' . $option['action'], $option['caption']);
                 echo '</li>';
             }
-            
+
             echo '</ul>';
             echo '</div>';
         }
