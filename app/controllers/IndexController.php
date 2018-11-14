@@ -1,7 +1,5 @@
 <?php
 
-
-
 class IndexController extends ControllerBase
 {
     public function initialize()
@@ -10,14 +8,7 @@ class IndexController extends ControllerBase
         parent::initialize();
     }
 
-    /**
-    * Shows the 5 last article
-    */
     public function indexAction()
     {
-
-
-
     }
-
 }
