@@ -10,9 +10,10 @@
         <p>HEADER</p>
         <hr>
     </div>
+    <p>{{ link_to('session', 'Se connecter', 'class': 'navbar-right') }}</p>
 </head>
 <body>
-        {{ content() }}
+    {{ content() }}
 
     {{ javascript_include('js/jquery.min.js') }}
     {{ javascript_include('js/bootstrap.min.js') }}
