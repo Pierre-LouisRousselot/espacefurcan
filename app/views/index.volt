@@ -11,16 +11,19 @@
         <header>
             <div class="container header">
                 <div class="row">
-                    <div class="col-lg-4 logo">
+                    <div class="col-lg-3 logo">
                         <img class="logoImage" src="images/mm.png" alt="">
                     </div>
-                    <div class="col-lg-4 headerPhone">
+                    <div class="col-lg-3 headerPhone">
                         <img class="logoPhone" src="images/phone-icon-2-256.png" alt="">
                        <a class="typoNumPhone" href="tel:+3222568549" ><b>02 256 85 49</b><br></a>
                     </div>
-                    <div class="col-lg-4 headerMail">
+                    <div class="col-lg-3 headerMail">
                         <img class="logoMail" src="images/mailLogo.png" alt="">
                        <a class="typoMail" href="mailto:info@espacefurcan.be" ><b>info@espacefurcan.be</b></a>
+                    </div>
+                    <div class="col-lg-3 connecte">
+                            <img src="images/" alt="">
                     </div>
 
                 </div>
@@ -108,7 +111,7 @@
             </div>
             <div class="col-md-3">
               <a class="text-white" href="image/conditions-generales.jpg"
-              target="_blank"">Conditions générales de vente</a>
+              target="_blank">Conditions générales de vente</a>
             </div>
             <div class="col-md-3">
                    Mentions légales
