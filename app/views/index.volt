@@ -12,7 +12,7 @@
             <div class="container header">
                 <div class="row">
                     <div class="col-lg-4 logo">
-                        <img src="images/mm.png" alt="">
+                        <img class="logoImage" src="images/mm.png" alt="">
                     </div>
                     <div class="col-lg-4 headerPhone">
                         <img class="logoPhone" src="images/phone-icon-2-256.png" alt="">
