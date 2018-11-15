@@ -12,7 +12,9 @@
             <div class="container header">
                 <div class="row">
                     <div class="col-lg-4 logo">
+
                         <img class="logoImage" src="images/mm.png" alt="">
+
                     </div>
                     <div class="col-lg-4 headerPhone">
                         <img class="logoPhone" src="images/phone-icon-2-256.png" alt="">
@@ -32,7 +34,7 @@
     </div>
 </head>
 <body>
-        {{ content() }}
+    {{ content() }}
 
     {{ javascript_include('js/jquery.min.js') }}
     {{ javascript_include('js/bootstrap.min.js') }}
@@ -109,6 +111,7 @@
             <div class="col-md-3">
               <a class="text-white" href="image/conditions-generales.jpg"
               target="_blank"">Conditions générales de vente</a>
+
             </div>
             <div class="col-md-3">
                    Mentions légales
