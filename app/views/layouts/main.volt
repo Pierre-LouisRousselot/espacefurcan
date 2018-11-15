@@ -9,6 +9,7 @@
             </button>
             <a class="navbar-brand" href="#">Espace Furcan</a>
         </div>
+        {{ elements.getMenu() }}
     </div>
 </nav>
 
@@ -16,7 +17,4 @@
     {{ flash.output() }}
     {{ content() }}
     <hr>
-    <footer>
-        <p>Espace Furcan</p>
-    </footer>
 </div>

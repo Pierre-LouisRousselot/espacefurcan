@@ -11,35 +11,74 @@
         <header>
             <div class="container header">
                 <div class="row">
+
                     <div class="col-lg-3 logo">
-                        <img class="logoImage" src="images/mm.png" alt="">
+
+                        <img class="logoImage" src="../images/mm.png" alt="">
+
                     </div>
                     <div class="col-lg-3 headerPhone">
-                        <img class="logoPhone" src="images/phone-icon-2-256.png" alt="">
+                        <img class="logoPhone" src="../images/phone-icon-2-256.png" alt="">
                        <a class="typoNumPhone" href="tel:+3222568549" ><b>02 256 85 49</b><br></a>
                     </div>
                     <div class="col-lg-3 headerMail">
-                        <img class="logoMail" src="images/mailLogo.png" alt="">
+                        <img class="logoMail" src="../images/mailLogo.png" alt="">
                        <a class="typoMail" href="mailto:info@espacefurcan.be" ><b>info@espacefurcan.be</b></a>
                     </div>
                     <div class="col-lg-3 connecte">
-                            <img src="images/" alt="">
+                            <img src="../images/" alt="">
                     </div>
 
                 </div>
 
             </div>
         </header>
+         <hr>
+     </div>
 
-        <hr>
-    </div>
 </head>
+
 <body>
-        {{ content() }}
+    {{ content() }}
 
     {{ javascript_include('js/jquery.min.js') }}
     {{ javascript_include('js/bootstrap.min.js') }}
     {{ javascript_include('js/utils.js') }}
+
+    <!--         carroussel       -->
+
+    <div class="container-fluid">
+
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+              </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                      <img class="d-block w-100" src="../images/salle-03.png" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                      <img class="d-block w-100" src="../images/salle-02.png" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                      <img class="d-block w-100" src="../images/salle-03.png" alt="Third slide">
+                </div>
+            </div>
+                  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+        </div>
+
+    </div>
+
+<!-- fin du carroussel         -->
 
 
 </body>
@@ -64,11 +103,11 @@
 <!--     une div qui enveloppe le logo et tout les logos sociaux
          affichage du logo dans le footer.
 -->
-<div class="row">
+<!-- <div class="row"> -->
     <div class="col-md-6">
         <div>
-        <img class="logoFurcan" src="images/mm.png" alt="image">
-        </div>
+<!--         <img class="logoFurcan" src="../images/mm.png" alt="image">
+ -->        </div>
 </div>
 
  <!--  fin d'affichage du logo dans le footer. -->
@@ -76,24 +115,24 @@
     <div class="col-md-6 sociaux">
 
 
-           <div>
-             <a href="https://m.facebook.com/espacefurcan/" target="_blank"">
-                   <img class="logoFacebook" src="images/facebook-logo.png">
+           <div class="facebook">
+             <a href="https://m.facebook.com/espacefurcan/" target="_blank">
+                   <img class="logoFacebook" src="../images/facebook-logo.png">
              </a>
          </div>
         <div>
-             <a href="https://twitter.com/AsblEspace" target="_blank"">
-                   <img class="logoTwitter" src="images/twitter-logo-100x100.png">
+             <a href="https://twitter.com/AsblEspace" target="_blank">
+                   <img class="logoTwitter" src="../images/twitter-logo-100x100.png">
              </a>
          </div>
          <div>
-             <a href="https://www.instagram.com/espace_furcan_asbl/" target="_blank"">
-                   <img class="logoInstagram" src="images/logo-instagram.png">
+             <a href="https://www.instagram.com/espace_furcan_asbl/" target="_blank">
+                   <img class="logoInstagram" src="../images/logo-instagram.png">
              </a>
          </div>
          <div>
-             <a href="https://www.instagram.com/espace_furcan_asbl/" target="_blank"">
-                   <img class="logoLinkedin" src="images/linkedin-icon-25.png">
+             <a href="https://www.instagram.com/espace_furcan_asbl/" target="_blank">
+                   <img class="logoLinkedin" src="../images/linkedin-icon-25.png">
              </a>
          </div>
 
@@ -111,7 +150,9 @@
             </div>
             <div class="col-md-3">
               <a class="text-white" href="image/conditions-generales.jpg"
+
               target="_blank">Conditions générales de vente</a>
+
             </div>
             <div class="col-md-3">
                    Mentions légales
