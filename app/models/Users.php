@@ -14,20 +14,20 @@ class Users extends Model
         $validator = new Validation();
 
         $validator->add(
-            'email',
+            'mail_Users',
             new EmailValidator([
                     'message' => 'Email invalide'
                 ]));
 
         $validator->add(
-            'email',
+            'mail_Users',
             new UniquenessValidator([
                     'message' => 'Désolé, l\'adresse mail que vous avez saisie est déjà enregistrée.'
                 ]));
 
 
         $validator->add(
-            'telephone',
+            'tel_Users',
             new StringLength([
                     'messageMinimum' => 'The telephone is too short',
                     'min'            => 2,

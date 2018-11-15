@@ -6,11 +6,6 @@
     {{ stylesheet_link('css/bootstrap.min.css') }}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Pierre-Louis">
-    <div class="header">
-        <p>HEADER</p>
-        <hr>
-    </div>
-    <p>{{ link_to('session', 'Se connecter', 'class': 'navbar-right') }}</p>
 </head>
 <body>
     {{ content() }}
@@ -19,6 +14,5 @@
     {{ javascript_include('js/bootstrap.min.js') }}
     {{ javascript_include('js/utils.js') }}
 </body>
-<hr>
-<p>FOOTER</p>
+
 </html>

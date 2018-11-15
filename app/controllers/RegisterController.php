@@ -38,20 +38,19 @@ class RegisterController extends ControllerBase
             }
 
             $user = new Users();
-            $user->nom = $nom;
-            $user->password = sha1($password);
-            $user->prenom = $prenom;
-            $user->email = $email;
-            $user->telephone = $telephone;
-            $user->adresse = $adresse;
-            $user->ville = $ville;
-            $user->postal = $postal;
-            $user->date_create = new Phalcon\Db\RawValue('now()');
-            $user->date_update = new Phalcon\Db\RawValue('now()');
-            $user->date_connection = new Phalcon\Db\RawValue('now()');
-            $user->idStatut = '1';
-            $user->idRole = '1';
-            $user->active = 'Y';
+            $user->nom_Users = $nom;
+            $user->password_Users = sha1($password);
+            $user->prenom_Users = $prenom;
+            $user->mail_Users = $email;
+            $user->tel_Users = $telephone;
+            $user->adresse_Users = $adresse;
+            $user->ville_Users = $ville;
+            $user->postal_Users = $postal;
+            $user->dateCreation_Users = new Phalcon\Db\RawValue('now()');
+            $user->dateUpdate_Users = new Phalcon\Db\RawValue('now()');
+            $user->dateLastCo_Users = new Phalcon\Db\RawValue('now()');
+            $user->id_Statut = '1';
+            $user->id_Role = '1';
             if ($user->save() == false) {
                 foreach ($user->getMessages() as $message) {
                     $this->flash->error((string) $message);

@@ -1,10 +1,10 @@
 <?php
 
 /**
- * SessionController
- *
- * Allows to authenticate users
- */
+* SessionController
+*
+* Allows to authenticate users
+*/
 class SessionController extends ControllerBase
 {
     public function initialize()
@@ -19,25 +19,28 @@ class SessionController extends ControllerBase
             $this->tag->setDefault('email', 'test@etst.fr');
             $this->tag->setDefault('password', 'testtest');
         }
+
     }
 
     /**
-     * Register an authenticated user into session data
-     *
-     * @param Users $user
-     */
+    * Register an authenticated user into session data
+    *
+    * @param Users $user
+    */
     private function _registerSession(Users $user)
     {
         $this->session->set('auth', [
-            'id' => $user->id,
-            'name' => $user->nom
+            'id' => $user->id_Users,
+            'name' => $user->nom_Users,
+            'role' => $user->id_Role,
+            'statut' => $user->id_Statut
         ]);
     }
 
     /**
-     * This action authenticate and logs an user into the application
-     *
-     */
+    * This action authenticate and logs an user into the application
+    *
+    */
     public function startAction()
     {
         if ($this->request->isPost()) {
@@ -46,25 +49,27 @@ class SessionController extends ControllerBase
             $password = $this->request->getPost('password');
 
             $user = Users::findFirst([
-                "(email = :email: OR nom = :email:) AND password = :password:",
+                "(mail_Users = :email: OR nom_Users = :email:) AND password_Users = :password:",
                 'bind' => ['email' => $email, 'password' => sha1($password)]
             ]);
 
-            $user->date_connection = new Phalcon\Db\RawValue('sysdate()');
+            $user->dateLastCo_Users = new Phalcon\Db\RawValue('sysdate()');
             $user->save();
             if ($user != false) {
                 $this->_registerSession($user);
-                $this->flash->success('Bienvenue ' . $user->nom);
+                $this->flash->success('Bienvenue ' . $user->nom_Users);
 
-                // return $this->dispatcher->forward(
-                //     [
-                //         "controller" => "admin",
-                //         "action"     => "index",
-                //     ]
-                // );
+                return $this->dispatcher->forward(
+                    [
+                        "controller" => "pages",
+                        "action"     => "index",
+                    ]
+                );
+            }else{
+
+                $this->flash->error('Mauvais identifiant / mot de passe');
             }
 
-            $this->flash->error('Mauvais identifiant / mot de passe');
         }
 
         return $this->dispatcher->forward(
@@ -76,10 +81,10 @@ class SessionController extends ControllerBase
     }
 
     /**
-     * Finishes the active session redirecting to the index
-     *
-     * @return unknown
-     */
+    * Finishes the active session redirecting to the index
+    *
+    * @return unknown
+    */
     public function endAction()
     {
         $this->session->remove('auth');

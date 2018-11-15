@@ -3,16 +3,20 @@
 use Phalcon\Mvc\User\Component;
 
 /**
- * Elements
- *
- * Helps to build UI elements for the application
- */
+* Elements
+*
+* Helps to build UI elements for the application
+*/
 class Elements extends Component
 {
     private $_headerMenu = [
         'navbar-left' => [
             'index' => [
                 'caption' => 'Accueil',
+                'action' => 'index'
+            ],
+            'articles' => [
+                'caption' => 'Gestion des pages',
                 'action' => 'index'
             ],
             'services' => [
@@ -45,6 +49,10 @@ class Elements extends Component
                 'caption' => 'Se connecter / S\'inscrire',
                 'action' => 'index'
             ],
+            'profile' => [
+                'caption' => 'Mon Profil',
+                'action' => 'index',
+            ]
         ]
     ];
 
@@ -54,33 +62,28 @@ class Elements extends Component
             'action' => 'index',
             'any' => false
         ],
-        'Companies' => [
-            'controller' => 'companies',
-            'action' => 'index',
-            'any' => true
-        ],
-        'Products' => [
+        'Produits' => [
             'controller' => 'products',
             'action' => 'index',
             'any' => true
         ],
-        'Product Types' => [
-            'controller' => 'producttypes',
+        'Caractéristiques' => [
+            'controller' => 'caracteristiques',
             'action' => 'index',
             'any' => true
         ],
-        'Your Profile' => [
-            'controller' => 'invoices',
-            'action' => 'profile',
-            'any' => false
-        ]
+        'Utilisateurs' => [
+            'controller' => 'users',
+            'action' => 'index',
+            'any' => true
+        ],
     ];
 
     /**
-     * Builds header menu with left and right items
-     *
-     * @return string
-     */
+    * Builds header menu with left and right items
+    *
+    * @return string
+    */
     public function getMenu()
     {
 
@@ -90,8 +93,10 @@ class Elements extends Component
                 'caption' => 'Se déconnecter',
                 'action' => 'end'
             ];
+
         } else {
-            unset($this->_headerMenu['navbar-left']['invoices']);
+            unset($this->_headerMenu['navbar-right']['profile']);
+            unset($this->_headerMenu['navbar-left']['articles']);
         }
 
         $controllerName = $this->view->getControllerName();
@@ -114,9 +119,22 @@ class Elements extends Component
 
     }
 
+    public function getUser()
+    {
+        $auth = $this->session->get('auth');
+        if ($auth) {
+
+            echo '<h2> Widget News Admin</h2>';
+            echo 'You are logged in as ' . $auth['name'].'.';
+            echo ' ';
+            echo '<a href="../session/end" >Log out</a>';
+            echo "<hr>";
+        }
+    }
+
     /**
-     * Returns menu tabs
-     */
+    * Returns menu tabs
+    */
     public function getTabs()
     {
         $controllerName = $this->view->getControllerName();
