@@ -76,22 +76,22 @@
 
 
            <div>
-             <a href="https://m.facebook.com/espacefurcan/" target="_blank"">
+             <a href="https://m.facebook.com/espacefurcan/" target="_blank">
                    <img class="logoFacebook" src="images/facebook-logo.png">
              </a>
          </div>
         <div>
-             <a href="https://twitter.com/AsblEspace" target="_blank"">
+             <a href="https://twitter.com/AsblEspace" target="_blank">
                    <img class="logoTwitter" src="images/twitter-logo-100x100.png">
              </a>
          </div>
          <div>
-             <a href="https://www.instagram.com/espace_furcan_asbl/" target="_blank"">
+             <a href="https://www.instagram.com/espace_furcan_asbl/" target="_blank">
                    <img class="logoInstagram" src="images/logo-instagram.png">
              </a>
          </div>
          <div>
-             <a href="https://www.instagram.com/espace_furcan_asbl/" target="_blank"">
+             <a href="https://www.instagram.com/espace_furcan_asbl/" target="_blank">
                    <img class="logoLinkedin" src="images/linkedin-icon-25.png">
              </a>
          </div>
@@ -110,7 +110,7 @@
             </div>
             <div class="col-md-3">
               <a class="text-white" href="image/conditions-generales.jpg"
-              target="_blank"">Conditions générales de vente</a>
+              target="_blank">Conditions générales de vente</a>
 
             </div>
             <div class="col-md-3">
