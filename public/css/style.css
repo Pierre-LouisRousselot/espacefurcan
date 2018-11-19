@@ -4,7 +4,7 @@
 footer {
   background-color:black;
   color : white;
-
+  margin-top: 50px;
 }
 .aligner{
   text-align: center;
@@ -99,11 +99,14 @@ justify-content:center;
 }
 .navbar{
   background-color:#0762b1;
+  margin-bottom: 0px;
+  border-radius: 0px;
+  border: none;
 
 }
-body{
+/*body{
   margin: 0px;
-}
+}*/
 .car1{
   margin-top: -62px;
 }
@@ -114,6 +117,7 @@ body{
 .titre p{
   text-align: center;
   margin-bottom: 50px;
+  font-size: 20px;
 }
 .iconBody{
 text-align: center;
@@ -121,6 +125,19 @@ text-align: center;
 .navbar-inverse .navbar-nav > li > a{
   color: white;
 }
+.iconBody p{
+  color: #0087fd;
+}
+.iconBody img{
+  width: 100px;
+  height: 100px;
+
+}
+.icon10 img{
+  text-align: center;
+}
+
+
 
 
 
