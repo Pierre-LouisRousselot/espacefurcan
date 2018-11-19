@@ -77,6 +77,7 @@
 
 
            <div class="facebook">
+
              <a href="https://m.facebook.com/espacefurcan/" target="_blank">
                    <img class="logoFacebook" src="../images/facebook-logo.png">
              </a>
@@ -111,7 +112,6 @@
             </div>
             <div class="col-md-3">
               <a class="text-white" href="image/conditions-generales.jpg"
-
               target="_blank">Conditions générales de vente</a>
 
             </div>

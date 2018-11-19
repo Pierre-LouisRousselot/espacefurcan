@@ -1,3 +1,4 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <nav class="navbar navbar-default navbar-inverse" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
