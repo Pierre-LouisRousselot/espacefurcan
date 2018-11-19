@@ -46,7 +46,7 @@ class SecurityPlugin extends Plugin
 
 				//Private area resources
 				$privateResources = [
-					'pages' 	   => ['index', 'search', 'new', 'edit', 'save', 'create', 'delete'],
+					'admin'      => ['index'],
 				];
 				foreach ($privateResources as $resource => $actions) {
 					$acl->addResource(new Resource($resource), $actions);
@@ -55,8 +55,6 @@ class SecurityPlugin extends Plugin
 				//Public area resources
 				$publicResources = [
 					'index'      => ['index'],
-					'archive'	 => ['index'],
-					'articles' 	 => ['display'],
 					'register'   => ['index'],
 					'errors'     => ['show401', 'show404', 'show500'],
 					'session'    => ['index', 'register', 'start', 'end']
