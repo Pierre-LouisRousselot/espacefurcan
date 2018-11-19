@@ -15,7 +15,7 @@ class Elements extends Component
                 'caption' => 'Accueil',
                 'action' => 'index'
             ],
-            'articles' => [
+            'pages' => [
                 'caption' => 'Gestion des pages',
                 'action' => 'index'
             ],
@@ -49,6 +49,10 @@ class Elements extends Component
                 'caption' => 'Se connecter / S\'inscrire',
                 'action' => 'index'
             ],
+            'admin' => [
+                'caption' => 'Administration',
+                'action' => 'index'
+            ],
             'profile' => [
                 'caption' => 'Mon Profil',
                 'action' => 'index',
@@ -57,11 +61,6 @@ class Elements extends Component
     ];
 
     private $_tabs = [
-        'Invoices' => [
-            'controller' => 'invoices',
-            'action' => 'index',
-            'any' => false
-        ],
         'Produits' => [
             'controller' => 'products',
             'action' => 'index',
@@ -96,7 +95,7 @@ class Elements extends Component
 
         } else {
             unset($this->_headerMenu['navbar-right']['profile']);
-            unset($this->_headerMenu['navbar-left']['articles']);
+            unset($this->_headerMenu['navbar-left']['pages']);
         }
 
         $controllerName = $this->view->getControllerName();
