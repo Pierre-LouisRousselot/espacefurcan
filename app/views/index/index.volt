@@ -118,15 +118,6 @@ Pour atteindre ces buts, l’association développera les activités suivantes :
                 créatives pour les jeunes<br/>
                  et les seniors</p>
     </div>
-
-</div>
-<div class="row">
-<div class="iconBody">
-<div class="col-lg-12 icon10">
-            <img src="../images/images.png" alt="">
-            <p>Aide et guidance<br/>
-                via l'nternet pour trouver<br/>
-                 logement et emploi</p>
-    </div>
   </div>
+
 <!--Fin d'affichage du body -->
