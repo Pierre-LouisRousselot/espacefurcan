@@ -20,35 +20,45 @@ margin: auto;
 justify-content:center;
 }
 img.logoFacebook{
-  width: 50px;
-  height:50px;
+  width: 60px;
+  height:60px;
+  margin-right: 2px;
+
 
 
 }
 img.logoTwitter{
-  width: 60px;
-  height: 60px;
+  width: 63px;
+  height: 63px;
+  margin-right: 5px;
+  margin-left: 5px;
 
 
 }
 img.logoInstagram{
-  width: 55px;
-  height: 55px;
+  width: 63px;
+  height: 60px;
+    margin-right: 5px;
 
 }
 img.logoLinkedin{
   width: 60px;
   height: 60px;
+    margin-left: 5px;
 
 }
 .sociaux{
 display: inline-flex;
 justify-content:center;
+  margin-bottom: 50px;
 
 }
 .header{
   background-color: black;
   height: 80px;
+}
+.fond{
+  background-color: black;
 }
 .logoPhone{
   height: 30px;
@@ -84,5 +94,34 @@ justify-content:center;
 
 
 }
+.facebook{
+
+}
+.navbar{
+  background-color:#0762b1;
+
+}
+body{
+  margin: 0px;
+}
+.car1{
+  margin-top: -62px;
+}
+.titre h1{
+  text-align: center;
+  color: #0762b1;
+}
+.titre p{
+  text-align: center;
+  margin-bottom: 50px;
+}
+.iconBody{
+text-align: center;
+}
+.navbar-inverse .navbar-nav > li > a{
+  color: white;
+}
+
+
 
 
