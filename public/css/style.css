@@ -1,0 +1,88 @@
+.footerText{
+  text-align: center;
+}
+footer {
+  background-color:black;
+  color : white;
+
+}
+.aligner{
+  text-align: center;
+}
+.text-white{
+  color: white;
+}
+img.logoFurcan{
+width: 200px;
+height:100px;
+display:flex;
+margin: auto;
+justify-content:center;
+}
+img.logoFacebook{
+  width: 50px;
+  height:50px;
+
+
+}
+img.logoTwitter{
+  width: 60px;
+  height: 60px;
+
+
+}
+img.logoInstagram{
+  width: 55px;
+  height: 55px;
+
+}
+img.logoLinkedin{
+  width: 60px;
+  height: 60px;
+
+}
+.sociaux{
+display: inline-flex;
+justify-content:center;
+
+}
+.header{
+  background-color: black;
+  height: 80px;
+}
+.logoPhone{
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+}
+.typoNumPhone{
+  font-size: x-large;
+  color: #a8ce3f;
+}
+.logoMail{
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+}
+.typoMail{
+  font-size: x-large;
+  color: #a8ce3f;
+
+}
+.headerPhone,.headerMail{
+  display:flex;
+  margin: auto;
+  justify-content:center;
+  margin-top: 20px;
+
+}
+.logo{
+  height:80px;
+  display:flex;
+  margin: auto;
+  justify-content:center;
+
+
+}
+
+
