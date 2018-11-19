@@ -40,7 +40,6 @@
 
 
 
-<!-- début du carroussel -->
 
 
 

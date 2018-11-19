@@ -1,4 +1,3 @@
-
 {{ content() }}
 <!--   debut du carousel  -->
 <div class="container">
@@ -13,15 +12,15 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item active">
-      <img src="../images/salle-1920x300" alt="espace_furcan_asbl1">
+      <img src="images/salle-1920x300" alt="espace_furcan_asbl1">
     </div>
 
     <div class="item">
-      <img src="../images/salle-1920x300" alt="espace_furcan_asbl2">
+      <img src="images/salle-1920x300" alt="espace_furcan_asbl2">
     </div>
 
     <div class="item">
-      <img src="../images/salle-1920x300" alt="espace_furcan_asbl3">
+      <img src="images/salle-1920x300" alt="espace_furcan_asbl3">
     </div>
   </div>
 
@@ -35,8 +34,9 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-</div>
+
 <!-- fin du carroussel -->
+
 
 <!-- Affichage du body -->
 
@@ -50,22 +50,22 @@ Pour atteindre ces buts, l’association développera les activités suivantes :
 </div>
 <!-- premiere ligne avec icon et texte du la page d'accueil-->
 
-<div class="iconBody">
+<div class="row iconBody">
 
     <div class="col-lg-4 icon1">
-            <img src="../images/images.png" alt="">
+            <img src="images/images.png" alt="">
             <p>Fourniture et assistance<br/>
                 numérique pour les<br/>
                  faibles revenus</p>
     </div>
     <div class="col-lg-4 icon2">
-            <img src="../images/images.png" alt="">
+            <img src="images/images.png" alt="">
             <p>Aide à l'utilisation<br/>
                 du numérique pour les<br/>
                  adultes et les jeunes</p>
     </div>
     <div class="col-lg-4 icon3">
-            <img src="../images/images.png" alt="">
+            <img src="images/images.png" alt="">
             <p>Soutien scolaire et aide <br/>
                 aux devoirs pour les jeunes<br/>
                  en besoin</p>
@@ -74,50 +74,26 @@ Pour atteindre ces buts, l’association développera les activités suivantes :
 </div>
 
 <!-- Deuxieme ligne avec icon et texte du la page d'accueil-->
-<div class="iconBody">
+<div class="row iconBody">
 
-    <div class="col-lg-4 icon4">
-            <img src="../images/images.png" alt="">
+    <div class="col-lg-4 icon1">
+            <img src="images/images.png" alt="">
             <p>Aide et guidance<br/>
                 via l'nternet pour trouver<br/>
                  logement et emploi</p>
     </div>
-    <div class="col-lg-4 icon5">
-            <img src="../images/images.png" alt="">
+    <div class="col-lg-4 icon2">
+            <img src="images/images.png" alt="">
             <p>Aide et guidance<br/>
                pour un projet de vie<br/>
                 pour les adultes</p>
     </div>
-    <div class="col-lg-4 icon6">
-            <img src="../images/images.png" alt="">
+    <div class="col-lg-4 icon3">
+            <img src="images/images.png" alt="">
             <p>Activités de loisirs et<br/>
                 créatives pour les jeunes<br/>
                  et les seniors</p>
     </div>
 
 </div>
-<!--Fin d'affichage du body -->
-<!-- Troisième ligne avec icon et texte du la page d'accueil-->
-<div class="iconBody">
-
-    <div class="col-lg-4 icon7">
-            <img src="../images/images.png" alt="">
-            <p>Aide et guidance<br/>
-                via l'nternet pour trouver<br/>
-                 logement et emploi</p>
-    </div>
-    <div class="col-lg-4 icon8">
-            <img src="../images/images.png" alt="">
-            <p>Aide et guidance<br/>
-               pour un projet de vie<br/>
-                pour les adultes</p>
-    </div>
-    <div class="col-lg-4 icon9">
-            <img src="../images/images.png" alt="">
-            <p>Activités de loisirs et<br/>
-                créatives pour les jeunes<br/>
-                 et les seniors</p>
-    </div>
-  </div>
-
 <!--Fin d'affichage du body -->
