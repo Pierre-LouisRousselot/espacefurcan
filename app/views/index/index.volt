@@ -94,16 +94,8 @@ Pour atteindre ces buts, l’association développera les activités suivantes :
                 créatives pour les jeunes<br/>
                  et les seniors</p>
     </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 </div>
-=======
-  </div>
-
->>>>>>> bce4a5e32c083cde5259ad483820d9f41bce1000
-=======
 
 </div>
->>>>>>> b1aa54edbaace97ae7bd5a1cb5892e7e423e59c5
 <!--Fin d'affichage du body -->
