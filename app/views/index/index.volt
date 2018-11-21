@@ -96,4 +96,6 @@ Pour atteindre ces buts, l’association développera les activités suivantes :
     </div>
 
 </div>
+
+</div>
 <!--Fin d'affichage du body -->
