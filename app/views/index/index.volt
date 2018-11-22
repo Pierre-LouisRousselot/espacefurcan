@@ -1,99 +1,101 @@
 {{ content() }}
-<!--   debut du carousel  -->
-<div class="container">
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-  </ol>
+<!-- Début de carousel -->
 
-  <!-- Wrapper for slides -->
+<!-- <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
   <div class="carousel-inner">
-    <div class="item active">
-      <img src="images/salle-1920x300" alt="espace_furcan_asbl1">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(15).jpg" alt="First slide">
     </div>
-
-    <div class="item">
-      <img src="images/salle-1920x300" alt="espace_furcan_asbl2">
+    <div class="carousel-item">
+      <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(16).jpg" alt="Second slide">
     </div>
-
-    <div class="item">
-      <img src="images/salle-1920x300" alt="espace_furcan_asbl3">
+    <div class="carousel-item">
+      <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(17).jpg" alt="Third slide">
     </div>
   </div>
-
-  <!-- Left and right controls -->
-  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
+  <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
-  <a class="right carousel-control" href="#myCarousel" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
+  <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
-</div>
+</div> -->
 
 <!-- fin du carroussel -->
+<div class="container">
+  <div id="slider">
+    <figure>
+      <img src="../images/1.jpg" alt>
+      <img src="../images/2.jpg" alt>
+      <img src="../images/3.jpg" alt>
+      <img src="../images/4.jpg" alt>
+      <img src="../images/1.jpg" alt>
+    </figure>
+  </div>
+</div>
+
+<!-- test pagination -->
+
 
 
 <!-- Affichage du body -->
 
 <div class="titre">
-    <h1>Nos objectifs</h1>
-    <p>
-L'association "Espace Furcan" a pour but de promouvoir la Formation et l’Action sociale<br/>
- particulièrement en mettant en œuvre des activités de lutte contre la fracture numérique<br/>
-  les difficultés scolaires et l’exclusion sociale.<br/>
-Pour atteindre ces buts, l’association développera les activités suivantes :</p>
+  <h1>Nos objectifs</h1>
+  <p>
+    L'association "Espace Furcan" a pour but de promouvoir la Formation et l’Action sociale<br/>
+    particulièrement en mettant en œuvre des activités de lutte contre la fracture numérique<br/>
+    les difficultés scolaires et l’exclusion sociale.<br/>
+  Pour atteindre ces buts, l’association développera les activités suivantes :</p>
 </div>
 <!-- premiere ligne avec icon et texte du la page d'accueil-->
 
 <div class="row iconBody">
 
-    <div class="col-lg-4 icon1">
-            <img src="images/images.png" alt="">
-            <p>Fourniture et assistance<br/>
-                numérique pour les<br/>
-                 faibles revenus</p>
-    </div>
-    <div class="col-lg-4 icon2">
-            <img src="images/images.png" alt="">
-            <p>Aide à l'utilisation<br/>
-                du numérique pour les<br/>
-                 adultes et les jeunes</p>
-    </div>
-    <div class="col-lg-4 icon3">
-            <img src="images/images.png" alt="">
-            <p>Soutien scolaire et aide <br/>
-                aux devoirs pour les jeunes<br/>
-                 en besoin</p>
-    </div>
+  <div class="col-lg-4 icon1">
+    <img src="images/images.png" alt="">
+    <p>Fourniture et assistance<br/>
+      numérique pour les<br/>
+    faibles revenus</p>
+  </div>
+  <div class="col-lg-4 icon2">
+    <img src="images/images.png" alt="">
+    <p>Aide à l'utilisation<br/>
+      du numérique pour les<br/>
+    adultes et les jeunes</p>
+  </div>
+  <div class="col-lg-4 icon3">
+    <img src="images/images.png" alt="">
+    <p>Soutien scolaire et aide <br/>
+      aux devoirs pour les jeunes<br/>
+    en besoin</p>
+  </div>
 
 </div>
 
 <!-- Deuxieme ligne avec icon et texte du la page d'accueil-->
 <div class="row iconBody">
 
-    <div class="col-lg-4 icon1">
-            <img src="images/images.png" alt="">
-            <p>Aide et guidance<br/>
-                via l'nternet pour trouver<br/>
-                 logement et emploi</p>
-    </div>
-    <div class="col-lg-4 icon2">
-            <img src="images/images.png" alt="">
-            <p>Aide et guidance<br/>
-               pour un projet de vie<br/>
-                pour les adultes</p>
-    </div>
-    <div class="col-lg-4 icon3">
-            <img src="images/images.png" alt="">
-            <p>Activités de loisirs et<br/>
-                créatives pour les jeunes<br/>
-                 et les seniors</p>
-    </div>
+  <div class="col-lg-4 icon1">
+    <img src="images/images.png" alt="">
+    <p>Aide et guidance<br/>
+      via l'nternet pour trouver<br/>
+    logement et emploi</p>
+  </div>
+  <div class="col-lg-4 icon2">
+    <img src="images/images.png" alt="">
+    <p>Aide et guidance<br/>
+     pour un projet de vie<br/>
+   pour les adultes</p>
+ </div>
+ <div class="col-lg-4 icon3">
+  <img src="images/images.png" alt="">
+  <p>Activités de loisirs et<br/>
+    créatives pour les jeunes<br/>
+  et les seniors</p>
+</div>
 
 </div>
 
