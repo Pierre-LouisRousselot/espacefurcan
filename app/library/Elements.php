@@ -104,9 +104,9 @@ class Elements extends Component
             echo '<ul class="nav navbar-nav ', $position, '">';
             foreach ($menu as $controller => $option) {
                 if ($controllerName == $controller) {
-                    echo '<li class="active">';
+                    echo '<li class="active onglet">';
                 } else {
-                    echo '<li>';
+                    echo '<li class="onglet">';
                 }
                 echo $this->tag->linkTo($controller . '/' . $option['action'], $option['caption']);
                 echo '</li>';
