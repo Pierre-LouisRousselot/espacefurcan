@@ -26,7 +26,7 @@ class ProfileController extends ControllerBase
                 ]
             );
         }
-
+//pour preremplir les champs
         if (!$this->request->isPost()) {
             $this->tag->setDefault('name', $user->nom_Users);
             $this->tag->setDefault('email', $user->mail_Users);
