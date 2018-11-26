@@ -9,7 +9,9 @@
     <meta name="author" content="Pierre-Louis">
 </head>
 <body>
-    <!-- Début du header -->
+<!-- Début du header -->
+
+<!--  icon du logo dans le header -->
 
     <div class="container-fluid">
         <div class="row fond">
@@ -17,16 +19,24 @@
             <div class="col-lg-3 logo">
                 <img class="logoImage" src="../images/mm.png" alt="">
             </div>
+
+<!--  icon du phone dans le header -->
+
             <div class="col-lg-3 headerPhone">
                 <img class="logoPhone" src="../images/phone-icon-2-256.png" alt="">
                 <a class="typoNumPhone" href="tel:+3222568549" ><b>02 256 85 49</b><br></a>
             </div>
+
+<!--  icon du mail dans le header -->
             <div class="col-lg-3 headerMail">
-                <img class="logoMail" src="../images/mailLogo.png" alt="">
-                <a class="typoMail" href="mailto:info@espacefurcan.be" ><b>info@espacefurcan.be</b></a>
+                <a href=""><img class="logoMail" src="../images/mailLogo.png" alt="">
+                <a class="typoMail" href="mailto:info@espacefurcan.be"><b>info@espacefurcan.be</b></a></a>
             </div>
+
+<!--  icon du panier dans le header -->
+
             <div class="col-lg-3 connecte">
-              <i class="material-icons">shopping-cart </i>
+               <a href=""><img src="../images/icon-panier" alt=""></a>
             </div>
         </div>
     </div>
