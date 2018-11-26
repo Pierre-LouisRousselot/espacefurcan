@@ -66,17 +66,9 @@ jQuery(document).ready(function($) {
 
     getSticky($('.nav-wrapper'));
 
-    onePageNav($('nav'));
+ 
 });
-function onePageNav(nav){
-    nav.singlePageNav({
-        speed:1500,
-        currentClass:'active',
-        offset:60,
-        treshold:60,
-        updateHash:true
-    });
-}
+
 function getSticky(obj){
     var menu = obj;
     var stickyClass = 'fixed';
