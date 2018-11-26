@@ -204,4 +204,6 @@ img.logoLinkedin{
     margin-left: 150px;
     margin-top: 10px;
   }
-
+  .table-striped>tbody>tr:nth-child(even)>td{
+      background-color:#73b5ee;
+  }
