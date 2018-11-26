@@ -16,7 +16,7 @@ class SessionController extends ControllerBase
     public function indexAction()
     {
         if (!$this->request->isPost()) {
-            $this->tag->setDefault('email', 'test@etst.fr');
+            $this->tag->setDefault('email', 'testtest@test.fr');
             $this->tag->setDefault('password', 'testtest');
         }
 
@@ -53,9 +53,11 @@ class SessionController extends ControllerBase
                 'bind' => ['email' => $email, 'password' => sha1($password)]
             ]);
 
-            $user->dateLastCo_Users = new Phalcon\Db\RawValue('sysdate()');
-            $user->save();
             if ($user != false) {
+
+                $user->dateLastCo_Users = new stdClass();
+                $user->dateLastCo_Users = new Phalcon\Db\RawValue('now()');
+                $user->save();
                 $this->_registerSession($user);
                 $this->flash->success('Bienvenue ' . $user->nom_Users);
 

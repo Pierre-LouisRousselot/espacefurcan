@@ -1,2 +1,2 @@
-test
- 
+{{ content() }}
+Informatique

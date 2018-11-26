@@ -18,7 +18,7 @@ class RegisterController extends ControllerBase
      */
     public function indexAction()
     {
-        $form = new RegisterForm;//remettre le ppint virgule //
+        $form = new RegisterForm;
 
         if ($this->request->isPost()) {
 

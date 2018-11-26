@@ -59,3 +59,37 @@ $(document).ready(function () {
     $("#registerForm .alert").hide();
     $("div.profile .alert").hide();
 });
+
+
+
+jQuery(document).ready(function($) {
+
+    getSticky($('.nav-wrapper'));
+
+ 
+});
+
+function getSticky(obj){
+    var menu = obj;
+    var stickyClass = 'fixed';
+    var body = $('body');
+    var menuHeight = menu.outerHeight(true);
+    var menuPosition = menu.offset();
+
+    function addStickyClass(){
+        if ($(window).scrollTop()>menuPosition.top){
+            menu.addClass(stickyClass);
+            body.css('margin-top',menuHeight);
+        }else{
+            menu.removeClass(stickyClass);
+            body.css('margin-top','0');
+        }
+
+    }
+    addStickyClass();
+
+    $(window).scroll(function(){
+        addStickyClass();
+    });
+
+}

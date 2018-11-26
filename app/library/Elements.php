@@ -95,13 +95,14 @@ class Elements extends Component
 
         } else {
             unset($this->_headerMenu['navbar-right']['profile']);
+            unset($this->_headerMenu['navbar-right']['admin']);
             unset($this->_headerMenu['navbar-left']['pages']);
         }
 
         $controllerName = $this->view->getControllerName();
         foreach ($this->_headerMenu as $position => $menu) {
             echo '<div class="nav-collapse">';
-            echo '<ul class="nav navbar-nav ', $position, '">';
+            echo '<ul class="nav navbar-nav menu ', $position, '">';
             foreach ($menu as $controller => $option) {
                 if ($controllerName == $controller) {
                     echo '<li class="active onglet">';
