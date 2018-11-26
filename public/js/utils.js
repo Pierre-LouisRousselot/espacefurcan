@@ -59,8 +59,6 @@ $(document).ready(function () {
     $("#registerForm .alert").hide();
     $("div.profile .alert").hide();
 });
-// --------------------------------------------------------------------------------------------------------
-// gestion de la nav fixed
 
 
 
