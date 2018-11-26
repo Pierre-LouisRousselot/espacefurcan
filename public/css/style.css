@@ -23,35 +23,27 @@ img.logoFacebook{
   width: 60px;
   height:60px;
   margin-right: 2px;
-
-
-
 }
 img.logoTwitter{
   width: 63px;
   height: 63px;
   margin-right: 5px;
   margin-left: 5px;
-
-
 }
 img.logoInstagram{
   width: 63px;
   height: 60px;
   margin-right: 5px;
-
 }
 img.logoLinkedin{
   width: 60px;
   height: 60px;
   margin-left: 5px;
-
 }
 .sociaux{
   display: inline-flex;
   justify-content:center;
   margin-bottom: 50px;
-
 }
 .header{
   background-color: black;
@@ -59,19 +51,8 @@ img.logoLinkedin{
 }
 .fond{
   background-color: black;
-
 }
-/*.navbar {
-  overflow: hidden;
-  background-color: #333;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  }*/
-/*  Gestion de la nav fixed*/
-
-  .fixed {
+.fixed {
     position: fixed;
     top: 0;
     left: 0;
@@ -81,34 +62,6 @@ img.logoLinkedin{
   .active {
   text-decoration: underline;
 }
-
-
-/**
-* Template stuff, no must have for this Snippet
-*/
-
-
-/*.navbar a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}*/
-
-/*.navbar a:hover {
-  background: #ddd;
-  color: black;
-}*/
-
-/*.fixed{
-  position: fixed;
-  top: 0;
-  z-index: 1000;
-  width: 100%;
-  }*/
   .logoPhone{
     height: 30px;
     width: 30px;
@@ -140,21 +93,14 @@ img.logoLinkedin{
     display:flex;
     margin: auto;
     justify-content:center;
-
-
-  }
-  .facebook{
-
   }
   .navbar{
     background-color:#0762b1;
     margin-bottom: 0px;
     border-radius: 0px;
     border: none;
-
-  }
-
-  .car1{
+}
+.car1{
     margin-top: -62px;
   }
   .titre h1{
@@ -178,15 +124,8 @@ img.logoLinkedin{
   .iconBody img{
     width: 100px;
     height: 100px;
-
   }
-
-
-
-
-
-
-  .logo-page {
+.logo-page {
     font-size: 80px !important;
     display: flex !important;
     justify-content: center;
@@ -259,3 +198,10 @@ img.logoLinkedin{
     text-align: left;
     animation: 30s slidy infinite;
   }
+  .connecte img{
+    height: 50px;
+    width: 50px;
+    margin-left: 150px;
+    margin-top: 10px;
+  }
+

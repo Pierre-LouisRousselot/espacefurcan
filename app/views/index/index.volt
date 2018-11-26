@@ -24,7 +24,7 @@
 </div> -->
 
 <!-- fin du carroussel -->
-<div class="container">
+<div class="container-fluid">
   <div id="slider">
     <figure>
       <img src="../images/1.jpg" alt>
@@ -55,48 +55,70 @@
 <div class="row iconBody">
 
   <div class="col-lg-4 icon1">
-    <img src="images/images.png" alt="">
+    <img src="../images/images.png" alt="">
     <p>Fourniture et assistance<br/>
       numérique pour les<br/>
     faibles revenus</p>
   </div>
   <div class="col-lg-4 icon2">
-    <img src="images/images.png" alt="">
+    <img src="../images/images.png" alt="">
     <p>Aide à l'utilisation<br/>
       du numérique pour les<br/>
     adultes et les jeunes</p>
   </div>
   <div class="col-lg-4 icon3">
-    <img src="images/images.png" alt="">
+    <img src="../images/images.png" alt="">
     <p>Soutien scolaire et aide <br/>
       aux devoirs pour les jeunes<br/>
     en besoin</p>
   </div>
 
-</div>
-
 <!-- Deuxieme ligne avec icon et texte du la page d'accueil-->
-<div class="row iconBody">
 
   <div class="col-lg-4 icon1">
-    <img src="images/images.png" alt="">
+    <img src="../images/images.png" alt="">
     <p>Aide et guidance<br/>
       via l'nternet pour trouver<br/>
     logement et emploi</p>
   </div>
   <div class="col-lg-4 icon2">
-    <img src="images/images.png" alt="">
+    <img src="../images/images.png" alt="">
     <p>Aide et guidance<br/>
      pour un projet de vie<br/>
    pour les adultes</p>
  </div>
  <div class="col-lg-4 icon3">
-  <img src="images/images.png" alt="">
+  <img src="../images/images.png" alt="">
   <p>Activités de loisirs et<br/>
     créatives pour les jeunes<br/>
   et les seniors</p>
 </div>
 
+
+
+
+<!--Fin d'affichage du body -->
+
+<!-- Troisième ligne avec icon et texte du la page d'accueil-->
+
+
+  <div class="col-lg-4 icon1">
+    <img src="../images/images.png" alt="">
+    <p>Aide et guidance<br/>
+      via l'nternet pour trouver<br/>
+    logement et emploi</p>
+  </div>
+  <div class="col-lg-4 icon2">
+    <img src="../images/images.png" alt="">
+    <p>Aide et guidance<br/>
+     pour un projet de vie<br/>
+   pour les adultes</p>
+ </div>
+ <div class="col-lg-4 icon3">
+  <img src="../images/images.png" alt="">
+  <p>Activités de loisirs et<br/>
+    créatives pour les jeunes<br/>
+  et les seniors</p>
 </div>
 
 </div>
