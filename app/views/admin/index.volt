@@ -27,10 +27,12 @@
         <p class="texte-page">GERER LES STOCKS ICI!</p>
     </div>
 
-    <div class="col-lg-3 card card-1">
-        <i class="material-icons logo-page">account_circle</i>
-        <p class="texte-page">GERER LES CLIENTS ICI!</p>
-    </div>
+    <a href="./users">
+        <div class="col-lg-3 card card-1">
+            <i class="material-icons logo-page">account_circle</i>
+            <p class="texte-page">GERER LES CLIENTS ICI!</p>
+        </div>
+    </a>
 
     <div class="col-lg-3 card card-1">
         <i class="material-icons logo-page">attach_money</i>
