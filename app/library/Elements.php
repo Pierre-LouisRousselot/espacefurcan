@@ -95,6 +95,7 @@ class Elements extends Component
 
         } else {
             unset($this->_headerMenu['navbar-right']['profile']);
+            unset($this->_headerMenu['navbar-right']['admin']);
             unset($this->_headerMenu['navbar-left']['pages']);
         }
 

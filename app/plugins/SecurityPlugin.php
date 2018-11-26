@@ -7,6 +7,8 @@ use Phalcon\Events\Event;
 use Phalcon\Mvc\User\Plugin;
 use Phalcon\Mvc\Dispatcher;
 use Phalcon\Acl\Adapter\Memory as AclList;
+use Phalcon\Di\Injectable;
+use Phalcon\Mvc\Controller;
 
 /**
 * SecurityPlugin
@@ -22,7 +24,7 @@ class SecurityPlugin extends Plugin
 	*/
 	public function getAcl()
 	{
-		if (!isset($this->persistent->acl)) {
+		// if (!isset($this->persistent->acl)) { ATTENTION A REMETTRE LORSQUE LE PLUGIN SERA FINALISE
 
 			$acl = new AclList();
 
@@ -30,6 +32,10 @@ class SecurityPlugin extends Plugin
 
 			// Register roles
 			$roles = [
+				// 'admin'  => new Role(
+				// 	'Admin',
+				// 	'Member privileges, granted after sign in.'
+				// ),
 				'users'  => new Role(
 					'Users',
 					'Member privileges, granted after sign in.'
@@ -46,7 +52,9 @@ class SecurityPlugin extends Plugin
 
 				//Private area resources
 				$privateResources = [
-					'admin'      => ['index'],
+					'admin'        => ['index'],
+					'services'     => ['index'],
+					'informatique' => ['index'],
 				];
 				foreach ($privateResources as $resource => $actions) {
 					$acl->addResource(new Resource($resource), $actions);
@@ -54,12 +62,15 @@ class SecurityPlugin extends Plugin
 
 				//Public area resources
 				$publicResources = [
-					'index'      => ['index'],
-					'profile'    => ['index','informations'],
-					'register'   => ['index'],
-					'errors'     => ['show401', 'show404', 'show500'],
-					'session'    => ['index', 'register', 'start', 'end']
+					'index'        => ['index'],
+					'services'     => ['index'],
+					'informatique' => ['index'],
+					'profile'      => ['index','informations'],
+					'register'     => ['index'],
+					'errors'       => ['show401', 'show404', 'show500'],
+					'session'      => ['index', 'register', 'start', 'end']
 				];
+
 				foreach ($publicResources as $resource => $actions) {
 					$acl->addResource(new Resource($resource), $actions);
 				}
@@ -82,8 +93,8 @@ class SecurityPlugin extends Plugin
 
 				//The acl is stored in session, APC would be useful here too
 				$this->persistent->acl = $acl;
-			}
-
+			// }
+		// var_dump($this->persistent->acl);die;
 			return $this->persistent->acl;
 		}
 
@@ -107,7 +118,7 @@ class SecurityPlugin extends Plugin
 			$action = $dispatcher->getActionName();
 
 			$acl = $this->getAcl();
-
+			// var_dump($acl);
 			if (!$acl->isResource($controller)) {
 				$dispatcher->forward([
 					'controller' => 'errors',
