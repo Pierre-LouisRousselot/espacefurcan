@@ -1,6 +1,5 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <div class="nav-wrapper">
-    <div class="row column">
         <nav class="navbar navbar-default navbar-inverse" role="navigation">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -15,11 +14,9 @@
                 {{ elements.getMenu() }}
             </div>
         </nav>
-    </div>
 </div>
 
 <div class="container">
     {{ flash.output() }}
     {{ content() }}
 </div>
-
