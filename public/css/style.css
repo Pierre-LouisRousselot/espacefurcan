@@ -13,11 +13,11 @@ footer {
   color: white;
 }
 img.logoFurcan{
-width: 200px;
-height:100px;
-display:flex;
-margin: auto;
-justify-content:center;
+  width: 200px;
+  height:100px;
+  display:flex;
+  margin: auto;
+  justify-content:center;
 }
 img.logoFacebook{
   width: 60px;
@@ -38,18 +38,18 @@ img.logoTwitter{
 img.logoInstagram{
   width: 63px;
   height: 60px;
-    margin-right: 5px;
+  margin-right: 5px;
 
 }
 img.logoLinkedin{
   width: 60px;
   height: 60px;
-    margin-left: 5px;
+  margin-left: 5px;
 
 }
 .sociaux{
-display: inline-flex;
-justify-content:center;
+  display: inline-flex;
+  justify-content:center;
   margin-bottom: 50px;
 
 }
@@ -59,112 +59,203 @@ justify-content:center;
 }
 .fond{
   background-color: black;
-}
-.logoPhone{
-  height: 30px;
-  width: 30px;
-  margin-right: 10px;
-}
-.typoNumPhone{
-  font-size: x-large;
-  color: #a8ce3f;
-}
-.logoMail{
-  height: 30px;
-  width: 30px;
-  margin-right: 10px;
-}
-.typoMail{
-  font-size: x-large;
-  color: #a8ce3f;
 
 }
-.headerPhone,.headerMail{
-  display:flex;
-  margin: auto;
-  justify-content:center;
-  margin-top: 20px;
+/*.navbar {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  }*/
+/*  Gestion de la nav fixed*/
 
+  .fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100%;
+  }
+  .active {
+  text-decoration: underline;
 }
-.logo{
-  height:80px;
-  display:flex;
-  margin: auto;
-  justify-content:center;
 
 
-}
-.facebook{
+/**
+* Template stuff, no must have for this Snippet
+*/
 
-}
-.navbar{
-  background-color:#0762b1;
-  margin-bottom: 0px;
-  border-radius: 0px;
-  border: none;
 
-}
-/*body{
-  margin: 0px;
+/*.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
 }*/
-.car1{
-  margin-top: -62px;
-}
-.titre h1{
-  text-align: center;
-  color: #0762b1;
-}
-.titre p{
-  text-align: center;
-  margin-bottom: 50px;
-  font-size: 20px;
-}
-.iconBody{
-text-align: center;
-}
-.navbar-inverse .navbar-nav > li > a{
-  color: white;
-}
-.iconBody p{
-  color: #0087fd;
-}
-.iconBody img{
-  width: 100px;
-  height: 100px;
 
-}
+/*.navbar a:hover {
+  background: #ddd;
+  color: black;
+}*/
+
+/*.fixed{
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  }*/
+  .logoPhone{
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+  }
+  .typoNumPhone{
+    font-size: x-large;
+    color: #a8ce3f;
+  }
+  .logoMail{
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+  }
+  .typoMail{
+    font-size: x-large;
+    color: #a8ce3f;
+
+  }
+  .headerPhone,.headerMail{
+    display:flex;
+    margin: auto;
+    justify-content:center;
+    margin-top: 20px;
+
+  }
+  .logo{
+    height:80px;
+    display:flex;
+    margin: auto;
+    justify-content:center;
+
+
+  }
+  .facebook{
+
+  }
+  .navbar{
+    background-color:#0762b1;
+    margin-bottom: 0px;
+    border-radius: 0px;
+    border: none;
+
+  }
+
+  .car1{
+    margin-top: -62px;
+  }
+  .titre h1{
+    text-align: center;
+    color: #0762b1;
+  }
+  .titre p{
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 20px;
+  }
+  .iconBody{
+    text-align: center;
+  }
+  .navbar-inverse .navbar-nav > li > a{
+    color: white;
+  }
+  .iconBody p{
+    color: #0087fd;
+  }
+  .iconBody img{
+    width: 100px;
+    height: 100px;
+
+  }
 
 
 
 
 
 
-.logo-page {
+  .logo-page {
     font-size: 80px !important;
     display: flex !important;
     justify-content: center;
     align-items: center;
     height: 180px;
     color: #2a6496;
-}
-.texte-page{
+  }
+  .texte-page{
     text-align: center;
     font-weight: 900;
     margin-top: -2rem;
-}
+  }
 
-.card {
-  background: #f8f7f7;
-  border-radius: 2px;
-  height: 200px;
-  margin: 4rem;
-}
+  .card {
+    background: #f8f7f7;
+    border-radius: 2px;
+    height: 200px;
+    margin: 4rem;
+  }
 
-.card-1 {
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-}
+  .card-1 {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  }
 
-.card-1:hover {
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-}
+  .card-1:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+
+
+  /*carousel fait manuellement*/
+
+
+  div#slider {
+    width: 80%;
+    max-width: 1000px;
+    overflow: hidden;
+  }
+  div#slider figure {
+    position: relative;
+    width: 500%;
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+    text-align: left;
+  }
+  div#slider figure img {
+    width: 20%;
+    height: auto;
+    float: left;
+  }
+  @keyframes slidy {
+    0% { left: 0%; }
+    20% { left: 0%; }
+    25% { left: -100%; }
+    45% { left: -100%; }
+    50% { left: -200%; }
+    70% { left: -200%; }
+    75% { left: -300%; }
+    95% { left: -300%; }
+    100% { left: -400%; }
+  }
+  div#slider figure {
+    position: relative;
+    width: 500%;
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+    left: 0;
+    text-align: left;
+    animation: 30s slidy infinite;
+  }
