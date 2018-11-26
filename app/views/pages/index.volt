@@ -1,0 +1,2 @@
+{{ content() }}
+Gestion des pages
