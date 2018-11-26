@@ -52,7 +52,7 @@ class SecurityPlugin extends Plugin
 
 				//Private area resources
 				$privateResources = [
-					'admin'        => ['index'],
+					'admin'        => ['index','showProduct'],
 					'services'     => ['index'],
 					'informatique' => ['index'],
 				];
