@@ -44,6 +44,9 @@ class ProfileController extends ControllerBase
             $adresse = $this->request->getPost('adresse', ['string', 'striptags']);
             $ville = $this->request->getPost('ville', ['string', 'striptags']);
             $postal = $this->request->getPost('postal', ['string', 'striptags']);
+            $password = $this->request->getPost('password', ['string', 'striptags']);
+            $repeatPassword = $this->request->getPost('newPassword', ['string', 'striptags']);
+            $repeatNewPassword = $this->request->getPost('repeatNewPassword', ['string', 'striptags']);
 
             $user->nom_Users = $name;
             $user->mail_Users = $email;
@@ -52,13 +55,37 @@ class ProfileController extends ControllerBase
             $user->adresse_Users = $adresse;
             $user->ville_Users = $ville;
             $user->postal_Users = $postal;
+
+var_dump($user->password_Users);
+// var_dump(sha1('testtest'));die;
+
+            if ( sha1($password) != $user->password_Users ){
+                var_dump('mauvais mot de passe actuel');
+                $this->flash->error('Mauvais mot de passe');
+                return false;
+            }
+            if ($repeatPassword != $repeatNewPassword) {
+                var_dump($repeatPassword . 'champ nouveau mot de passe');
+                var_dump($repeatNewPassword. 'champ répété nouveau mot de passe');
+                var_dump('Les mots de passes sont différents');
+                $this->flash->error('Les mots de passe sont différents');
+                return false;
+            }
+            if ($repeatPassword == $repeatNewPassword && sha1($password) == $user->password_Users) {
+                var_dump('Mot de passe changé');
+                $user->password_Users = sha1($repeatPassword);
+            }
+
             if ($user->save() == false) {
                 var_dump($name);
-                var_dump($user->getMessages());die;
+                var_dump($user->getMessages());
                 foreach ($user->getMessages() as $message) {
                     $this->flash->error((string) $message);
                 }
             } else {
+                $this->tag->setDefault('password', null);
+                $this->tag->setDefault('newPassword', null);
+                $this->tag->setDefault('repeatNewPassword', null);
                 $this->flash->success('Your profile information was updated successfully');
             }
         }
@@ -102,14 +129,7 @@ class ProfileController extends ControllerBase
     //
     //         $repeatNewPassword = $this->request->getPost('repeatNewPassword');
     //
-    //         if ( sha1($password) != $user->password_Users ){
-    //             $this->flash->error('Mauvais mot de passe');
-    //             return false;
-    //         }
-    //         if ($repeatPassword != $repeatNewPassword) {
-    //             $this->flash->error('Les mots de passe sont différents');
-    //             return false;
-    //         }
+    //
     //
     //         $user->nom_Users = $nom;
     //         $user->password_Users = sha1($password);
