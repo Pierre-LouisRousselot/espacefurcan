@@ -10,6 +10,8 @@ class InformatiqueController extends ControllerBase
 
     public function indexAction()
     {
+        $menu = "test";
 
+        $this->view->menu = $menu;
     }
 }
