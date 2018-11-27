@@ -27,11 +27,11 @@ class AdminController extends ControllerBase
     public function showProductAction(){
 
          $produits = Produits::find();
-         
+
          // foreach ($produits as $produit) {
          //     // var_dump($produit->id_Produit);
             $this->view->produits = $produits;
- 
+
         if (!$this->request->isPost()) {
             $this->tag->setDefault('id', $produits->id_Produit);
             $this->tag->setDefault('name', $produits->nom_Produit);
