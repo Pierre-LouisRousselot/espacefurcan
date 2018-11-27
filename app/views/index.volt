@@ -17,26 +17,26 @@
         <div class="row fond">
 
             <div class="col-lg-3 logo">
-                <img class="logoImage" src="../images/mm.png" alt="">
+                <img class="logoImage" src=" {{ url() }}/images/mm.png" alt="">
             </div>
 
 <!--  icon du phone dans le header -->
 
             <div class="col-lg-3 headerPhone">
-                <img class="logoPhone" src="../images/phone-icon-2-256.png" alt="">
+                <img class="logoPhone" src="{{ url() }}/images/phone-icon-2-256.png" alt="">
                 <a class="typoNumPhone" href="tel:+3222568549" ><b>02 256 85 49</b><br></a>
             </div>
 
 <!--  icon du mail dans le header -->
             <div class="col-lg-3 headerMail">
-                <a href=""><img class="logoMail" src="../images/mailLogo.png" alt="">
+                <a href=""><img class="logoMail" src="{{ url() }}/images/mailLogo.png" alt="">
                 <a class="typoMail" href="mailto:info@espacefurcan.be"><b>info@espacefurcan.be</b></a></a>
             </div>
 
 <!--  icon du panier dans le header -->
 
             <div class="col-lg-3 connecte">
-               <a href=""><img src="../images/icon-panier" alt=""></a>
+               <a href=""><img src="{{ url() }}/images/icon-panier" alt=""></a>
             </div>
         </div>
     </div>
@@ -88,22 +88,22 @@
  <div class="facebook">
 
    <a href="https://m.facebook.com/espacefurcan/" target="_blank">
-     <img class="logoFacebook" src="../images/facebook-logo.png">
+     <img class="logoFacebook" src="{{ url() }}/images/facebook-logo.png">
  </a>
 </div>
 <div>
    <a href="https://twitter.com/AsblEspace" target="_blank">
-     <img class="logoTwitter" src="../images/twitter-logo-100x100.png">
+     <img class="logoTwitter" src="{{ url() }}/images/twitter-logo-100x100.png">
  </a>
 </div>
 <div>
    <a href="https://www.instagram.com/espace_furcan_asbl/" target="_blank">
-     <img class="logoInstagram" src="../images/logo-instagram.png">
+     <img class="logoInstagram" src="{{ url() }}/images/logo-instagram.png">
  </a>
 </div>
 <div>
    <a href="https://www.instagram.com/espace_furcan_asbl/" target="_blank">
-     <img class="logoLinkedin" src="../images/linkedin-icon-25.png">
+     <img class="logoLinkedin" src="{{ url() }}/images/linkedin-icon-25.png">
  </a>
 </div>
 
