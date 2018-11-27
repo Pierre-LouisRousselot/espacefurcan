@@ -56,11 +56,11 @@ class UsersController extends ControllerBase
     }
 
     /**
-    * Search users based on current criteria like the ID
+    * Search articles based on current criteria like the ID
     */
     public function searchAction()
     {
-        $this->assets->addCss("css/global.css");
+
         $numberPage = 1;
         if ($this->request->isPost()) {
             $query = Criteria::fromInput($this->di, "users", $this->request->getPost());
@@ -96,202 +96,14 @@ class UsersController extends ControllerBase
         $this->view->users = $users;
     }
 
-    /**
-    * Display one user with his ID in parameter
-    */
-    public function displayAction($id)
-    {
-        $this->assets->addCss("css/global.css");
-        if (!$this->request->isPost()) {
-
-            $user = Users::findFirstById_Users($id);
-            if (!$user) {
-                $this->flash->error("User was not found");
-
-                return $this->dispatcher->forward(
-                    [
-                        "controller" => "users",
-                        "action"     => "index",
-                    ]
-                );
-            }
-
-            $this->view->user = $user;
-        }
-
-    }
 
     /**
-    * Shows the form to create a new user
-    */
-    public function newAction()
-    {
-        $this->assets->addCss("css/global.css");
-        $this->view->form = new RegisterForm(null, ['edit' => true]);
-    }
-
-    /**
-    * Edits a user based on its id
-    */
-    public function editAction($id)
-    {
-
-        if (!$this->request->isPost()) {
-
-            $user = Users::findFirstById_Users($id);
-            if (!$user) {
-                $this->flash->error("User was not found");
-
-                return $this->dispatcher->forward(
-                    [
-                        "controller" => "users",
-                        "action"     => "index",
-                    ]
-                );
-            }
-            $this->view->user = $user;
-            // var_dump($this->view->user);die;
-            $this->view->form = new EditUserForm($user, ['edit' => true]);
-            // var_dump($this->view->form);die;
-            $this->assets->addCss("css/global.css");
-        }
-    }
-
-    /**
-    * Creates a new user
-    */
-    public function createAction()
-    {
-        if (!$this->request->isPost()) {
-            return $this->dispatcher->forward(
-                [
-                    "controller" => "users",
-                    "action"     => "index",
-                ]
-            );
-        }
-
-        $form = new RegisterForm;
-        $user = new Users();
-
-        $data = $this->request->getPost();
-        if (!$form->isValid($data, $user)) {
-            foreach ($form->getMessages() as $message) {
-                $this->flash->error($message);
-            }
-
-            return $this->dispatcher->forward(
-                [
-                    "controller" => "users",
-                    "action"     => "new",
-                ]
-            );
-        }
-
-        if ($user->save() == false) {
-            foreach ($user->getMessages() as $message) {
-                $this->flash->error($message);
-            }
-
-            return $this->dispatcher->forward(
-                [
-                    "controller" => "users",
-                    "action"     => "new",
-                ]
-            );
-        }
-
-        $form->clear();
-        $this->flash->success("User was created successfully");
-        return $this->dispatcher->forward(
-            [
-                "controller" => "users",
-                "action"     => "index",
-            ]
-        );
-    }
-
-    /**
-    * Saves current user
-    *
-    * @param string $id
-    */
-    public function saveAction()
-    {
-        if (!$this->request->isPost()) {
-            return $this->dispatcher->forward(
-                [
-                    "controller" => "users",
-                    "action"     => "index",
-                ]
-            );
-        }
-
-        $id = $this->request->getPost("id", "int");
-        $user = Users::findFirst($id);
-        var_dump($user);die;
-        if (!$user) {
-            $this->flash->error("User does not exist");
-
-            return $this->dispatcher->forward(
-                [
-                    "controller" => "users",
-                    "action"     => "index",
-                ]
-            );
-        }
-
-        $form = new EditUserForm;
-
-        $data = $this->request->getPost();
-        var_dump($data);
-        if (!$form->isValid($data, $user)) {
-            foreach ($form->getMessages() as $message) {
-                $this->flash->error($message);
-            }
-
-            return $this->dispatcher->forward(
-                [
-                    "controller" => "users",
-                    "action"     => "new",
-                ]
-            );
-        }
-
-        if ($user->save() == false) {
-            foreach ($user->getMessages() as $message) {
-                $this->flash->error($message);
-            }
-
-            return $this->dispatcher->forward(
-                [
-                    "controller" => "users",
-                    "action"     => "new",
-                ]
-            );
-        }
-
-        $form->clear();
-        var_dump($user->save());
-        var_dump($user);die;
-        $this->flash->success("User was updated successfully");
-
-        return $this->dispatcher->forward(
-            [
-                "controller" => "users",
-                "action"     => "index",
-            ]
-        );
-    }
-
-    /**
-    * Deletes an user
+    * Deletes an article
     *
     * @param string $id
     */
     public function deleteAction($id)
     {
-
         $users = Users::findFirstById_Users($id);
         if (!$users) {
             $this->flash->error("User was not found");
@@ -326,4 +138,102 @@ class UsersController extends ControllerBase
             ]
         );
     }
+
+    /**
+    * Edits a article based on its id
+    */
+    public function editAction($id)
+    {
+
+        if (!$this->request->isPost()) {
+
+            $user = Users::findFirstById_Users($id);
+            if (!$user) {
+                $this->flash->error("Article was not found");
+
+                return $this->dispatcher->forward(
+                    [
+                        "controller" => "articles",
+                        "action"     => "index",
+                    ]
+                );
+            }
+            $this->view->user = $user;
+            $this->view->form = new UsersForm($user, ['edit' => true]);
+        }
+    }
+
+    /**
+    * Saves current article
+    *
+    * @param string $id
+    */
+    public function saveAction()
+    {
+        // var_dump($this->request->getPost());
+        if (!$this->request->isPost()) {
+            return $this->dispatcher->forward(
+                [
+                    "controller" => "users",
+                    "action"     => "index",
+                ]
+            );
+        }
+
+        $id = $this->request->getPost("id", "int");
+        // var_dump($id);die;
+        var_dump($id);die;
+        $user = Users::findFirstById_Users($id);
+        if (!$user) {
+            $this->flash->error("User does not exist");
+
+            return $this->dispatcher->forward(
+                [
+                    "controller" => "users",
+                    "action"     => "index",
+                ]
+            );
+        }
+
+        $form = new UsersForm;
+
+        $data = $this->request->getPost();
+        if (!$form->isValid($data, $user)) {
+            foreach ($form->getMessages() as $message) {
+                $this->flash->error($message);
+            }
+
+            return $this->dispatcher->forward(
+                [
+                    "controller" => "users",
+                    "action"     => "new",
+                ]
+            );
+        }
+
+        if ($user->save() == false) {
+            foreach ($user->getMessages() as $message) {
+                $this->flash->error($message);
+            }
+
+            return $this->dispatcher->forward(
+                [
+                    "controller" => "usesr",
+                    "action"     => "new",
+                ]
+            );
+        }
+
+        $form->clear();
+
+        $this->flash->success("Article was updated successfully");
+
+        return $this->dispatcher->forward(
+            [
+                "controller" => "users",
+                "action"     => "index",
+            ]
+        );
+    }
+
 }

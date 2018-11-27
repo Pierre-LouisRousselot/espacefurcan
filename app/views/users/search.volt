@@ -5,9 +5,6 @@
     <li class="previous pull-left">
         {{ link_to("users/index", "&larr; Go Back") }}
     </li>
-    <li class="pull-right">
-        {{ link_to("users/new", "Create users") }}
-    </li>
 </ul>
 
 {% for user in page.items %}
@@ -39,5 +36,3 @@
     {% else %}
     No users are recorded
     {% endfor %}
-    {{ assets.outputCss() }}
-    {{ this.flashSession.output() }}
