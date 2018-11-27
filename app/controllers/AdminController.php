@@ -24,6 +24,7 @@ class AdminController extends ControllerBase
         $this->flash->success('Bienvenue administrateur ' . $user->nom_Users);
     }
 
+<<<<<<< HEAD
     public function showProductAction(){
 
          $produits = Produits::find();
@@ -67,7 +68,19 @@ class AdminController extends ControllerBase
                 $this->flash->success('Your profile information was updated successfully');
             }
         }
+=======
+    public function productsAction(){
+
+          return $this->dispatcher->forward(
+                    [
+                        "controller" => "products",
+                        "action"     => "index",
+                    ]
+                );
+>>>>>>> d54492bb9e30956db748b953956f26f6f051ca0d
     }
+
+    
 
     /**
     * shox all users

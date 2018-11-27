@@ -5,7 +5,7 @@
         <i class="material-icons logo-page">create</i>
         <p class="texte-page">GERER LES PAGES ICI!</p>
     </div>
-    <a href="./showProduct">
+    <a href="./products/index">
     <div class="col-lg-3 card card-1">
         <i class="material-icons logo-page">shopping_cart</i>
         <p class="texte-page">GERER LA BOUTIQUE ICI!</p>
