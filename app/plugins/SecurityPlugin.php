@@ -52,7 +52,7 @@ class SecurityPlugin extends Plugin
 
 				//Private area resources
 				$privateResources = [
-					'admin'        => ['index','showProduct','users'],
+					'admin'        => ['index','users','products'],
 					'services'     => ['index'],
 					'informatique' => ['index'],
 				];
@@ -65,6 +65,7 @@ class SecurityPlugin extends Plugin
 					'index'        => ['index'],
 					'services'     => ['index'],
 					'informatique' => ['index'],
+					'products'     => ['index','addProduct'],
 					'pages'        => ['index'],
 					'profile'      => ['index','informations'],
 					'register'     => ['index'],
@@ -119,7 +120,7 @@ class SecurityPlugin extends Plugin
 			$action = $dispatcher->getActionName();
 
 			$acl = $this->getAcl();
-			// var_dump($acl);
+			//var_dump($acl);die();
 			if (!$acl->isResource($controller)) {
 				$dispatcher->forward([
 					'controller' => 'errors',
@@ -135,7 +136,7 @@ class SecurityPlugin extends Plugin
 					'controller' => 'errors',
 					'action'     => 'show401'
 				]);
-				$this->session->destroy();
+				//$this->session->destroy();
 				return false;
 			}
 		}
