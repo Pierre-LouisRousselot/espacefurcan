@@ -6,7 +6,7 @@ use Phalcon\Forms\Element\Password;
 use Phalcon\Validation\Validator\PresenceOf;
 use Phalcon\Validation\Validator\Email;
 
-class RegisterForm extends Form
+class EditUserForm extends Form
 {
     public function initialize($entity = null, $options = null)
     {
@@ -87,24 +87,5 @@ class RegisterForm extends Form
         ]);
         $this->add($postal);
 
-        // Password
-        $password = new Password('password');
-        $password->setLabel('Mot de passe');
-        $password->addValidators([
-            new PresenceOf([
-                'message' => 'Un mot de passe est requis'
-            ])
-        ]);
-        $this->add($password);
-
-        // Confirm Password
-        $repeatPassword = new Password('repeatPassword');
-        $repeatPassword->setLabel('Répéter le mot de passe');
-        $repeatPassword->addValidators([
-            new PresenceOf([
-                'message' => 'La confirmation du mot de passe est requise'
-            ])
-        ]);
-        $this->add($repeatPassword);
     }
 }

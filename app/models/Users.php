@@ -9,6 +9,11 @@ use Phalcon\Validation\Validator\Uniqueness as UniquenessValidator;
 
 class Users extends Model
 {
+    /**
+     * @var integer
+     */
+    public $id;
+    
     public function validation()
     {
         $validator = new Validation();

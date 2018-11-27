@@ -1,15 +1,10 @@
-
 {{ content() }}
-
-<div class="page-header">
+ <div class="page-header">
     <h1>Inscription</h1>
 </div>
-
-{{ form('register', 'id': 'registerForm', 'onbeforesubmit': 'return false') }}
-
-    <fieldset>
-
-        <div class="control-group">
+ {{ form('register', 'id': 'registerForm', 'onbeforesubmit': 'return false') }}
+     <fieldset>
+         <div class="control-group">
             {{ form.label('nom', ['class': 'control-label']) }}
             <div class="controls">
                 {{ form.render('nom', ['class': 'form-control']) }}
@@ -19,8 +14,7 @@
                 </div>
             </div>
         </div>
-
-        <div class="control-group">
+         <div class="control-group">
             {{ form.label('prenom', ['class': 'control-label']) }}
             <div class="controls">
                 {{ form.render('prenom', ['class': 'form-control']) }}
@@ -30,8 +24,7 @@
                 </div>
             </div>
         </div>
-
-        <div class="control-group">
+         <div class="control-group">
             {{ form.label('email', ['class': 'control-label']) }}
             <div class="controls">
                 {{ form.render('email', ['class': 'form-control']) }}
@@ -41,8 +34,7 @@
                 </div>
             </div>
         </div>
-
-        <div class="control-group">
+         <div class="control-group">
             {{ form.label('telephone', ['class': 'control-label']) }}
             <div class="controls">
                 {{ form.render('telephone', ['class': 'form-control']) }}
@@ -52,8 +44,7 @@
                 </div>
             </div>
         </div>
-
-        <div class="control-group">
+         <div class="control-group">
             {{ form.label('adresse', ['class': 'control-label']) }}
             <div class="controls">
                 {{ form.render('adresse', ['class': 'form-control']) }}
@@ -63,8 +54,7 @@
                 </div>
             </div>
         </div>
-
-        <div class="control-group">
+         <div class="control-group">
             {{ form.label('ville', ['class': 'control-label']) }}
             <div class="controls">
                 {{ form.render('ville', ['class': 'form-control']) }}
@@ -74,8 +64,7 @@
                 </div>
             </div>
         </div>
-
-        <div class="control-group">
+         <div class="control-group">
             {{ form.label('postal', ['class': 'control-label']) }}
             <div class="controls">
                 {{ form.render('postal', ['class': 'form-control']) }}
@@ -85,8 +74,7 @@
                 </div>
             </div>
         </div>
-
-        <div class="control-group">
+         <div class="control-group">
             {{ form.label('password', ['class': 'control-label']) }}
             <div class="controls">
                 {{ form.render('password', ['class': 'form-control']) }}
@@ -96,8 +84,7 @@
                 </div>
             </div>
         </div>
-
-        <div class="control-group">
+         <div class="control-group">
             <label class="control-label" for="repeatPassword">Répéter le mot de passe</label>
             <div class="controls">
                 {{ password_field('repeatPassword', 'class': 'form-control') }}
@@ -106,11 +93,9 @@
                 </div>
             </div>
         </div>
-
-        <div class="form-actions">
+         <div class="form-actions">
             {{ submit_button('Register', 'class': 'btn btn-primary', 'onclick': 'return SignUp.validate();') }}
             <p class="help-block">En vous inscrivant, vous acceptez les termes d'utilisations et de confidentialités.</p>
         </div>
-
-    </fieldset>
+     </fieldset>
 </form>
