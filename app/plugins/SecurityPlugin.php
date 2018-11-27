@@ -53,7 +53,7 @@ class SecurityPlugin extends Plugin
 				//Private area resources
 				$privateResources = [
 					'admin'        => ['index','users','products'],
-					'users'		   => ['index','delete', 'edit'],
+					'users'		   => ['index','delete', 'edit','save'],
 					'services'     => ['index'],
 					'informatique' => ['index'],
 				];
