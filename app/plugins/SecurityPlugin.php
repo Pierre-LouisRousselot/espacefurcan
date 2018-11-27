@@ -65,6 +65,7 @@ class SecurityPlugin extends Plugin
 					'index'        => ['index'],
 					'services'     => ['index'],
 					'informatique' => ['index'],
+					'pages'        => ['index'],
 					'profile'      => ['index','informations'],
 					'register'     => ['index'],
 					'errors'       => ['show401', 'show404', 'show500'],
