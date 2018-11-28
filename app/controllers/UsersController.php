@@ -160,6 +160,7 @@ class UsersController extends ControllerBase
             }
             $this->view->user = $user;
             $this->view->form = new UsersForm($user, ['edit' => true]);
+            // var_dump($this->view->form);die;
         }
     }
 
@@ -170,7 +171,8 @@ class UsersController extends ControllerBase
     */
     public function saveAction()
     {
-        // var_dump($this->request->getPost());
+
+        // var_dump($this->request->getPost());die;
         if (!$this->request->isPost()) {
             return $this->dispatcher->forward(
                 [
@@ -181,7 +183,6 @@ class UsersController extends ControllerBase
         }
 
         $id = $this->request->getPost("id", "int");
-        // var_dump($id);die;
         var_dump($id);die;
         $user = Users::findFirstById_Users($id);
         if (!$user) {
