@@ -15,7 +15,8 @@ class ProductsController extends ControllerBase
 
     public function indexAction()
     {
-         $produits = Produits::find();
+
+    	 $produits = Produits::find();
 
          // foreach ($produits as $produit) {
          //     // var_dump($produit->id_Produit);
@@ -26,11 +27,12 @@ class ProductsController extends ControllerBase
     public function AddProductAction(){
 
 
-         $form = new ProductForm;
+    	 $form = new ProductForm;
 
 
 
-        if ($this->request->isPost()) {
+
+		if ($this->request->isPost()) {
             $name = $this->request->getPost('nom', ['string','striptags']);
             $prix = $this->request->getPost('prix', ['float']);
             $description = $this->request->getPost('description', ['string', 'striptags']);
