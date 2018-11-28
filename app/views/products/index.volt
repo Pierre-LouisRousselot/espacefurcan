@@ -31,12 +31,11 @@
       <td> {{ produit.stock_Produit}}</td>
       <td> {{ produit.dateAjout_Produit}}</td>
       <td> {{ produit.id_Categorie}}</td>
-      <td><a class="edit-produit" href="./delete/{{ produit.id_Produit }}"><img style="height:30px;whith:30px;margin-left:20px;" src="{{ url()}}/images/delete-wood-100x100.png" alt=""></a></td>
+      <td>
+          {# <a class="edit-produit" href="./delete/{{ produit.id_Produit }}"><img style="height:30px;whith:30px;margin-left:20px;" src="{{ url()}}/images/delete-wood-100x100.png" alt=""></a></td> #}
+          {{ link_to("products/delete/" ~ produit.id_Produit, 'Delete This Product') }}
     </tr>
 
   </tbody>
   {% endfor %}
 </table>
-
-
-
