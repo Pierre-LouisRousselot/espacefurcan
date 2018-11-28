@@ -16,7 +16,7 @@ class UsersController extends ControllerBase
     */
     public function indexAction()
     {
-
+        
         $this->assets->addCss("css/global.css");
 
         $numberPage = 1;

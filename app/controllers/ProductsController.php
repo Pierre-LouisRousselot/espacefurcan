@@ -1,5 +1,9 @@
 <?php
 
+// use Phalcon\Paginator\Adapter\Model as Paginator;
+use Phalcon\Flash;
+
+
 class ProductsController extends ControllerBase
 {
     public function initialize()
@@ -8,6 +12,7 @@ class ProductsController extends ControllerBase
         parent::initialize();
     }
 
+   
     public function indexAction()
     {
     	 $produits = Produits::find();
@@ -42,7 +47,7 @@ class ProductsController extends ControllerBase
             $produits->id_Categorie = $id_Categorie;
             $produits->dateAjout_Produit = new Phalcon\Db\RawValue('now()');
             if ($produits->save() == false) {
-                var_dump($produits->getMessages());die;
+                //var_dump($produits->getMessages());die;
                 foreach ($produits->getMessages() as $message) {
                     $this->flash->error((string) $message);
                 }
@@ -55,5 +60,43 @@ class ProductsController extends ControllerBase
           $this->view->form = $form;
     }
 
+     public function deleteAction()
+    {
+//var_dump($test);die();
+        $produits = Produits::findFirstById_Produit($id);
+        //var_dump($produits);die();
+        if (!$produits) {
+            $this->flash->error("User was not found");
+
+            return $this->dispatcher->forward(
+                [
+                    "controller" => "products",
+                    "action"     => "index",
+                ]
+            );
+        }
+
+        if (!$produits->delete()) {
+            foreach ($produits->getMessages() as $message) {
+                $this->flash->error($message);
+            }
+
+            return $this->dispatcher->forward(
+                [
+                    "controller" => "products",
+                    "action"     => "search",
+                ]
+            );
+        }
+
+        $this->flash->success("Le produit a été supprimer");
+
+        return $this->dispatcher->forward(
+            [
+                "controller" => "products",
+                "action"     => "index",
+            ]
+        );
+    }
 
 }
