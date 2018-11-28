@@ -5,9 +5,9 @@
 {% set i = 0 %}
 <div class="form-user">
     <fieldset>
-{{user.id_Users}}
-    {% for element in form %}
 
+    {% for element in form %}
+{{user.id_Users}}
         {% if is_a(element, 'Phalcon\Forms\Element\Hidden') %}
             {{ element }}
         {% else %}

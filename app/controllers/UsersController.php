@@ -16,7 +16,7 @@ class UsersController extends ControllerBase
     */
     public function indexAction()
     {
-        
+
         $this->assets->addCss("css/global.css");
 
         $numberPage = 1;
@@ -31,7 +31,7 @@ class UsersController extends ControllerBase
         if ($this->persistent->searchParams) {
             $parameters = $this->persistent->searchParams;
         }
-
+        // var_dump($parameters);die;
         $users = Users::find($parameters);
         if (count($users) == 0) {
             $this->flash->notice("The search did not find any users");
@@ -88,7 +88,7 @@ class UsersController extends ControllerBase
 
         $paginator = new Paginator([
             "data"  => $users,
-            "limit" => 10,
+            "limit" => 100,
             "page"  => $numberPage
         ]);
 
@@ -159,7 +159,8 @@ class UsersController extends ControllerBase
                 );
             }
             $this->view->user = $user;
-            $this->view->form = new UsersForm($user, ['edit' => true]);
+            $form = new UsersForm((object)['id_Users' => $id]);
+            $this->view->form = $form;
             // var_dump($this->view->form);die;
         }
     }
@@ -169,10 +170,80 @@ class UsersController extends ControllerBase
     *
     * @param string $id
     */
+    // public function saveAction()
+    // {
+    //
+    //
+    //     $formResult = $this->request->getPost();
+    //     $id =$formResult['id_Users'];
+    //     if (!$this->request->isPost()) {
+    //         return $this->dispatcher->forward(
+    //             [
+    //                 "controller" => "users",
+    //                 "action"     => "index",
+    //             ]
+    //         );
+    //     }
+    //
+    //     $user = Users::findFirstById_Users($id);
+    //     if (!$user) {
+    //         $this->flash->error("User does not exist");
+    //
+    //         return $this->dispatcher->forward(
+    //             [
+    //                 "controller" => "users",
+    //                 "action"     => "index",
+    //             ]
+    //         );
+    //     }
+    //
+    //     $form = new UsersForm;
+    //
+    //     $data = $this->request->getPost();
+    //
+    //     if (!$form->isValid($data, $user)) {
+    //         foreach ($form->getMessages() as $message) {
+    //             $this->flash->error($message);
+    //         }
+    //
+    //         return $this->dispatcher->forward(
+    //             [
+    //                 "controller" => "users",
+    //                 "action"     => "index",
+    //             ]
+    //         );
+    //     }
+    //     if ($user->save() == false) {
+    //         foreach ($user->getMessages() as $message) {
+    //             $this->flash->error($message);
+    //         }
+    //
+    //         return $this->dispatcher->forward(
+    //             [
+    //                 "controller" => "usesr",
+    //                 "action"     => "index",
+    //             ]
+    //         );
+    //     }
+    //
+    //     $form->clear();
+    //
+    //     $this->flash->success("Article was updated successfully");
+    //     var_dump($user);die;
+    //     return $this->dispatcher->forward(
+    //         [
+    //             "controller" => "users",
+    //             "action"     => "index",
+    //         ]
+    //     );
+    // }
+    /**
+    * Saves current product in screen
+    *
+    * @param string $id
+    */
     public function saveAction()
     {
-
-        // var_dump($this->request->getPost());die;
         if (!$this->request->isPost()) {
             return $this->dispatcher->forward(
                 [
@@ -182,8 +253,10 @@ class UsersController extends ControllerBase
             );
         }
 
-        $id = $this->request->getPost("id", "int");
-        var_dump($id);die;
+        $id = $this->request->getPost("id_Users");
+        // var_dump($id);die;
+        // var_dump($this->request->getPost());die;
+
         $user = Users::findFirstById_Users($id);
         if (!$user) {
             $this->flash->error("User does not exist");
@@ -197,8 +270,10 @@ class UsersController extends ControllerBase
         }
 
         $form = new UsersForm;
+        $this->view->form = $form;
 
         $data = $this->request->getPost();
+
         if (!$form->isValid($data, $user)) {
             foreach ($form->getMessages() as $message) {
                 $this->flash->error($message);
@@ -207,7 +282,8 @@ class UsersController extends ControllerBase
             return $this->dispatcher->forward(
                 [
                     "controller" => "users",
-                    "action"     => "new",
+                    "action"     => "edit",
+                    "params"     => [$id]
                 ]
             );
         }
@@ -219,15 +295,16 @@ class UsersController extends ControllerBase
 
             return $this->dispatcher->forward(
                 [
-                    "controller" => "usesr",
-                    "action"     => "new",
+                    "controller" => "users",
+                    "action"     => "edit",
+                    "params"     => [$id]
                 ]
             );
         }
 
         $form->clear();
 
-        $this->flash->success("Article was updated successfully");
+        $this->flash->success("User was updated successfully");
 
         return $this->dispatcher->forward(
             [
