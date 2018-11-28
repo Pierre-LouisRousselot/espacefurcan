@@ -17,7 +17,8 @@
             <tr>
                 <td>{{ user.id_Users }}</td>
                 <td>{{ user.nom_Users }}<a class="edit-user" href="./edit/{{user.id_Users}}">&nbsp;edit</a>
-                    <a class="edit-user" href="./delete/{{user.id_Users}}">delete&nbsp;/</a></td>
+                    {# <a class="edit-user" href="./delete/{{user.id_Users}}">delete&nbsp;/</a></td> #}
+                    {{ link_to("users/delete/" ~ user.id_Users, 'Delete This user') }}
                 </tr>
             </tbody>
 
