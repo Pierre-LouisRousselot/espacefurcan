@@ -3,6 +3,7 @@
 use Phalcon\Forms\Form;
 use Phalcon\Forms\Element\Text;
 use Phalcon\Forms\Element\Password;
+use Phalcon\Forms\Element\Hidden;
 use Phalcon\Validation\Validator\PresenceOf;
 use Phalcon\Validation\Validator\Email;
 
@@ -10,6 +11,13 @@ class UsersForm extends Form
 {
     public function initialize($entity = null, $options = null)
     {
+
+        if (!isset($options['edit'])) {
+            $element = new Text("id_Users");
+            $this->add($element->setLabel("Id"));
+        } else {
+            $this->add(new Hidden("id_Users"));
+        }
         // Name
         $name = new Text('nom');
         $name->setLabel('Votre nom complet');
