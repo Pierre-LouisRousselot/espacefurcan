@@ -15,6 +15,7 @@ class ProductsController extends ControllerBase
 
     public function indexAction()
     {
+
     	 $produits = Produits::find();
 
          // foreach ($produits as $produit) {
@@ -27,6 +28,7 @@ class ProductsController extends ControllerBase
 
 
     	 $form = new ProductForm;
+
 
 
 
