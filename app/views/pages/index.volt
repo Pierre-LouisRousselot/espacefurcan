@@ -25,7 +25,6 @@
 <br>
 <div class="form-actions">
     {{ submit_button('Valider', 'class': 'btn btn-primary') }}
-    <p class="help-block">En vous inscrivant, vous acceptez les termes d'utilisations et de confidentialités.</p>
 </div>
 
 </form>

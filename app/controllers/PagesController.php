@@ -54,4 +54,14 @@ class PagesController extends ControllerBase
         $this->tag->setDefault('Page', $contentpage);
 
     }
+
+    public function displayPageAction($id)
+    {
+
+        $content = Pages::find([
+            "conditions" => "id_Page = ". $id
+        ]);
+
+        $this->view->page = $content[0]->contenu_Page;
+    }
 }
