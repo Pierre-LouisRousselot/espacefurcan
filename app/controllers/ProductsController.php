@@ -1,6 +1,7 @@
 <?php
 
-use Phalcon\Paginator\Adapter\Model as Paginator;
+// use Phalcon\Paginator\Adapter\Model as Paginator;
+use Phalcon\Flash;
 
 
 class ProductsController extends ControllerBase
@@ -11,48 +12,7 @@ class ProductsController extends ControllerBase
         parent::initialize();
     }
 
-    // public function paginationAction()
-    // {
-        
-    //     $this->assets->addCss("css/global.css");
-
-    //     $numberPage = 1;
-    //     if ($this->request->isPost()) {
-    //         $query = Criteria::fromInput($this->di,
-    //         	"produits", $this->request->getPost());
-    //         $this->persistent->searchParams = $query->getParams();
-    //     } else {
-    //         $numberPage = $this->request->getQuery("page", "int");
-    //     }
-
-    //     $parameters = [];
-    //     if ($this->persistent->searchParams) {
-    //         $parameters = $this->persistent->searchParams;
-    //     }
-
-    //     $produits = Products::find($parameters);
-    //     if (count($produits) == 0) {
-    //         $this->flash->notice("The search did not find any users");
-
-    //         return $this->dispatcher->forward(
-    //             [
-    //                 "controller" => "produits",
-    //                 "action"     => "index",
-    //             ]
-    //         );
-    //     }
-
-    //     $paginator = new Paginator([
-    //         "data"  => $produits,
-    //         "limit" => 10,
-    //         "page"  => $numberPage
-    //     ]);
-
-    //     $this->view->page = $paginator->getPaginate();
-    //     $this->view->produits = $produits;
-
-    // }
-
+   
     public function indexAction()
     {
     	 $produits = Produits::find();
@@ -87,7 +47,7 @@ class ProductsController extends ControllerBase
             $produits->id_Categorie = $id_Categorie;
             $produits->dateAjout_Produit = new Phalcon\Db\RawValue('now()');
             if ($produits->save() == false) {
-                var_dump($produits->getMessages());die;
+                //var_dump($produits->getMessages());die;
                 foreach ($produits->getMessages() as $message) {
                     $this->flash->error((string) $message);
                 }
@@ -100,10 +60,10 @@ class ProductsController extends ControllerBase
           $this->view->form = $form;
     }
 
-     public function deleteAction($id)
+     public function deleteAction()
     {
-var_dump($test);die();
-        $produits = Produits::findFirstById($id);
+//var_dump($test);die();
+        $produits = Produits::findFirstById_Produit($id);
         //var_dump($produits);die();
         if (!$produits) {
             $this->flash->error("User was not found");
