@@ -1,17 +1,14 @@
 <?php
-
 use Phalcon\Forms\Form;
 use Phalcon\Forms\Element\Text;
 use Phalcon\Forms\Element\Password;
 use Phalcon\Forms\Element\Hidden;
 use Phalcon\Validation\Validator\PresenceOf;
 use Phalcon\Validation\Validator\Email;
-
 class ProductForm extends Form
 {
     public function initialize($entity = null, $options = null)
     {
-
         $this->add(new Hidden('id_Produit'));
         // Nom du produit
         $name = new Text('nom_Produit');
@@ -24,7 +21,6 @@ class ProductForm extends Form
         // ]);
         $this->add($name);
         //var_dump($name);
-
         // prix du produit
         $prix = new text('prix_Produit');
         $prix->setLabel('prix du produit');
@@ -35,7 +31,6 @@ class ProductForm extends Form
             ])
         ]);
         $this->add($prix);
-
         // Description du produit
         $descri = new Text('descri_Produit');
         $descri->setLabel('description du produit');
@@ -46,8 +41,6 @@ class ProductForm extends Form
             ]),
         ]);
         $this->add($descri);
-
-
         // produit en Stock
         $stock = new text('stock_Produit');
         $stock->setLabel('nombre de produit en stock');
@@ -57,7 +50,6 @@ class ProductForm extends Form
             ]),
         ]);
         $this->add($stock);
-
         // Date d'ajout du produit
         // $dateAjout = new text('date');
         // $dateAjout->setLabel('date');
@@ -72,7 +64,6 @@ class ProductForm extends Form
        } else {
            $this->add(new Text('dateAjout_Produit'));
        }
-
         // Id catégorie du produit
         $categorie = new text('id_Categorie');
         $categorie->setLabel('Catégorie');
@@ -82,6 +73,5 @@ class ProductForm extends Form
             ]),
         ]);
         $this->add($categorie);
-
        }
    }
