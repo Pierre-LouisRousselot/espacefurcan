@@ -17,7 +17,7 @@
         <div class="row fond">
 
             <div class="col-lg-3 logo">
-                <img class="logoImage" src=" {{ url() }}/images/mm.png" alt="">
+                {{  link_to("index", image("/images/mm.png", "class": "logoImage"))}}
             </div>
 
             <!--  icon du phone dans le header -->
