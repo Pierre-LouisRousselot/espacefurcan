@@ -33,10 +33,10 @@ class ProductsController extends ControllerBase
 
 
 		if ($this->request->isPost()) {
-            $name = $this->request->getPost('nom', ['string','striptags']);
-            $prix = $this->request->getPost('prix', ['float']);
-            $description = $this->request->getPost('description', ['string', 'striptags']);
-            $stock = $this->request->getPost('stock', ['int', 'striptags']);
+            $name = $this->request->getPost('nom_Produit', ['string','striptags']);
+            $prix = $this->request->getPost('prix_Produit', ['float']);
+            $description = $this->request->getPost('descri_Produit', ['string', 'striptags']);
+            $stock = $this->request->getPost('stock_Produit', ['int', 'striptags']);
             $dateAjout = $this->request->getPost('dateAjout_Produit', ['date', 'striptags']);
             $id_Categorie = $this->request->getPost('id_Categorie', ['int', 'striptags']);
 
@@ -160,7 +160,7 @@ class ProductsController extends ControllerBase
                 [
                     "controller" => "products",
                     "action"     => "index",
-                    
+
                 ]
             );
         }
@@ -171,7 +171,7 @@ class ProductsController extends ControllerBase
         $data = $this->request->getPost();
         //var_dump($data);die();
         // var_dump($produit->save());die();
-       
+
         if (!$form->isValid($data, $produit)) {
             foreach ($form->getMessages() as $message) {
                 $this->flash->error($message);

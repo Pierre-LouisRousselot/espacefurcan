@@ -4,7 +4,7 @@
 
 {{ link_to("products/addProduct","Ajouter","class": "btn btn-success btn-lg")}}
 <br><br>
-<table class="table table-sm table-dark">
+<table id="example" class="table table-sm table-dark">
 
   <thead>
 
@@ -20,8 +20,9 @@
       <th scope="col">Modofier</th>
     </tr>
   </thead>
+    <tbody>
   {% for produit in produits %}
-  <tbody>
+
     <tr>
       <td> {{ produit.id_Produit }}</td>
       <td> {{ produit.nom_Produit}}</td>
@@ -30,19 +31,11 @@
       <td> {{ produit.stock_Produit}}</td>
       <td> {{ produit.dateAjout_Produit}}</td>
       <td> {{ produit.id_Categorie}}</td>
-      <td>
-          {# <a class="edit-produit" href="./delete/{{ produit.id_Produit }}"><img style="height:30px;whith:30px;margin-left:20px;" src="{{ url()}}/images/delete-wood-100x100.png" alt=""></a></td> #}
-          {{ link_to("products/delete/" ~ produit.id_Produit, image('images/delete-wood-50x50.png','style':'height:30px')) }}
-        </td>
-        <td>
-           {{ link_to("products/edit/" ~ produit.id_Produit,'Modifier','class':'btn btn-warning btn-lg') }}
-        </td>
-          
-          
+      <td>{{ link_to("products/delete/" ~ produit.id_Produit, image('images/delete-wood-50x50.png','style':'height:30px')) }}</td>
+      <td>{{ link_to("products/edit/" ~ produit.id_Produit,'Modifier','class':'btn btn-warning btn-lg') }}</td>
+ </tr>
 
 
-      </tr>
-
-  </tbody>
   {% endfor %}
+    </tbody>
 </table>
