@@ -12,18 +12,9 @@ class UsersForm extends Form
     public function initialize($entity = null, $options = null)
     {
 
-        // if ($options['edit']) {
-        //     $this->add(
-        //         new Hidden(
-        //             'id_Users'
-        //         )
-        //     );
+        // if ($options['edit']) {$this->add(new Hidden('id_Users'));
         // } else {
-        //     $this->add(
-        //         new Text(
-        //             'id_Users'
-        //         )
-        //     );
+        //     $this->add(new Text('id_Users'));
         // }
         $this->add(new Hidden('id_Users'));
         // Name

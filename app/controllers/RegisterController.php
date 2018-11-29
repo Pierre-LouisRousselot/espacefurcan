@@ -34,7 +34,7 @@ class RegisterController extends ControllerBase
 
             if ($password != $repeatPassword) {
                 $this->flash->error('Les mots de passe sont différents');
-                return false;
+
             }
 
             $user = new Users();
