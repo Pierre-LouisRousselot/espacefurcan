@@ -88,7 +88,7 @@ class RegisterForm extends Form
         $this->add($postal);
 
         // Password
-        $password = new Password('password');
+        $password = new Password('password', ['minlength' => 8]);
         $password->setLabel('Mot de passe');
         $password->addValidators([
             new PresenceOf([
@@ -98,7 +98,7 @@ class RegisterForm extends Form
         $this->add($password);
 
         // Confirm Password
-        $repeatPassword = new Password('repeatPassword');
+        $repeatPassword = new Password('repeatPassword', ['minlength' => 8]);
         $repeatPassword->setLabel('Répéter le mot de passe');
         $repeatPassword->addValidators([
             new PresenceOf([

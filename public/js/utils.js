@@ -66,7 +66,7 @@ jQuery(document).ready(function($) {
 
     getSticky($('.nav-wrapper'));
 
- 
+
 });
 
 function getSticky(obj){
@@ -93,3 +93,6 @@ function getSticky(obj){
     });
 
 }
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
