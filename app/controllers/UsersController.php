@@ -91,7 +91,7 @@ class UsersController extends ControllerBase
 
         $paginator = new Paginator([
             "data"  => $users,
-            "limit" => 100,
+            "limit" => 10,
             "page"  => $numberPage
         ]);
 
