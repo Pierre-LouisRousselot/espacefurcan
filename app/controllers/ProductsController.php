@@ -105,13 +105,14 @@ class ProductsController extends ControllerBase
         );
     }
 
-     public function editAction()
+     public function editAction($id)
     {
 
         if (!$this->request->isPost()) {
 
             $produit = Produits::findFirstById_Produit($id);
             if (!$produit) {
+                //var_dump($produit);die();
                 $this->flash->error("Ce produit n'existe pas");
 
                 return $this->dispatcher->forward(
@@ -122,9 +123,12 @@ class ProductsController extends ControllerBase
                 );
             }
             $this->view->produit = $produit;
-            $form = new ProductForm((object)['id_Produit' => $id]);
+            //var_dump($produit);die();
+            $form = new ProductForm((object)
+                ['id_Produit' => $id]);
+            //var_dump($form);die();
             $this->view->form = new ProductForm($produit,['edit' => true]);
-            // var_dump($this->view->form);die;
+         // var_dump($this->view->form);die;
         }
     }
 
@@ -136,7 +140,7 @@ class ProductsController extends ControllerBase
     public function saveAction()
     {
 
-        // var_dump($this->request->getPost());die;
+        //var_dump($this->request->getPost());die;
         if (!$this->request->isPost()) {
             return $this->dispatcher->forward(
                 [
@@ -146,7 +150,7 @@ class ProductsController extends ControllerBase
             );
         }
 
-        $id = $this->request->getPost("id", "int");
+        $id = $this->request->getPost("id_Produit");
         //var_dump($id);die;
         $produit = Produits::findFirstById_Produit($id);
         if (!$produit) {
@@ -161,23 +165,18 @@ class ProductsController extends ControllerBase
             );
         }
 
-        $form = new ProduitsForm;
+        $form = new ProductForm;
         $this->view->form = $form;
 
         $data = $this->request->getPost();
-
+        //var_dump($data);die();
+        // var_dump($produit->save());die();
+       
         if (!$form->isValid($data, $produit)) {
             foreach ($form->getMessages() as $message) {
                 $this->flash->error($message);
             }
 
-            return $this->dispatcher->forward(
-                [
-                    "controller" => "products",
-                    "action"     => "new",
-                    "params"     =>  [$id]
-                ]
-            );
         }
 
         if ($produit->save() == false) {
@@ -185,13 +184,6 @@ class ProductsController extends ControllerBase
                 $this->flash->error($message);
             }
 
-            return $this->dispatcher->forward(
-                [
-                    "controller" => "products",
-                    "action"     => "new",
-                     "params"     => [$id]
-                ]
-            );
         }
 
         $form->clear();

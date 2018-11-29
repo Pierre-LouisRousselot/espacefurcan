@@ -17,22 +17,25 @@ class UsersController extends ControllerBase
     public function indexAction()
     {
 
-        $this->assets->addCss("css/global.css");
-
         $numberPage = 1;
         if ($this->request->isPost()) {
             $query = Criteria::fromInput($this->di, "Users", $this->request->getPost());
             $this->persistent->searchParams = $query->getParams();
+            // var_dump($this->persistent->searchParams);die;
         } else {
             $numberPage = $this->request->getQuery("page", "int");
+            // var_dump($numberPage);die;
         }
 
         $parameters = [];
         if ($this->persistent->searchParams) {
             $parameters = $this->persistent->searchParams;
+            // var_dump($parameters);die;
         }
-        // var_dump($parameters);die;
+        // unset($parameters);
+
         $users = Users::find($parameters);
+                // var_dump($users);die;
         if (count($users) == 0) {
             $this->flash->notice("The search did not find any users");
 
@@ -166,78 +169,6 @@ class UsersController extends ControllerBase
     }
 
     /**
-    * Saves current article
-    *
-    * @param string $id
-    */
-    // public function saveAction()
-    // {
-    //
-    //
-    //     $formResult = $this->request->getPost();
-    //     $id =$formResult['id_Users'];
-    //     if (!$this->request->isPost()) {
-    //         return $this->dispatcher->forward(
-    //             [
-    //                 "controller" => "users",
-    //                 "action"     => "index",
-    //             ]
-    //         );
-    //     }
-    //
-    //     $user = Users::findFirstById_Users($id);
-    //     if (!$user) {
-    //         $this->flash->error("User does not exist");
-    //
-    //         return $this->dispatcher->forward(
-    //             [
-    //                 "controller" => "users",
-    //                 "action"     => "index",
-    //             ]
-    //         );
-    //     }
-    //
-    //     $form = new UsersForm;
-    //
-    //     $data = $this->request->getPost();
-    //
-    //     if (!$form->isValid($data, $user)) {
-    //         foreach ($form->getMessages() as $message) {
-    //             $this->flash->error($message);
-    //         }
-    //
-    //         return $this->dispatcher->forward(
-    //             [
-    //                 "controller" => "users",
-    //                 "action"     => "index",
-    //             ]
-    //         );
-    //     }
-    //     if ($user->save() == false) {
-    //         foreach ($user->getMessages() as $message) {
-    //             $this->flash->error($message);
-    //         }
-    //
-    //         return $this->dispatcher->forward(
-    //             [
-    //                 "controller" => "usesr",
-    //                 "action"     => "index",
-    //             ]
-    //         );
-    //     }
-    //
-    //     $form->clear();
-    //
-    //     $this->flash->success("Article was updated successfully");
-    //     var_dump($user);die;
-    //     return $this->dispatcher->forward(
-    //         [
-    //             "controller" => "users",
-    //             "action"     => "index",
-    //         ]
-    //     );
-    // }
-    /**
     * Saves current product in screen
     *
     * @param string $id
@@ -312,6 +243,10 @@ class UsersController extends ControllerBase
                 "action"     => "index",
             ]
         );
+    }
+    public function test()
+    {
+        echo "test";
     }
 
 }
