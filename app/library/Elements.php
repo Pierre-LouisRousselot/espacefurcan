@@ -21,11 +21,13 @@ class Elements extends Component
             ],
             'services' => [
                 'caption' => 'Services',
-                'action' => 'index'
+                'action' => 'index',
+                'drop' => 'services'
             ],
             'informatique' => [
                 'caption' => 'Informatique',
-                'action' => 'index'
+                'action' => 'index',
+                'drop' => 'informatique'
             ],
             'formations' => [
                 'caption' => 'Formations',
@@ -60,6 +62,29 @@ class Elements extends Component
         ]
     ];
 
+    private $_drop = [
+        'services' => [
+            'scolaire' => [
+                'caption' => 'Soutien Scolaire',
+                'action' => 1,
+            ],
+            'test' => [
+                'caption' => 'Petit onglet de test',
+                'action' => 2,
+            ],
+        ],
+        'informatique' => [
+            'cyber' => [
+                'caption' => 'Cyber',
+                'action' => 3,
+            ],
+            'test' => [
+                'caption' => 'Onglet de test',
+                'action' => 4,
+            ],
+        ]
+    ];
+
     private $_tabs = [
         'Produits' => [
             'controller' => 'products',
@@ -77,6 +102,14 @@ class Elements extends Component
             'any' => true
         ],
     ];
+
+    public function getDrop(){
+        return $this->_drop;
+    }
+
+    public function setDrop($drop){
+        $this->_drop = $drop;
+    }
 
     /**
     * Builds header menu with left and right items
@@ -104,19 +137,37 @@ class Elements extends Component
             echo '<div class="nav-collapse">';
             echo '<ul class="nav navbar-nav menu ', $position, '">';
             foreach ($menu as $controller => $option) {
-                if ($controllerName == $controller) {
-                    echo '<li class="active onglet">';
-                } else {
-                    echo '<li class="onglet">';
+                if (isset($option['drop'])){
+                    echo '<li class="dropdown">';
+                    echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.$option['caption'].' </a>';
+                    echo '<ul class="dropdown-menu">';
+
+                    foreach($this->_drop as $type => $title){
+                        if($type == $option['drop']){
+                            foreach($title as $title => $details){
+                                echo '<li>';
+                                echo $this->tag->linkTo('pages/displayPage/'. $details['action'], $details['caption']);
+                                echo '</li>';
+                            }
+                        }
+                    }
+                    echo '</ul>';
+                }else{
+                    if ($controllerName == $controller) {
+                        echo '<li class="active onglet">';
+                    } else {
+                        echo '<li class="onglet">';
+                    }
                 }
-                echo $this->tag->linkTo($controller . '/' . $option['action'], $option['caption']);
+                if (!isset($option['drop'])){
+                    echo $this->tag->linkTo($controller . '/' . $option['action'], $option['caption']);
+                }
                 echo '</li>';
             }
 
             echo '</ul>';
             echo '</div>';
         }
-
     }
 
     public function getUser()

@@ -7,25 +7,30 @@ class Pages extends Model
     /**
      * @var integer
      */
-    public $id;
+    public $id_Page;
+
+    /**
+     * @var integer
+     */
+    public $id_CatePage;
 
     /**
      * @var string
      */
-    public $title;
+    public $titre_Page;
 
     /**
      * @var string
      */
-    public $summary;
+    public $contenu_Page;
 
     /**
      * @var string
      */
-    public $content;
+    public $images_Page;
 
     /**
      * @var string
      */
-    public $date;
+    public $dateUpdate_Page;
 }

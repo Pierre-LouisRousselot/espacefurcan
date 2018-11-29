@@ -56,6 +56,7 @@ class SecurityPlugin extends Plugin
 					'users'		   => ['index','delete', 'edit','save','search'],
 					'products'     => ['index','delete', 'edit','save','search'],
 					'services'     => ['index'],
+					'pages'        => ['index'],
 					'informatique' => ['index'],
 				];
 				foreach ($privateResources as $resource => $actions) {
@@ -68,7 +69,7 @@ class SecurityPlugin extends Plugin
 					'services'     => ['index'],
 					'informatique' => ['index'],
 					'products'     => ['index','addProduct'],
-					'pages'        => ['index'],
+					'pages'        => ['displayPage'],
 					'profile'      => ['index','informations'],
 					'register'     => ['index'],
 					'errors'       => ['show401', 'show404', 'show500'],
