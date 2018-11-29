@@ -4,16 +4,18 @@
 <div class="page-header">
     <h1 style="color:blue;">Modifier un produit</h1>
 </div>
-
-{{ form('products/edit', 'id': 'productForm', 'onbeforesubmit': 'return false') }}
+{{ produit.id_Produit }}
+{{ form('products/save', 'id': 'productForm', 'onbeforesubmit': 'return false') }}
 
     <fieldset>
 
 
+       <input type="hidden" id="id_Produit" name="id_Produit" value="{{produit.id_Produit}}">
+
         <div class="control-group">
-            {{ form.label('nom', ['class': 'control-label']) }}
+            {{ form.label('nom_Produit', ['class': 'control-label']) }}
             <div class="controls">
-                {{ form.render('nom', ['class': 'form-control']) }}
+                {{ form.render('nom_Produit', ['class': 'form-control']) }}
                 <p class="help-block"></p>
                 <div class="alert alert-warning" id="nom_alert">
                     Veuillez entrez le nom du produit
@@ -22,9 +24,9 @@
         </div>
 
         <div class="control-group">
-            {{ form.label('prix', ['class': 'control-label']) }}
+            {{ form.label('prix_Produit', ['class': 'control-label']) }}
             <div class="controls">
-                {{ form.render('prix', ['class': 'form-control']) }}
+                {{ form.render('prix_Produit', ['class': 'form-control']) }}
                 <p class="help-block">(requis)</p>
                 <div class="alert alert-warning" id="prix_alert">
                      Veuillez entrez le prix du produit.
@@ -33,9 +35,9 @@
         </div>
 
         <div class="control-group">
-            {{ form.label('description', ['class': 'control-label']) }}
+            {{ form.label('descri_Produit', ['class': 'control-label']) }}
             <div class="controls">
-                {{ form.render('description', ['class': 'form-control']) }}
+                {{ form.render('descri_Produit', ['class': 'form-control']) }}
                 <p class="help-block">(requis)</p>
                 <div class="alert alert-warning" id="description_alert">
                    Veuillez entrez la description du produit.
@@ -44,9 +46,9 @@
         </div>
 
         <div class="control-group">
-            {{ form.label('stock', ['class': 'control-label']) }}
+            {{ form.label('stock_Produit', ['class': 'control-label']) }}
             <div class="controls">
-                {{ form.render('stock', ['class': 'form-control']) }}
+                {{ form.render('stock_Produit', ['class': 'form-control']) }}
                 <p class="help-block">(requis)</p>
                 <div class="alert alert-warning" id="stock_alert">
                      veuillez entrez le nombre de produit en stock.
