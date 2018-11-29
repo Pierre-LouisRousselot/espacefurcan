@@ -10,7 +10,7 @@ body{
     font-family: "Helvetica Neue", Arial, sans-serif;
 }
 .container-content{
-    min-height: 100vh;
+    min-height: 75vh;
 }
 .footerText{
     text-align: center;
