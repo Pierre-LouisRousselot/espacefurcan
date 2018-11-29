@@ -25,7 +25,9 @@
     </ul>
 </div>
 <br>
-<div>
+<p id="test"></p>
+<br>
+<div id="form">
     {{ form('pages/index', 'id': 'pageForm', 'onbeforesubmit': 'return false') }}
 
     <div class="control-group">
@@ -41,9 +43,5 @@
 </form>
 </div>
 
-{# <textarea>
-
-Next, use our Get Started docs to setup Tiny! <br>
-
-
-</textarea> #}
+<script src="../public/js/jquery.min.js"></script>
+<script src="../public/js/page.js"></script>

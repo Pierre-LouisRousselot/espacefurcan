@@ -65,6 +65,15 @@ class PagesController extends ControllerBase
         $this->view->page = $content[0]->contenu_Page;
     }
 
+    public function loadTinyAction($id)
+    {
+        $content = Pages::find([
+            "conditions" => "id_Page = ". $id
+        ]);
+        //var_dump($content);
+        return $content[0]->contenu_Page;
+    }
+
     private function addDrop(){
         $drop ='';
         $catpage = CatePages::find();
