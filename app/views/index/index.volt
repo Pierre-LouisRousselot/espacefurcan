@@ -27,11 +27,11 @@
 <div class="container-fluid">
   <div id="slider">
     <figure>
-      <img src="../images/1.jpg" alt>
-      <img src="../images/2.jpg" alt>
-      <img src="../images/3.jpg" alt>
-      <img src="../images/4.jpg" alt>
-      <img src="../images/1.jpg" alt>
+      <img src="{{ url() }}/images/1.jpg">
+      <img src="{{ url() }}/images/3.jpg">
+      <img src="{{ url() }}/images/3.jpg">
+      <img src="{{ url() }}/images/4.jpg">
+      <img src="{{ url() }}/images/1.jpg">
     </figure>
   </div>
 </div>
@@ -55,19 +55,18 @@
 <div class="row iconBody">
 
   <div class="col-lg-4 icon1">
-    <img src="../images/images.png" alt="">
-    <p>Fourniture et assistance<br/>
-      numérique pour les<br/>
+    <img src="{{ url() }}/images/images.png" alt=""> 
+     <p>numérique pour les<br/>
     faibles revenus</p>
   </div>
   <div class="col-lg-4 icon2">
-    <img src="../images/images.png" alt="">
+     <img src="{{ url() }}/images/images.png" alt="">
     <p>Aide à l'utilisation<br/>
       du numérique pour les<br/>
     adultes et les jeunes</p>
   </div>
   <div class="col-lg-4 icon3">
-    <img src="../images/images.png" alt="">
+     <img src="{{ url() }}/images/images.png" alt="">
     <p>Soutien scolaire et aide <br/>
       aux devoirs pour les jeunes<br/>
     en besoin</p>
@@ -76,19 +75,19 @@
 <!-- Deuxieme ligne avec icon et texte du la page d'accueil-->
 
   <div class="col-lg-4 icon1">
-    <img src="../images/images.png" alt="">
+     <img src="{{ url() }}/images/images.png" alt="">
     <p>Aide et guidance<br/>
       via l'nternet pour trouver<br/>
     logement et emploi</p>
   </div>
   <div class="col-lg-4 icon2">
-    <img src="../images/images.png" alt="">
+     <img src="{{ url() }}/images/images.png" alt="">
     <p>Aide et guidance<br/>
      pour un projet de vie<br/>
    pour les adultes</p>
  </div>
  <div class="col-lg-4 icon3">
-  <img src="../images/images.png" alt="">
+   <img src="{{ url() }}/images/images.png" alt="">
   <p>Activités de loisirs et<br/>
     créatives pour les jeunes<br/>
   et les seniors</p>
@@ -103,19 +102,19 @@
 
 
   <div class="col-lg-4 icon1">
-    <img src="../images/images.png" alt="">
+     <img src="{{ url() }}/images/images.png" alt="">
     <p>Aide et guidance<br/>
       via l'nternet pour trouver<br/>
     logement et emploi</p>
   </div>
   <div class="col-lg-4 icon2">
-    <img src="../images/images.png" alt="">
+     <img src="{{ url() }}/images/images.png" alt="">
     <p>Aide et guidance<br/>
      pour un projet de vie<br/>
    pour les adultes</p>
  </div>
  <div class="col-lg-4 icon3">
-  <img src="../images/images.png" alt="">
+   <img src="{{ url() }}/images/images.png" alt="">
   <p>Activités de loisirs et<br/>
     créatives pour les jeunes<br/>
   et les seniors</p>
