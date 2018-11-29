@@ -1,59 +1,79 @@
+html{
+    height: 100%;
+    box-sizing: border-box;
+}
+body{
+    overflow-x: hidden;
+    position: relative;
+    margin: 0;
+    min-height: 100%;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
+.container-content{
+    min-height: 75vh;
+}
 .footerText{
-  text-align: center;
+    text-align: center;
 }
 footer {
-  background-color:black;
-  color : white;
-  margin-top: 50px;
-  position: absolute;
-  width: 100%;
-  bottom: 0%;
+    background-color:black;
+    color : white;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    text-align: center;
 }
 .aligner{
-  text-align: center;
+    text-align: center;
 }
 .text-white{
-  color: white;
+    color: white;
+}
+img.logoImage{
+    width: 400px;
+    height:83px;
 }
 img.logoFurcan{
-  width: 200px;
-  height:100px;
-  display:flex;
-  margin: auto;
-  justify-content:center;
+    width: 200px;
+    height:100px;
+    display:flex;
+    margin: auto;
+    justify-content:center;
 }
 img.logoFacebook{
-  width: 60px;
-  height:60px;
-  margin-right: 2px;
+    width: 60px;
+    height:60px;
+    margin-right: 2px;
 }
 img.logoTwitter{
-  width: 63px;
-  height: 63px;
-  margin-right: 5px;
-  margin-left: 5px;
+    width: 63px;
+    height: 63px;
+    margin-right: 5px;
+    margin-left: 5px;
 }
 img.logoInstagram{
-  width: 63px;
-  height: 60px;
-  margin-right: 5px;
+    width: 63px;
+    height: 60px;
+    margin-right: 5px;
 }
 img.logoLinkedin{
-  width: 60px;
-  height: 60px;
-  margin-left: 5px;
+    width: 60px;
+    height: 60px;
+    margin-left: 5px;
 }
 .sociaux{
-  display: inline-flex;
-  justify-content:center;
-  margin-bottom: 50px;
+    display: inline-flex;
+    justify-content:center;
+    margin-bottom: 50px;
 }
 .header{
-  background-color: black;
-  height: 80px;
+    background-color: black;
+    height: 80px;
 }
 .fond{
-  background-color: black;
+    background-color: black;
 }
 .fixed {
     position: fixed;
@@ -61,43 +81,43 @@ img.logoLinkedin{
     left: 0;
     z-index: 99;
     width: 100%;
-  }
-  .active {
-  text-decoration: underline;
 }
-  .logoPhone{
+.active {
+    text-decoration: underline;
+}
+.logoPhone{
     height: 30px;
     width: 30px;
     margin-right: 10px;
-  }
-  .typoNumPhone{
+}
+.typoNumPhone{
     font-size: x-large;
     color: #a8ce3f;
-  }
-  .logoMail{
+}
+.logoMail{
     height: 30px;
     width: 30px;
     margin-right: 10px;
-  }
-  .typoMail{
+}
+.typoMail{
     font-size: x-large;
     color: #a8ce3f;
 
-  }
-  .headerPhone,.headerMail{
+}
+.headerPhone,.headerMail{
     display:flex;
     margin: auto;
     justify-content:center;
     margin-top: 20px;
 
-  }
-  .logo{
+}
+.logo{
     height:80px;
     display:flex;
     margin: auto;
     justify-content:center;
-  }
-  .navbar{
+}
+.navbar{
     background-color:#0762b1;
     margin-bottom: 0px;
     border-radius: 0px;
@@ -105,29 +125,29 @@ img.logoLinkedin{
 }
 .car1{
     margin-top: -62px;
-  }
-  .titre h1{
+}
+.titre h1{
     text-align: center;
     color: #0762b1;
-  }
-  .titre p{
+}
+.titre p{
     text-align: center;
     margin-bottom: 50px;
     font-size: 20px;
-  }
-  .iconBody{
+}
+.iconBody{
     text-align: center;
-  }
-  .navbar-inverse .navbar-nav > li > a{
+}
+.navbar-inverse .navbar-nav > li > a{
     color: white;
-  }
-  .iconBody p{
+}
+.iconBody p{
     color: #0087fd;
-  }
-  .iconBody img{
+}
+.iconBody img{
     width: 100px;
     height: 100px;
-  }
+}
 .logo-page {
     font-size: 80px !important;
     display: flex !important;
@@ -135,52 +155,52 @@ img.logoLinkedin{
     align-items: center;
     height: 180px;
     color: #2a6496;
-  }
-  .texte-page{
+}
+.texte-page{
     text-align: center;
     font-weight: 900;
     margin-top: -2rem;
-  }
+}
 
-  .card {
+.card {
     background: #f8f7f7;
     border-radius: 2px;
     height: 200px;
     margin: 4rem;
-  }
+}
 
-  .card-1 {
+.card-1 {
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-  }
+}
 
-  .card-1:hover {
+.card-1:hover {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-  }
+}
 
 
-  /*carousel fait manuellement*/
+/*carousel fait manuellement*/
 
 
-  div#slider {
+div#slider {
     width: 80%;
     max-width: 1000px;
     overflow: hidden;
-  }
-  div#slider figure {
+}
+div#slider figure {
     position: relative;
     width: 500%;
     margin: 0;
     padding: 0;
     font-size: 0;
     text-align: left;
-  }
-  div#slider figure img {
+}
+div#slider figure img {
     width: 20%;
     height: auto;
     float: left;
-  }
-  @keyframes slidy {
+}
+@keyframes slidy {
     0% { left: 0%; }
     20% { left: 0%; }
     25% { left: -100%; }
@@ -190,8 +210,8 @@ img.logoLinkedin{
     75% { left: -300%; }
     95% { left: -300%; }
     100% { left: -400%; }
-  }
-  div#slider figure {
+}
+div#slider figure {
     position: relative;
     width: 500%;
     margin: 0;
@@ -200,13 +220,13 @@ img.logoLinkedin{
     left: 0;
     text-align: left;
     animation: 30s slidy infinite;
-  }
-  .connecte img{
+}
+.connecte img{
     height: 50px;
     width: 50px;
     margin-left: 150px;
     margin-top: 10px;
-  }
-  .table-striped>tbody>tr:nth-child(even)>td{
-      background-color:#73b5ee;
-  }
+}
+.table-striped>tbody>tr:nth-child(even)>td{
+    background-color:#73b5ee;
+}
