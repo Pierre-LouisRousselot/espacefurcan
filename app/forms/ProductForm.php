@@ -3,6 +3,7 @@
 use Phalcon\Forms\Form;
 use Phalcon\Forms\Element\Text;
 use Phalcon\Forms\Element\Password;
+use Phalcon\Forms\Elements\Hidden;
 use Phalcon\Validation\Validator\PresenceOf;
 use Phalcon\Validation\Validator\Email;
 
@@ -10,15 +11,17 @@ class ProductForm extends Form
 {
     public function initialize($entity = null, $options = null)
     {
+
+        //$this->add(new Hidden('id_Produit'));
         // Nom du produit
         $name = new Text('nom');
         $name->setLabel('Nom du produit');
         $name->setFilters(['striptags', 'string']);
-        $name->addValidators([
-            new PresenceOf([
-                'message' => 'Nom du produit'
-            ])
-        ]);
+        // $name->addValidators([
+        //     new PresenceOf([
+        //         'message' => 'Nom du produit'
+        //     ])
+        // ]);
         $this->add($name);
 
         // prix du produit
