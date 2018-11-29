@@ -77,7 +77,7 @@
          <div class="control-group">
             {{ form.label('password', ['class': 'control-label']) }}
             <div class="controls">
-                {{ form.render('password', ['class': 'form-control']) }}
+                {{ form.render('password', ['class': 'form-control', 'required' : true]) }}
                 <p class="help-block">(minimum 8 caractères)</p>
                 <div class="alert alert-warning" id="password_alert">
                     <strong>Attetion!</strong> Entrez une adresse mail valide
@@ -87,7 +87,7 @@
          <div class="control-group">
             <label class="control-label" for="repeatPassword">Répéter le mot de passe</label>
             <div class="controls">
-                {{ password_field('repeatPassword', 'class': 'form-control') }}
+                {{ password_field('repeatPassword', 'class': 'form-control', 'required' : true) }}
                 <div class="alert" id="repeatPassword_alert">
                     <strong>Attention!</strong> Le mot de passe ne correspond pas
                 </div>
