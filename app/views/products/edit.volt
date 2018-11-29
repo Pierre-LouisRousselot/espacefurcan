@@ -67,6 +67,10 @@
             </div>
         </div>
 
+       <!--  image du produit -->
+
+       
+
        
         <div class="form-actions">
             {{ submit_button('Modifier', 'class': 'btn btn-primary') }}
