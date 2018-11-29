@@ -11,11 +11,11 @@ class PagesController extends ControllerBase
     public function indexAction()
     {
         //$this->assets->addJs('//cloud.tinymce.com/stable/tinymce.min.js', false);
+        $this->addDrop();
 
         $form = new PageForm;
 
         if ($this->request->isPost()){
-
 
             $id = 2;
             $titre = "Service";
@@ -38,7 +38,7 @@ class PagesController extends ControllerBase
         }
         $this->view->form = $form;
 
-        $nomPage = "Service";
+        $nomPage = "Services";
         $catepage = CatePages::find([
             "conditions" => "nom_CatePage = '".$nomPage."'"
         ]);
@@ -64,4 +64,21 @@ class PagesController extends ControllerBase
 
         $this->view->page = $content[0]->contenu_Page;
     }
+
+    private function addDrop(){
+        $drop ='';
+        $catpage = CatePages::find();
+        foreach($catpage as $idService => $detailService){
+            $drop .='<li class="dropdown-header">'.$detailService->nom_CatePage.'</li>';
+            $page = Pages::find([
+                "conditions" => "id_CatePage =" .$detailService->id_CatePage
+            ]);
+            //var_dump($page);
+            foreach ($page as $idPage => $value) {
+                $drop .='<li><a onclick="loadPage('.$value->id_Page.')" href="#">'.$value->titre_Page.'</a></li>';
+            }
+        }
+        $this->view->drop = $drop;
+    }
+
 }
