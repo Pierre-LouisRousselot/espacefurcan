@@ -55,6 +55,7 @@ class ProductsController extends ControllerBase
                 }
             } else {
                 $this->flash->success('Votre produit a été rajouter avec succès');
+                $form->clear();
             }
         }
 
@@ -71,7 +72,7 @@ class ProductsController extends ControllerBase
     {
         $produits = Produits::findFirstById_Produit($id);
         if (!$produits) {
-            $this->flash->error("Product was not found");
+            $this->flash->error("La suppression de l'article est impossible");
 
             return $this->dispatcher->forward(
                 [
@@ -94,7 +95,7 @@ class ProductsController extends ControllerBase
             );
         }
 
-        $this->flash->success("Productr was deleted");
+        $this->flash->success("Votre produit a été supprimer avec succès");
 
         return $this->dispatcher->forward(
             [
@@ -103,6 +104,108 @@ class ProductsController extends ControllerBase
             ]
         );
     }
+
+     public function editAction()
+    {
+
+        if (!$this->request->isPost()) {
+
+            $produit = Produits::findFirstById_Produit($id);
+            if (!$produit) {
+                $this->flash->error("Ce produit n'existe pas");
+
+                return $this->dispatcher->forward(
+                    [
+                        "controller" => "products",
+                        "action"     => "index",
+                    ]
+                );
+            }
+            $this->view->produit = $produit;
+            $form = new ProductForm((object)['id_Produit' => $id]);
+            $this->view->form = new ProductForm($produit,['edit' => true]);
+            // var_dump($this->view->form);die;
+        }
+    }
+
+    /**
+    * Saves current article
+    *
+    * @param string $id
+    */
+    public function saveAction()
+    {
+
+        // var_dump($this->request->getPost());die;
+        if (!$this->request->isPost()) {
+            return $this->dispatcher->forward(
+                [
+                    "controller" => "products",
+                    "action"     => "index",
+                ]
+            );
+        }
+
+        $id = $this->request->getPost("id", "int");
+        //var_dump($id);die;
+        $produit = Produits::findFirstById_Produit($id);
+        if (!$produit) {
+            $this->flash->error("Ce produit n'existe pas");
+
+            return $this->dispatcher->forward(
+                [
+                    "controller" => "products",
+                    "action"     => "index",
+                    
+                ]
+            );
+        }
+
+        $form = new ProduitsForm;
+        $this->view->form = $form;
+
+        $data = $this->request->getPost();
+
+        if (!$form->isValid($data, $produit)) {
+            foreach ($form->getMessages() as $message) {
+                $this->flash->error($message);
+            }
+
+            return $this->dispatcher->forward(
+                [
+                    "controller" => "products",
+                    "action"     => "new",
+                    "params"     =>  [$id]
+                ]
+            );
+        }
+
+        if ($produit->save() == false) {
+            foreach ($produit->getMessages() as $message) {
+                $this->flash->error($message);
+            }
+
+            return $this->dispatcher->forward(
+                [
+                    "controller" => "products",
+                    "action"     => "new",
+                     "params"     => [$id]
+                ]
+            );
+        }
+
+        $form->clear();
+
+        $this->flash->success("Le produit a été modifié avec succès");
+
+        return $this->dispatcher->forward(
+            [
+                "controller" => "products",
+                "action"     => "index",
+            ]
+        );
+    }
+
 
 
 }
