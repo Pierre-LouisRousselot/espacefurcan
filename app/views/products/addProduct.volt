@@ -5,7 +5,7 @@
     <h1 style="color:blue;">Ajouter un produit</h1>
 </div>
 
-{{ form('products/addProduct', 'id': 'productForm', 'onbeforesubmit': 'return false') }}
+{{ form('products/addProduct', 'id': 'productForm', 'onbeforesubmit': 'return false',  'enctype': "multipart/form-data") }}
 
     <fieldset>
 
@@ -64,6 +64,16 @@
                 </div>
             </div>
         </div>
+        
+        <div class="clearfix">
+           {# <label for="email">Fichier</label> #}
+           {# <div class="input"> #}
+               {{ file_field("file", "size": "30", "class": "span6") }}
+               <div class="alert" id="email_alert">
+                   <strong>Warning!</strong> Please enter your email
+               </div>
+           {# </div> #}
+       </div>
 
 
         <div class="form-actions">
