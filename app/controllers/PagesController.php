@@ -15,43 +15,8 @@ class PagesController extends ControllerBase
 
         $form = new PageForm;
 
-        if ($this->request->isPost()){
-
-            $id = 2;
-            $titre = "Service";
-            $content = $this->request->getPost('Page');
-
-            $newpage = new Pages();
-            $newpage->id_Page = $id;
-            $newpage->titre_Page = $titre;
-            $newpage->contenu_Page = $content;
-            $newpage->images_Page = "df";
-            $newpage->dateUpdate_Page = new Phalcon\Db\RawValue('now()');
-            $newpage->id_CatePage = 2;
-
-
-            if($newpage->save() == false){
-                foreach ($newpage->getMessages() as $message) {
-                    $this->flash->error((string) $message);
-                }
-            }
-        }
         $this->view->form = $form;
 
-        $nomPage = "Services";
-        $catepage = CatePages::find([
-            "conditions" => "nom_CatePage = '".$nomPage."'"
-        ]);
-
-        $page = Pages::find([
-            "conditions" => "id_CatePage =" .$catepage[0]->id_CatePage
-        ]);
-
-
-        $contentpage = $page[0]->contenu_Page;
-        //$this->view->page = $contentpage;
-
-        $this->tag->setDefault('Page', $contentpage);
 
     }
 
@@ -63,6 +28,20 @@ class PagesController extends ControllerBase
         ]);
 
         $this->view->page = $content[0]->contenu_Page;
+    }
+
+    public function loadTinyAction($id)
+    {
+        $content = Pages::find([
+            "conditions" => "id_Page = ". $id
+        ]);
+        $pageContent = [
+            "titre" => $content[0]->titre_Page,
+            "content" => $content[0]->contenu_Page,
+            "cate" => $content[0]->id_CatePage
+        ];
+        //var_dump($pageContent);die;
+        return json_encode($pageContent);
     }
 
     private function addDrop(){
@@ -79,6 +58,28 @@ class PagesController extends ControllerBase
             }
         }
         $this->view->drop = $drop;
+    }
+
+    public function savePageAction()
+    {
+
+        if( isset($_POST['id']) && isset($_POST['content']) && isset($_POST['title'])&& isset($_POST['idCate']) ){
+
+            $newpage = new Pages();
+            $newpage->id_Page = $_POST['id'];
+            $newpage->titre_Page = $_POST['title'];
+            $newpage->contenu_Page = $_POST['content'];
+            $newpage->dateUpdate_Page = new Phalcon\Db\RawValue('now()');
+            $newpage->id_CatePage = $_POST['idCate'];
+
+
+            if($newpage->save() == false){
+                foreach ($newpage->getMessages() as $message) {
+                    $this->flash->error((string) $message);
+                }
+            }
+        }
+
     }
 
 }

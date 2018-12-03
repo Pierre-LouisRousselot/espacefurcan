@@ -22,12 +22,12 @@ class Elements extends Component
             'services' => [
                 'caption' => 'Services',
                 'action' => 'index',
-                'drop' => 'services'
+                'drop' => 1
             ],
             'informatique' => [
                 'caption' => 'Informatique',
                 'action' => 'index',
-                'drop' => 'informatique'
+                'drop' => 2
             ],
             'formations' => [
                 'caption' => 'Formations',
@@ -59,29 +59,6 @@ class Elements extends Component
                 'caption' => 'Mon Profil',
                 'action' => 'index',
             ]
-        ]
-    ];
-
-    private $_drop = [
-        'services' => [
-            'scolaire' => [
-                'caption' => 'Soutien Scolaire',
-                'action' => 1,
-            ],
-            'test' => [
-                'caption' => 'Petit onglet de test',
-                'action' => 2,
-            ],
-        ],
-        'informatique' => [
-            'cyber' => [
-                'caption' => 'Cyber',
-                'action' => 3,
-            ],
-            'test' => [
-                'caption' => 'Onglet de test',
-                'action' => 4,
-            ],
         ]
     ];
 
@@ -142,15 +119,16 @@ class Elements extends Component
                     echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.$option['caption'].' </a>';
                     echo '<ul class="dropdown-menu">';
 
-                    foreach($this->_drop as $type => $title){
-                        if($type == $option['drop']){
-                            foreach($title as $title => $details){
-                                echo '<li>';
-                                echo $this->tag->linkTo('pages/displayPage/'. $details['action'], $details['caption']);
-                                echo '</li>';
-                            }
-                        }
+                    $drop = Pages::find([
+                        "conditions" => "id_CatePage =" .$option['drop']
+                    ]);
+
+                    foreach ($drop as $key => $value) {
+                        echo '<li>';
+                        echo $this->tag->linkTo('pages/displayPage/'. $value->id_Page, $value->titre_Page);
+                        echo '</li>';
                     }
+
                     echo '</ul>';
                 }else{
                     if ($controllerName == $controller) {

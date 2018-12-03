@@ -231,6 +231,10 @@ div#slider figure {
 .table-striped>tbody>tr:nth-child(even)>td{
     background-color:#73b5ee;
 }
+.mce-notification-inner {display:none!important;}
+.mce-close {display:none!important;}
+#mceu_31 {display:none!important;}
+
 .table-striped>tbody>tr>td{
     border:none;
 }
