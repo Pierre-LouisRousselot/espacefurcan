@@ -2,6 +2,7 @@
 
 // use Phalcon\Paginator\Adapter\Model as Paginator;
 use Phalcon\Flash;
+use Phalcon\Forms\Element\File;
 
 
 class ProductsController extends ControllerBase
@@ -16,52 +17,66 @@ class ProductsController extends ControllerBase
     public function indexAction()
     {
 
-    	 $produits = Produits::find();
+      $produits = Produits::find();
 
          // foreach ($produits as $produit) {
          //     // var_dump($produit->id_Produit);
-            $this->view->produits = $produits;
+      $this->view->produits = $produits;
 
 
-    }
-    public function AddProductAction(){
+  }
+  public function AddProductAction(){
 
 
-    	 $form = new ProductForm;
+      $form = new ProductForm;
+      $imageFolder = 'public/image_produit/';
 
 
 
+      if ($this->request->isPost()) {
+        $name = $this->request->getPost('nom_Produit', ['string','striptags']);
+        $prix = $this->request->getPost('prix_Produit', ['float']);
+        $description = $this->request->getPost('descri_Produit', ['string', 'striptags']);
+        $stock = $this->request->getPost('stock_Produit', ['int', 'striptags']);
+        $dateAjout = $this->request->getPost('dateAjout_Produit', ['date', 'striptags']);
+        $id_Categorie = $this->request->getPost('id_Categorie', ['int', 'striptags']);
+        // var_dump($_FILES);die();
 
-		if ($this->request->isPost()) {
-            $name = $this->request->getPost('nom_Produit', ['string','striptags']);
-            $prix = $this->request->getPost('prix_Produit', ['float']);
-            $description = $this->request->getPost('descri_Produit', ['string', 'striptags']);
-            $stock = $this->request->getPost('stock_Produit', ['int', 'striptags']);
-            $dateAjout = $this->request->getPost('dateAjout_Produit', ['date', 'striptags']);
-            $id_Categorie = $this->request->getPost('id_Categorie', ['int', 'striptags']);
+        $produits = new Produits();
+        if ($this->request->hasFiles()) {
+           $files = $this->request->getUploadedFiles();
+               //var_dump('test');die();
 
-            $produits = new Produits();
-            $produits->nom_Produit = $name;
-            $produits->prix_Produit = $prix;
-            $produits->descri_Produit = $description;
-            $produits->stock_Produit = $stock;
-            $produits->dateAjout_Produit = $dateAjout;
-            $produits->id_Categorie = $id_Categorie;
-            $produits->dateAjout_Produit = new Phalcon\Db\RawValue('now()');
-            if ($produits->save() == false) {
+           foreach ($files as $file) {
+                   // Move the file into the application
+               $file->moveTo('../public/image_produit/' . $file->getName());
+               $produits->image_path = 'public/image_produit/' . $file->getName();
+           }
+       }
+       $produits->nom_Produit = $name;
+       $produits->prix_Produit = $prix;
+       $produits->descri_Produit = $description;
+       $produits->stock_Produit = $stock;
+       $produits->dateAjout_Produit = $dateAjout;
+       $produits->id_Categorie = $id_Categorie;
+            //$produits->image_path = $imageFolder . $image_produit;
+            //var_dump($image_produit->image_path);die;
+       $produits->dateAjout_Produit = new Phalcon\Db\RawValue('now()');
+       if ($produits->save() == false) {
                 //var_dump($produits->getMessages());die;
-                foreach ($produits->getMessages() as $message) {
-                    $this->flash->error((string) $message);
-                }
-            } else {
-                $this->flash->success('Votre produit a été rajouter avec succès');
-                $form->clear();
-            }
+        foreach ($produits->getMessages() as $message) {
+            $this->flash->error((string) $message);
         }
-
-
-          $this->view->form = $form;
+    } else {
+        $this->flash->success('Votre produit a été rajouter avec succès');
+        $form->clear();
     }
+}
+
+
+$this->view->form = $form;
+
+}
 
     /**
     * Deletes an article
@@ -105,7 +120,7 @@ class ProductsController extends ControllerBase
         );
     }
 
-     public function editAction($id)
+    public function editAction($id)
     {
 
         if (!$this->request->isPost()) {
@@ -169,34 +184,68 @@ class ProductsController extends ControllerBase
         $this->view->form = $form;
 
         $data = $this->request->getPost();
-        //var_dump($data);die();
-        // var_dump($produit->save());die();
+        if ($this->request->hasFiles()) {
+           $files = $this->request->getUploadedFiles();
+               //var_dump('test');die();
 
-        if (!$form->isValid($data, $produit)) {
-            foreach ($form->getMessages() as $message) {
-                $this->flash->error($message);
-            }
+           foreach ($files as $file) {
+                   // Move the file into the application
+               $file->moveTo('../public/image_produit/' . $file->getName());
+               $produit->image_path = 'public/image_produit/' . $file->getName();
+           }
+       }
+        //var_dump($produit->save());
 
+       if (!$form->isValid($data, $produit)) {
+        foreach ($form->getMessages() as $message) {
+            $this->flash->error($message);
         }
 
-        if ($produit->save() == false) {
-            foreach ($produit->getMessages() as $message) {
-                $this->flash->error($message);
-            }
-
-        }
-
-        $form->clear();
-
-        $this->flash->success("Le produit a été modifié avec succès");
-
-        return $this->dispatcher->forward(
-            [
-                "controller" => "products",
-                "action"     => "index",
-            ]
-        );
     }
+
+    if ($produit->save() == false) {
+        foreach ($produit->getMessages() as $message) {
+            $this->flash->error($message);
+        }
+
+    }
+
+    $form->clear();
+
+    $this->flash->success("Le produit a été modifié avec succès");
+
+    return $this->dispatcher->forward(
+        [
+            "controller" => "products",
+            "action"     => "index",
+        ]
+    );
+}
+
+    //  public function uploadAction()
+    // {
+
+
+    //     Check if the user has uploaded files
+    //     if ($this->request->hasFiles() == true) {
+    //         $image_produit = 'image_produit/';
+    //         var_dump($image_produit);die();
+
+    //         // Print the real file names and sizes
+    //         foreach ($this->request->getUploadedFiles() as $file) {
+    //             // $Photo = new Photo();              
+    //             // $Photo->name = $file->getName();
+    //             // $Photo->size = $file->getSize();
+    //             // $Photo->save();
+
+    //             //Move the file into the application
+    //             $file->moveTo('../public/image_produit/' . $file->getName());
+    //             //$file->moveTo($image_produit . './public/image_produit/');
+    //         }
+    //     }
+    // }
+
+
 
 
 
