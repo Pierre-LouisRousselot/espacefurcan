@@ -14,34 +14,40 @@
 <div class="page-header">
     <h1>Gestion des pages</h1>
 </div>
-
-<div class="dropdown">
-    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-        Sélectionner la page
-        <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-        {{ drop }}
-    </ul>
+<div class="page_menu">
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Sélectionner la page
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            {{ drop }}
+        </ul>
+    </div>
+    <div>
+        <input id="titrePage"></input>
+    </div>
 </div>
-<br>
-<p id="test"></p>
 <br>
 <div id="form">
     {{ form('pages/index', 'id': 'pageForm', 'onbeforesubmit': 'return false') }}
 
     <div class="control-group">
         <div class="controls">
+            {{ form.render('idPage', ['class': 'form-control']) }}
+            {{ form.render('idCatePage', ['class': 'form-control']) }}
             {{ form.render('Page', ['class': 'form-control']) }}
         </div>
     </div>
     <br>
     <div class="form-actions">
-        {{ submit_button('Valider', 'class': 'btn btn-primary') }}
+        {# {{ submit_button('Valider', 'class': 'btn btn-primary', 'onclick': 'savePage()') }} #}
+
     </div>
 
 </form>
+<button class="btn btn-primary" onclick="savePage()">Valider</button>
 </div>
-
+<br>
 <script src="../public/js/jquery.min.js"></script>
 <script src="../public/js/page.js"></script>
