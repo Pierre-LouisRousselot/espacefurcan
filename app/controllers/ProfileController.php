@@ -1,4 +1,5 @@
 <?php
+use Phalcon\Http\Request\File;
 
 class ProfileController extends ControllerBase
 {
@@ -26,7 +27,7 @@ class ProfileController extends ControllerBase
                 ]
             );
         }
-//pour preremplir les champs
+        //pour preremplir les champs
         if (!$this->request->isPost()) {
             $this->tag->setDefault('name', $user->nom_Users);
             $this->tag->setDefault('email', $user->mail_Users);
@@ -47,6 +48,19 @@ class ProfileController extends ControllerBase
             $password = $this->request->getPost('password', ['string', 'striptags']);
             $repeatPassword = $this->request->getPost('newPassword', ['string', 'striptags']);
             $repeatNewPassword = $this->request->getPost('repeatNewPassword', ['string', 'striptags']);
+            $image_path = 'public/img-status';
+            if ($this->request->hasFiles()) {
+                $files = $this->request->getUploadedFiles();
+
+                foreach ($files as $file) {
+                    // Move the file into the application
+                    $file->moveTo('../public/img-status/' . $file->getName());
+                    var_dump($file);
+                }
+            }
+
+            // var_dump($this->request->getUploadedFiles());
+            // var_dump($file);die;
 
             $user->nom_Users = $name;
             $user->mail_Users = $email;
@@ -56,8 +70,8 @@ class ProfileController extends ControllerBase
             $user->ville_Users = $ville;
             $user->postal_Users = $postal;
 
-var_dump($user->password_Users);
-// var_dump(sha1('testtest'));die;
+            var_dump($user->password_Users);
+            // var_dump(sha1('testtest'));die;
 
             if ( sha1($password) != $user->password_Users ){
                 var_dump('mauvais mot de passe actuel');
@@ -90,72 +104,14 @@ var_dump($user->password_Users);
             }
         }
     }
-
-    // public function informationsAction()
-    // {
-    //     //Get session info
-    //     $auth = $this->session->get('auth');
-    //
-    //     //Query the active user
-    //     $user = Users::findFirst($auth['id']);
-    //     if ($user == false) {
-    //         return $this->dispatcher->forward(
-    //             [
-    //                 "controller" => "index",
-    //                 "action"     => "index",
-    //             ]
-    //         );
-    //     }
-    //
-    //     if (!$this->request->isPost()) {
-    //         $this->tag->setDefault('nom', $user->nom_Users);
-    //         $this->tag->setDefault('prenom', $user->prenom_Users);
-    //         $this->tag->setDefault('email', $user->mail_Users);
-    //         $this->tag->setDefault('tel', $user->tel_Users);
-    //         $this->tag->setDefault('adresse', $user->adresse_Users);
-    //         $this->tag->setDefault('ville', $user->ville_Users);
-    //         $this->tag->setDefault('postal', $user->postal_Users);
-    //     } else if ($this->request->isPost()) {
-    //
-    //         $nom = $this->request->getPost('nom', ['string', 'striptags']);
-    //         $prenom = $this->request->getPost('prenom', 'striptags');
-    //         $email = $this->request->getPost('email', 'email');
-    //         $telephone = $this->request->getPost('tel', 'int');
-    //         $adresse = $this->request->getPost('adresse');
-    //         $ville = $this->request->getPost('ville', 'striptags');
-    //         $postal = $this->request->getPost('postal', 'int');
-    //         $password = $this->request->getPost('password');
-    //         $repeatPassword = $this->request->getPost('repeatPassword');
-    //
-    //         $repeatNewPassword = $this->request->getPost('repeatNewPassword');
-    //
-    //
-    //
-    //         $user->nom_Users = $nom;
-    //         $user->password_Users = sha1($password);
-    //         $user->prenom_Users = $prenom;
-    //         $user->mail_Users = $email;
-    //         $user->tel_Users = $telephone;
-    //         $user->adresse_Users = $adresse;
-    //         $user->ville_Users = $ville;
-    //         $user->postal_Users = $postal;
-    //         if ($user->save() == false) {
-    //             foreach ($user->getMessages() as $message) {
-    //                 $this->flash->error((string) $message);
-    //             }
-    //         } else {
-    //
-    //             $this->flash->success('Vos informations ont été correctement mises à jours');
-    //
-    //             return $this->dispatcher->forward(
-    //                 [
-    //                     "controller" => "profile",
-    //                     "action"     => "informations",
-    //                 ]
-    //             );
-    //         }
-    //     }
-    //
-    // }
+    public function uploadAction()
+    {
+        if ($this->request->hasFiles() == true) {
+            // $fi = new finfo(FILEINFO_MIME, '/usr/share/misc/file/magic');
+            foreach ($this->request->getUploadedFiles() as $file) {
+                echo 'Mime = ', $file->file($file->getTempName()), '<br>';
+            }
+        }
+    }
 
 }
