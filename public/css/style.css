@@ -9,11 +9,23 @@ body{
     min-height: 100%;
     font-family: "Helvetica Neue", Arial, sans-serif;
 }
-.container-content{
+/*.container-content{
     min-height: 75vh;
-}
+}*/
 .footerText{
     text-align: center;
+}
+/*.sidebar{
+    margin-top: 30px;
+    background-color: blue;
+    float: right;
+    width: 350px;
+    height: 350px;
+    margin-right: 30px;
+
+}*/
+.ajoutPanier button{
+   display: inline-block;
 }
 footer {
     background-color:black;
@@ -165,8 +177,6 @@ img.logoLinkedin{
 .card {
     background: #f8f7f7;
     border-radius: 2px;
-    height: 200px;
-    margin: 4rem;
 }
 
 .card-1 {
@@ -233,4 +243,15 @@ div#slider figure {
 }
 .table-striped>tbody>tr>td{
     border:none;
+}
+.article img{
+    width: 250px;
+    height: 190px;
+}
+.textWhite a{
+    color:white;
+    margin: auto;
+}
+.produit{
+    margin-bottom: : 50px;
 }
