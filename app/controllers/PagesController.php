@@ -8,6 +8,7 @@ class PagesController extends ControllerBase
         parent::initialize();
     }
 
+    
     public function indexAction()
     {
         //$this->assets->addJs('//cloud.tinymce.com/stable/tinymce.min.js', false);
@@ -80,6 +81,40 @@ class PagesController extends ControllerBase
             }
         }
 
+    }
+
+    public function addPageAction()
+    {
+        if( isset($_POST['content']) && isset($_POST['title'])&& isset($_POST['idCate']) ){
+
+            $newpage = new Pages();
+            $newpage->titre_Page = $_POST['title'];
+            $newpage->contenu_Page = $_POST['content'];
+            $newpage->dateUpdate_Page = new Phalcon\Db\RawValue('now()');
+            $newpage->id_CatePage = $_POST['idCate'];
+
+
+            if($newpage->create() == false){
+                foreach ($newpage->getMessages() as $message) {
+                    $this->flash->error((string) $message);
+                }
+            }
+        }
+    }
+
+    public function delPageAction()
+    {
+        if( isset($_GET['id'])){
+
+            $content = Pages::find([
+                "conditions" => "id_Page = ". $_GET['id']
+            ]);
+            if($content->delete() == false){
+                foreach ($content->getMessages() as $message) {
+                    $this->flash->error((string) $message);
+                }
+            }
+        }
     }
 
 }

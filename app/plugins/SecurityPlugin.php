@@ -57,7 +57,7 @@ class SecurityPlugin extends Plugin
 					'products'     => ['index','delete', 'edit','save','search'],
 					'school'	   => ['index'],
 					'services'     => ['index'],
-					'pages'        => ['index', 'loadTiny', 'savePage'],
+					'pages'        => ['index', 'loadTiny', 'savePage', 'addPage', 'delPage'],
 					'informatique' => ['index'],
 				];
 				foreach ($privateResources as $resource => $actions) {

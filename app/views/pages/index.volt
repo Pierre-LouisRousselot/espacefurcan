@@ -1,10 +1,11 @@
 <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
 <script>tinymce.init({
     branding:'false',
-    plugins:"autoresize",
+    plugins:"autoresize, image",
     elementpath:'false',
     language_url:'../public/js/fr_FR.js',
     language:'fr_FR',
+    paste_data_images:'true',
     selector:'textarea'
     //content_css:"css/content.css"
 });</script>
@@ -16,7 +17,8 @@
 </div>
 <div class="page_menu">
     <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             Sélectionner la page
             <span class="caret"></span>
         </button>
@@ -25,10 +27,30 @@
         </ul>
     </div>
     <div>
+        <button id="addPageButton" class="btn btn-primary" onclick="addPage()">Ajouter une page</button>
+    </div>
+    <div>
         <input id="titrePage"></input>
+    </div>
+    <div>
+        <button id="delPageButton" class="btn btn-primary" onclick="delPage()">Supprimer la page</button>
+    </div>
+</div>
+<div>
+    <div>
+        <span id="warndrop" hidden>Veuillez séléctionner une catégorie.</span>
+    </div>
+    <div>
+        <select id="dropdown">
+            <option value="0">Selectionner une catégorie</option>
+            <option value="1">Services</option>
+            <option value="2">Informatique</option>
+        </select>
     </div>
 </div>
 <br>
+
+
 <div id="form">
     {{ form('pages/index', 'id': 'pageForm', 'onbeforesubmit': 'return false') }}
 
@@ -42,9 +64,7 @@
     <br>
     <div class="form-actions">
         {# {{ submit_button('Valider', 'class': 'btn btn-primary', 'onclick': 'savePage()') }} #}
-
     </div>
-
 </form>
 <button class="btn btn-primary" onclick="savePage()">Valider</button>
 </div>
