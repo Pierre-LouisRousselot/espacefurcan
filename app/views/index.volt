@@ -38,8 +38,8 @@
 
             <!--  icon du panier dans le header -->
 
-            <div class="col-lg-3 connecte">
-                <a href=""><img src="{{ url() }}/images/icon-panier" alt=""></a>
+            <div class="col-lg-3 panier">
+               <!--  <a href=""><img src="{{ url() }}/images/icon-panier" alt=""></a> -->
                 {{ link_to("", image('/images/icon-panier.png')) }}
             </div>
         </div>
