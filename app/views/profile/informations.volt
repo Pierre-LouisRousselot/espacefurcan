@@ -2,7 +2,7 @@
 {{ content() }}
 
 <div class="profile left">
-    {{ form('profile/informations', 'id': 'profileForm', 'onbeforesubmit': 'return false') }}
+    {{ form('profile/informations', 'id': 'profileForm', 'onbeforesubmit': 'return false',  'enctype': "multipart/form-data") }}
         <div class="clearfix">
             <label for="name">Votre nom:</label>
             <div class="input">
@@ -69,7 +69,7 @@
         <div class="clearfix">
             <label for="email">Mot de passe actuel</label>
             <div class="input">
-                {{ password_field("password", "size": "30", "class": "span6") }}
+                {{ password_field("password", "size": "30", "class": "span6", "required":true) }}
                 <div class="alert" id="email_alert">
                     <strong>Warning!</strong> Please enter your email
                 </div>
@@ -83,7 +83,8 @@
                     <strong>Warning!</strong> Please enter your email
                 </div>
             </div>
-        </div><div class="clearfix">
+        </div>
+        <div class="clearfix">
             <label for="email">Répéter le nouveau mot de passe</label>
             <div class="input">
                 {{ password_field("repeatNewPassword", "size": "30", "class": "span6") }}
@@ -91,6 +92,16 @@
                     <strong>Warning!</strong> Please enter your email
                 </div>
             </div>
+        </div>
+
+        <div class="clearfix">
+            {# <label for="email">Fichier</label> #}
+            {# <div class="input"> #}
+                {{ file_field("file", "size": "30", "class": "span6") }}
+                <div class="alert" id="email_alert">
+                    <strong>Warning!</strong> Please enter your email
+                </div>
+            {# </div> #}
         </div>
         <div class="clearfix">
             <input type="button" value="Update" class="btn btn-primary btn-large btn-info" onclick="Profile.validate()">
