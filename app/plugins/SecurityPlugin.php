@@ -32,17 +32,21 @@ class SecurityPlugin extends Plugin
 
 			// Register roles
 			$roles = [
-				// 'tedsqdsqst'  => new Role(
-				// 	'Testfdsqfdsqfds',
-				// 	'Member privileges, granted after sign in.'
-				// ),
+				'superadmin'  => new Role(
+					'Super admin',
+					'Gérant du site et des administrateurs.'
+				),
+				'admin'  => new Role(
+					'Admin',
+					'Administrateur du site.'
+				),
 				'users'  => new Role(
 					'Users',
-					'Member privileges, granted after sign in.'
+					'Personnes enregistrées.'
 				),
 				'guests' => new Role(
 					'Guests',
-					'Anyone browsing the site who is not signed in is considered to be a "Guest".'
+					'Tout personne non enregistrée est considérée comme un visiteur.'
 					)
 				];
 
@@ -50,7 +54,7 @@ class SecurityPlugin extends Plugin
 					$acl->addRole($role);
 				}
 
-				//Private area resources
+				//Ressources pour administrateurs
 				$privateResources = [
 					'admin'        => ['index','users','products','school'],
 					'users'		   => ['index','delete', 'edit','save','search'],

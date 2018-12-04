@@ -19,6 +19,7 @@
     </a>
 </div>
 
+
 <div class="row">
 
 
@@ -37,5 +38,27 @@
     <div class="col-lg-3 card card-1">
         <i class="material-icons logo-page">attach_money</i>
         <p class="texte-page">GERER LES FACTURES ICI!</p>
+    </div>
+</div>
+
+<div class="row">
+
+    <a href="./school/index">
+    <div class="col-lg-3 card card-1">
+        <i class="material-icons logo-page">school</i>
+        <p class="texte-page">GERER LE SOUTIEN SCOLAIRE ICI!</p>
+    </div>
+</a>
+
+    <a href="./">
+        <div class="col-lg-3 card card-1">
+            <i class="material-icons logo-page">receipt</i>
+            <p class="texte-page">GERER LES COMMANDES ICI!</p>
+        </div>
+    </a>
+
+    <div class="col-lg-3 card card-1">
+        <i class="material-icons logo-page">schedule</i>
+        <p class="texte-page">GERER LA LOCATION ICI!!</p>
     </div>
 </div>

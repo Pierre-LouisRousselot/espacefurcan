@@ -63,5 +63,24 @@ class UsersForm extends Form
         $postal->setLabel('Code postal');
         $this->add($postal);
 
+        // File
+       $file = new File(
+           "file",
+           [
+               "placeholder" => ""
+           ]
+       );
+       $file->setLabel("Ficher validation status");
+       $file->addValidators(
+           [
+               new FileValidator(
+                   [
+                       'allowEmpty' => true
+                   ]
+               )
+           ]
+       );
+       $this->add($file);
+
     }
 }
