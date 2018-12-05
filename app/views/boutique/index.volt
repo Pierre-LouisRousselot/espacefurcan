@@ -2,33 +2,31 @@
 </div>
 <div class="container-fluid navBoutique">
 
-	<!-- navigation de la boutique -->
-
-	<nav class="navbar navbar-light search" style="background-color: #e3f2fd;">
-		<a href=""class="navbar-brand">Portable</a>
-		<a href=""class="navbar-brand">Pc de bureau</a>
-		<a href=""class="navbar-brand">Imprimante</a>
-		<a href=""class="navbar-brand">Ecran</a>
-		<a href=""class="navbar-brand">Tablette</a>
-		<a href=""class="navbar-brand">Smartphone</a>
-		<a href=""class="navbar-brand">Clavier/Souris</a>
-		<a href=""class="navbar-brand">Accessoire</a>
-		<form class="form-inline">
-			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-		</form>
-	</nav>
-
-	<!-- Fin de navigation de la boutique -->
-
-	
 	<div class="text-center" style="color:blue">
 		<h2>Nos derniers articles</h2>
 	</div><br>
 	<div class="row">
 		<div class="col-lg-2 centrer">
 
+			<div class="dropdown">
+				<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<h6>Catégories</h6>
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					<a class="dropdown-item" href="#">Pc de bureau</a>
+					<a class="dropdown-item" href="#">Pc portable</a>
+					<a class="dropdown-item" href="#">Ecran</a>
+					<a class="dropdown-item" href="#">Imprimante</a>
+					<a class="dropdown-item" href="#">Tablette</a>
+					<a class="dropdown-item" href="#">Smartphone</a>
+					<a class="dropdown-item" href="#">Clavier</a>
+					<a class="dropdown-item" href="#">Souris</a>
+					<a class="dropdown-item" href="#">Accessoires</a>
+				</div>
+			</div><br>
+
 			<h4>Affiner vos recherches</h4><br>
-			<nav class="navbar navbar-light bg-light">
+			<nav class="navbar navbar-light bg-light affinerPrix">
 				<form class="form-inline">
 					<input class="form-control mr-sm-2" type="search" placeholder="Prix" aria-label="Search">
 
@@ -44,24 +42,24 @@
 				<!-- debut de col-lg-4 -->
 				<div class="col-lg-4 produit">
 					<!-- <div class="card-deck"> -->
-						
-						<button type="button" class="btn btn-white" data-toggle="modal" data-target="#exampleModalCenter">
+
+						<button type="button" class="btn btn-white" data-toggle="modal" data-target="#exampleModalCenter-{{produit.id_Produit}}">
 							<h3>{{ produit.nom_Produit}}</h3>
 							{{ image(produit.image_path)}}
 							<h5><span>{{ produit.prix_Produit}} € </span></h5>
 							<p class="card-text">{{ produit.descri_Produit}}</p>
 						</button>
 						<!-- Button trigger modal -->
-				<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-						<div class="modal-dialog modal-dialog-centered" role="document">
-							<div class="modal-content">
-								<div class="modal-header">
+						<div class="modal fade" id="exampleModalCenter-{{produit.id_Produit}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+							<div class="modal-dialog modal-dialog-centered" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
 										<h5 class="modal-title" id="exampleModalCenterTitle">{{ produit.nom_Produit}}</h5>
 										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 											<span aria-hidden="true"></span>
 											
 										</button>
-								</div>
+									</div>
 									<div class="modal-body">
 										{{ produit.descri_Produit}}
 									</div>
@@ -70,17 +68,17 @@
 										<button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
 										<button type="button" class="btn btn-primary">Ajouter au panier</button>
 									</div>
+								</div>
 							</div>
 						</div>
-					</div>
 
-				</div>
+					</div>
 					<!-- 	</div> -->	
 					{% endfor %}
-					</div>
 				</div>
 			</div>
-			</div><br><br><!-- fin de la div container -->
+		</div>
+	</div><br><br><!-- fin de la div container -->
 
 
 

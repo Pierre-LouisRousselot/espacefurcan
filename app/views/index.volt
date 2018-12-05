@@ -5,6 +5,7 @@
     {{ get_title() }}
     {{ stylesheet_link('css/bootstrap.min.css') }}
     {{ stylesheet_link('css/style.css') }}
+     {{ stylesheet_link('css/style-perso.css') }}
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/datatables.min.css"/>
 
 
