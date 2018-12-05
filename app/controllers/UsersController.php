@@ -12,7 +12,7 @@ class UsersController extends ControllerBase
     }
 
     /**
-    * Shows all the users
+    * [indexAction Show all the users from the database]
     */
     public function indexAction()
     {
@@ -21,21 +21,13 @@ class UsersController extends ControllerBase
         if ($this->request->isPost()) {
             $query = Criteria::fromInput($this->di, "Users", $this->request->getPost());
             $this->persistent->searchParams = $query->getParams();
-            // var_dump($this->persistent->searchParams);die;
         } else {
             $numberPage = $this->request->getQuery("page", "int");
-            // var_dump($numberPage);die;
         }
 
         $parameters = [];
-        if ($this->persistent->searchParams) {
-            $parameters = $this->persistent->searchParams;
-            // var_dump($parameters);die;
-        }
-        // unset($parameters);
 
         $users = Users::find($parameters);
-                // var_dump($users);die;
         if (count($users) == 0) {
             $this->flash->notice("The search did not find any users");
 
@@ -59,7 +51,7 @@ class UsersController extends ControllerBase
     }
 
     /**
-    * Search articles based on current criteria like the ID
+    * [searchAction display page with 10 users]
     */
     public function searchAction()
     {
@@ -73,9 +65,6 @@ class UsersController extends ControllerBase
         }
 
         $parameters = [];
-        if ($this->persistent->searchParams) {
-            $parameters = $this->persistent->searchParams;
-        }
 
         $users = Users::find($parameters);
         if (count($users) == 0) {
@@ -99,11 +88,9 @@ class UsersController extends ControllerBase
         $this->view->users = $users;
     }
 
-
     /**
-    * Deletes an article
-    *
-    * @param string $id
+    * [deleteAction delete an user with his ID]
+    * @param  int $id id_Users
     */
     public function deleteAction($id)
     {
@@ -143,7 +130,8 @@ class UsersController extends ControllerBase
     }
 
     /**
-    * Edits a article based on its id
+    * display form to edit user
+    * @param  int $id id_Users
     */
     public function editAction($id)
     {
@@ -151,6 +139,14 @@ class UsersController extends ControllerBase
         if (!$this->request->isPost()) {
 
             $user = Users::findFirstById_Users($id);
+            $this->tag->setDefault('nom_Users', $user->nom_Users);
+            $this->tag->setDefault('prenom_Users', $user->prenom_Users);
+            $this->tag->setDefault('mail_Users', $user->mail_Users);
+            $this->tag->setDefault('tel_Users', $user->tel_Users);
+            $this->tag->setDefault('adresse_Users', $user->adresse_Users);
+            $this->tag->setDefault('ville_Users', $user->ville_Users);
+            $this->tag->setDefault('postal_Users', $user->postal_Users);
+            $this->tag->setDefault('file_Users', $user->file_Users);
             if (!$user) {
                 $this->flash->error("Article was not found");
 
@@ -164,14 +160,11 @@ class UsersController extends ControllerBase
             $this->view->user = $user;
             $form = new UsersForm((object)['id_Users' => $id]);
             $this->view->form = $form;
-            // var_dump($this->view->form);die;
         }
     }
 
     /**
-    * Saves current product in screen
-    *
-    * @param string $id
+    * save the profile previously edited
     */
     public function saveAction()
     {
@@ -189,6 +182,8 @@ class UsersController extends ControllerBase
         // var_dump($this->request->getPost());die;
 
         $user = Users::findFirstById_Users($id);
+        $this->view->user = $user;
+
         if (!$user) {
             $this->flash->error("User does not exist");
 
@@ -202,8 +197,31 @@ class UsersController extends ControllerBase
 
         $form = new UsersForm;
         $this->view->form = $form;
-
         $data = $this->request->getPost();
+        $file = $this->request->getUploadedFiles();
+        $image_path = '../public/img-status/' . $user->nom_Users . '/';
+        $user->file_Users = $image_path;
+
+        if (!is_dir($image_path)){
+            mkdir($image_path);
+            if ($this->request->hasFiles()) {
+                // var_dump("test");die;
+                $files = $this->request->getUploadedFiles();
+                foreach ($files as $file) {
+                    // Move the file into the application
+                    $file->moveTo($image_path . $file->getName());
+                }
+            }
+        }else{
+            if ($this->request->hasFiles()) {
+                $files = $this->request->getUploadedFiles();
+
+                foreach ($files as $file) {
+                    $file->moveTo($image_path . $file->getName());
+                }
+            }
+        }
+
 
         if (!$form->isValid($data, $user)) {
             foreach ($form->getMessages() as $message) {
@@ -218,9 +236,10 @@ class UsersController extends ControllerBase
                 ]
             );
         }
-
         if ($user->save() == false) {
             foreach ($user->getMessages() as $message) {
+
+
                 $this->flash->error($message);
             }
 
@@ -243,10 +262,6 @@ class UsersController extends ControllerBase
                 "action"     => "index",
             ]
         );
-    }
-    public function test()
-    {
-        echo "test";
     }
 
 }

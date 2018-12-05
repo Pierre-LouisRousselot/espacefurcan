@@ -32,7 +32,7 @@ footer {
     color: white;
 }
 img.logoImage{
-    width: 400px;
+    width: 350px;
     height:83px;
 }
 img.logoFurcan{
@@ -122,7 +122,21 @@ img.logoLinkedin{
     margin-bottom: 0px;
     border-radius: 0px;
     border: none;
+    padding: 0px 10px 0px 10px;
 }
+.active{
+    background: black;
+}
+.navbar-light .navbar-nav .nav-link{
+    color: white;
+}
+.navbar-light .navbar-nav .active>.nav-link{
+    color: white;
+}
+.nav-item{
+    padding: .5rem;
+}
+
 .car1{
     margin-top: -62px;
 }
@@ -166,7 +180,7 @@ img.logoLinkedin{
     background: #f8f7f7;
     border-radius: 2px;
     height: 200px;
-    margin: 4rem;
+    margin: 2rem;
 }
 
 .card-1 {
@@ -177,7 +191,9 @@ img.logoLinkedin{
 .card-1:hover {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
-
+a:hover{
+    text-decoration: none;
+}
 
 /*carousel fait manuellement*/
 
@@ -237,4 +253,17 @@ div#slider figure {
 
 .table-striped>tbody>tr>td{
     border:none;
+}
+/*sticky header position*/
+.sticky.is-sticky {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+body {
+  min-height: 1200px;
 }
