@@ -3,7 +3,7 @@
 <h1 style="color:blue;text-align:center;"> Liste des produits </h1><br>
 
 {{ link_to("products/addProduct","Ajouter","class": "btn btn-success btn-lg")}}
-<br><br>
+
 <table id="example" class="table table-sm table-dark">
 
   <thead>

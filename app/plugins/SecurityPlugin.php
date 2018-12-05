@@ -78,7 +78,8 @@ class SecurityPlugin extends Plugin
 					'profile'      => ['index','informations'],
 					'register'     => ['index'],
 					'errors'       => ['show401', 'show404', 'show500'],
-					'session'      => ['index', 'register', 'start', 'end']
+					'session'      => ['index', 'register', 'start', 'end'],
+					'boutique'     => ['index','edit'],
 				];
 
 				foreach ($publicResources as $resource => $actions) {

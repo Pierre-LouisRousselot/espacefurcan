@@ -3,6 +3,7 @@ use Phalcon\Forms\Form;
 use Phalcon\Forms\Element\Text;
 use Phalcon\Forms\Element\Password;
 use Phalcon\Forms\Element\Hidden;
+use Phalcon\Forms\Element\File;
 use Phalcon\Validation\Validator\PresenceOf;
 use Phalcon\Validation\Validator\Email;
 class ProductForm extends Form
@@ -22,7 +23,7 @@ class ProductForm extends Form
         $this->add($name);
         //var_dump($name);
         // prix du produit
-        $prix = new text('prix_Produit');
+        $prix = new Text('prix_Produit');
         $prix->setLabel('prix du produit');
         $prix->setFilters(['int']);
         $prix->addValidators([
@@ -42,7 +43,7 @@ class ProductForm extends Form
         ]);
         $this->add($descri);
         // produit en Stock
-        $stock = new text('stock_Produit');
+        $stock = new Text('stock_Produit');
         $stock->setLabel('nombre de produit en stock');
         $stock->addValidators([
             new PresenceOf([
@@ -50,6 +51,29 @@ class ProductForm extends Form
             ]),
         ]);
         $this->add($stock);
+
+
+        // Image du produit
+// File
+        $file = new File(
+          "file",
+          [
+              "placeholder" => ""
+          ]
+      );
+        $file->setLabel("Ficher validation status");
+        //$file->addValidators(
+          // [
+          //     new FileValidator(
+          //         [
+          //             'allowEmpty' => true
+          //         ]
+          //     )
+          // ]
+      //);
+        $this->add($file);
+
+
         // Date d'ajout du produit
         // $dateAjout = new text('date');
         // $dateAjout->setLabel('date');
@@ -61,17 +85,17 @@ class ProductForm extends Form
         // $this->add($dateAjout);
         if ($options['edit']) {
             $this->add(new text('dateAjout_Produit'));
-       } else {
-           $this->add(new Text('dateAjout_Produit'));
-       }
+        } else {
+         $this->add(new Text('dateAjout_Produit'));
+     }
         // Id catégorie du produit
-        $categorie = new text('id_Categorie');
-        $categorie->setLabel('Catégorie');
-        $categorie->addValidators([
-            new PresenceOf([
-                'message' => 'categorie'
-            ]),
-        ]);
-        $this->add($categorie);
-       }
-   }
+     $categorie = new Text('id_Categorie');
+     $categorie->setLabel('Catégorie');
+     $categorie->addValidators([
+        new PresenceOf([
+            'message' => 'categorie'
+        ]),
+    ]);
+     $this->add($categorie);
+ }
+}
