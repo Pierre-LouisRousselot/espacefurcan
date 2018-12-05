@@ -10,6 +10,8 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Pierre-Louis">
+
+
 </head>
 <body>
     <!-- Début du header -->
@@ -39,28 +41,37 @@
             <!--  icon du panier dans le header -->
 
             <div class="col-lg-3 panier">
-               <!--  <a href=""><img src="{{ url() }}/images/icon-panier" alt=""></a> -->
+                <!--  <a href=""><img src="{{ url() }}/images/icon-panier" alt=""></a> -->
                 {{ link_to("", image('/images/icon-panier.png')) }}
             </div>
         </div>
     </div>
+    <nav class="navbar  navbar-expand-lg navbar-light top-navbar" data-toggle="sticky-onscroll">
+        <a class="navbar-brand" href="#">Espace Furcan</a>
+        {{ elements.getMenu() }}
+    </nav>
+
 
     <!-- Fin du header -->
     {{ content() }}
 
-    {{ javascript_include('js/jquery.min.js') }}
+    {#
     {{ javascript_include('js/bootstrap.min.js') }}
-    {{ javascript_include('js/utils.js') }}
-    {{ javascript_include('https://code.jquery.com/jquery-3.3.1.min.js')}}
-    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
-    {# <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.3.1/datatables.min.js"></script> #}
 
+    {{ javascript_include('https://code.jquery.com/jquery-3.3.1.min.js')}}
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script> #}
+    {{ javascript_include('js/jquery.min.js') }}
+    {{ javascript_include('js/utils.js') }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
 
     <!-- Debut du footer -->
     <footer>
 
-        <div class="container containerFooter bg-dark">
+        <div class="container containerFooter">
             <div class="row">
                 <div class="col-xl-12 text-white footerText">
                     <p>

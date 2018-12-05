@@ -1,5 +1,5 @@
 
-{{ form("users/save", 'role': 'form') }}
+{{ form("users/save", 'role': 'form','enctype': "multipart/form-data") }}
 <h1>Edit this user</h1>
 
 {% set i = 0 %}

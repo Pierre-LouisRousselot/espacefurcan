@@ -40,7 +40,7 @@ class ProductsController extends ControllerBase
         $stock = $this->request->getPost('stock_Produit', ['int', 'striptags']);
         $dateAjout = $this->request->getPost('dateAjout_Produit', ['date', 'striptags']);
         $id_Categorie = $this->request->getPost('id_Categorie', ['int', 'striptags']);
-        // var_dump($_FILES);die();
+
 
         $produits = new Produits();
         if ($this->request->hasFiles()) {
@@ -233,7 +233,7 @@ $this->view->form = $form;
 
     //         // Print the real file names and sizes
     //         foreach ($this->request->getUploadedFiles() as $file) {
-    //             // $Photo = new Photo();              
+    //             // $Photo = new Photo();
     //             // $Photo->name = $file->getName();
     //             // $Photo->size = $file->getSize();
     //             // $Photo->save();
