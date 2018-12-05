@@ -35,6 +35,7 @@
 				</form>
 			</nav>
 		</div>
+
 		<div class="col-lg-10">
 			<div class="row article textWhite">
 
@@ -43,6 +44,7 @@
 				<!-- debut de col-lg-4 -->
 				<div class="col-lg-4 produit">
 					<!-- <div class="card-deck"> -->
+						
 						<button type="button" class="btn btn-white" data-toggle="modal" data-target="#exampleModalCenter">
 							<h3>{{ produit.nom_Produit}}</h3>
 							{{ image(produit.image_path)}}
@@ -65,7 +67,7 @@
 									</div>
 									<div class="modal-footer">
 										<h2><span>{{ produit.prix_Produit}} € </span></h2>
-										<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
 										<button type="button" class="btn btn-primary">Ajouter au panier</button>
 									</div>
 							</div>
