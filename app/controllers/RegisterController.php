@@ -49,6 +49,7 @@ class RegisterController extends ControllerBase
             $user->dateCreation_Users = new Phalcon\Db\RawValue('now()');
             $user->dateUpdate_Users = new Phalcon\Db\RawValue('now()');
             $user->dateLastCo_Users = new Phalcon\Db\RawValue('now()');
+            $user->file_Users = ' ';
             $user->id_Statut = '1';
             $user->id_Role = '1';
             if ($user->save() == false) {

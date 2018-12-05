@@ -50,4 +50,19 @@ class AdminController extends ControllerBase
         );
 
     }
+
+    /**
+    * shox all users
+    *
+    */
+    public function schoolAction()
+    {
+        return $this->dispatcher->forward(
+            [
+                "controller" => "school",
+                "action"     => "index",
+            ]
+        );
+
+    }
 }

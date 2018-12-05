@@ -22,12 +22,12 @@ class Elements extends Component
             'services' => [
                 'caption' => 'Services',
                 'action' => 'index',
-                'drop' => 'services'
+                'drop' => 1
             ],
             'informatique' => [
                 'caption' => 'Informatique',
                 'action' => 'index',
-                'drop' => 'informatique'
+                'drop' => 2
             ],
             'formations' => [
                 'caption' => 'Formations',
@@ -59,29 +59,6 @@ class Elements extends Component
                 'caption' => 'Mon Profil',
                 'action' => 'index',
             ]
-        ]
-    ];
-
-    private $_drop = [
-        'services' => [
-            'scolaire' => [
-                'caption' => 'Soutien Scolaire',
-                'action' => 1,
-            ],
-            'test' => [
-                'caption' => 'Petit onglet de test',
-                'action' => 2,
-            ],
-        ],
-        'informatique' => [
-            'cyber' => [
-                'caption' => 'Cyber',
-                'action' => 3,
-            ],
-            'test' => [
-                'caption' => 'Onglet de test',
-                'action' => 4,
-            ],
         ]
     ];
 
@@ -134,71 +111,41 @@ class Elements extends Component
 
         $controllerName = $this->view->getControllerName();
         foreach ($this->_headerMenu as $position => $menu) {
-            echo '<div class="nav-collapse">';
-            echo '<ul class="nav navbar-nav menu ', $position, '">';
+            echo '<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">';
+            echo '<ul class="navbar-nav pull-right', $position, '">';
             foreach ($menu as $controller => $option) {
                 if (isset($option['drop'])){
-                    echo '<li class="dropdown">';
-                    echo '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.$option['caption'].' </a>';
-                    echo '<ul class="dropdown-menu">';
+                    echo '<li class="nav-item dropdown">';
+                    echo '<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'.$option['caption'].' </a>';
 
-                    foreach($this->_drop as $type => $title){
-                        if($type == $option['drop']){
-                            foreach($title as $title => $details){
-                                echo '<li>';
-                                echo $this->tag->linkTo('pages/displayPage/'. $details['action'], $details['caption']);
-                                echo '</li>';
-                            }
-                        }
-                    }
-                    echo '</ul>';
+
+                    $drop = Pages::find([
+                        "conditions" => "id_CatePage =" .$option['drop']
+                    ]);
+
+                    echo '<div class="dropdown-menu" aria-labelledby="navbarDropdown">';
+                    foreach ($drop as $key => $value) {
+                        echo '<a class="dropdown-item" href="#">';
+                        echo $this->tag->linkTo(['pages/displayPage/'. $value->id_Page, $value->titre_Page, "class" => "dropdown-item"]);
+                        echo '</a>';
+
+                    }echo '</div>';
                 }else{
                     if ($controllerName == $controller) {
-                        echo '<li class="active onglet">';
+                        echo '<li class="nav-item active onglet">';
                     } else {
-                        echo '<li class="onglet">';
+                        echo '<li class="nav-item onglet">';
                     }
                 }
                 if (!isset($option['drop'])){
-                    echo $this->tag->linkTo($controller . '/' . $option['action'], $option['caption']);
+                    echo $this->tag->linkTo([$controller . '/' . $option['action'], $option['caption'], "class" => "nav-link"]);
                 }
                 echo '</li>';
             }
 
             echo '</ul>';
-            echo '</div>';
         }
     }
 
-    public function getUser()
-    {
-        $auth = $this->session->get('auth');
-        if ($auth) {
 
-            echo '<h2> Widget News Admin</h2>';
-            echo 'You are logged in as ' . $auth['name'].'.';
-            echo ' ';
-            echo '<a href="../session/end" >Log out</a>';
-            echo "<hr>";
-        }
-    }
-
-    /**
-    * Returns menu tabs
-    */
-    public function getTabs()
-    {
-        $controllerName = $this->view->getControllerName();
-        $actionName = $this->view->getActionName();
-        echo '<ul class="nav nav-tabs">';
-        foreach ($this->_tabs as $caption => $option) {
-            if ($option['controller'] == $controllerName && ($option['action'] == $actionName || $option['any'])) {
-                echo '<li class="active">';
-            } else {
-                echo '<li>';
-            }
-            echo $this->tag->linkTo($option['controller'] . '/' . $option['action'], $caption), '</li>';
-        }
-        echo '</ul>';
-    }
 }

@@ -61,38 +61,6 @@ $(document).ready(function () {
 });
 
 
-
-jQuery(document).ready(function($) {
-
-    getSticky($('.nav-wrapper'));
-
-
-});
-
-function getSticky(obj){
-    var menu = obj;
-    var stickyClass = 'fixed';
-    var body = $('body');
-    var menuHeight = menu.outerHeight(true);
-    var menuPosition = menu.offset();
-
-    function addStickyClass(){
-        if ($(window).scrollTop()>menuPosition.top){
-            menu.addClass(stickyClass);
-            body.css('margin-top',menuHeight);
-        }else{
-            menu.removeClass(stickyClass);
-            body.css('margin-top','0');
-        }
-
-    }
-    addStickyClass();
-
-    $(window).scroll(function(){
-        addStickyClass();
-    });
-
-}
 // $(document).ready(function() {
 //     $('#example').DataTable();
 //
@@ -125,4 +93,39 @@ $(document).ready(function() {
         }
 
     } );
+});
+
+
+// Sticky navbar
+// =========================
+$(document).ready(function () {
+    // Custom function which toggles between sticky class (is-sticky)
+    var stickyToggle = function (sticky, stickyWrapper, scrollElement) {
+        var stickyHeight = sticky.outerHeight();
+        var stickyTop = stickyWrapper.offset().top;
+        if (scrollElement.scrollTop() >= stickyTop) {
+            stickyWrapper.height(stickyHeight);
+            sticky.addClass("is-sticky");
+        }
+        else {
+            sticky.removeClass("is-sticky");
+            stickyWrapper.height('auto');
+        }
+    };
+
+    // Find all data-toggle="sticky-onscroll" elements
+    $('[data-toggle="sticky-onscroll"]').each(function () {
+        var sticky = $(this);
+        var stickyWrapper = $('<div>').addClass('sticky-wrapper'); // insert hidden element to maintain actual top offset on page
+        sticky.before(stickyWrapper);
+        sticky.addClass('sticky');
+
+        // Scroll & resize events
+        $(window).on('scroll.sticky-onscroll resize.sticky-onscroll', function () {
+            stickyToggle(sticky, stickyWrapper, $(this));
+        });
+
+        // On page load
+        stickyToggle(sticky, stickyWrapper, $(window));
+    });
 });

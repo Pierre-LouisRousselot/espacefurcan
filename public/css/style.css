@@ -9,23 +9,11 @@ body{
     min-height: 100%;
     font-family: "Helvetica Neue", Arial, sans-serif;
 }
-/*.container-content{
+.container-content{
     min-height: 75vh;
-}*/
+}
 .footerText{
     text-align: center;
-}
-/*.sidebar{
-    margin-top: 30px;
-    background-color: blue;
-    float: right;
-    width: 350px;
-    height: 350px;
-    margin-right: 30px;
-
-}*/
-.ajoutPanier button{
-   display: inline-block;
 }
 footer {
     background-color:black;
@@ -44,7 +32,7 @@ footer {
     color: white;
 }
 img.logoImage{
-    width: 400px;
+    width: 350px;
     height:83px;
 }
 img.logoFurcan{
@@ -134,7 +122,21 @@ img.logoLinkedin{
     margin-bottom: 0px;
     border-radius: 0px;
     border: none;
+    padding: 0px 10px 0px 10px;
 }
+.active{
+    background: black;
+}
+.navbar-light .navbar-nav .nav-link{
+    color: white;
+}
+.navbar-light .navbar-nav .active>.nav-link{
+    color: white;
+}
+.nav-item{
+    padding: .5rem;
+}
+
 .car1{
     margin-top: -62px;
 }
@@ -178,12 +180,7 @@ img.logoLinkedin{
     background: #f8f7f7;
     border-radius: 2px;
     height: 200px;
-    margin: 4rem;
-}
-.cardProduit{
-    height: 10px
-    background-color: #f8f7f7;
-    border-radius: 2px;
+    margin: 2rem;
 }
 
 .card-1 {
@@ -194,7 +191,9 @@ img.logoLinkedin{
 .card-1:hover {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
-
+a:hover{
+    text-decoration: none;
+}
 
 /*carousel fait manuellement*/
 
@@ -248,41 +247,23 @@ div#slider figure {
 .table-striped>tbody>tr:nth-child(even)>td{
     background-color:#73b5ee;
 }
+.mce-notification-inner {display:none!important;}
+.mce-close {display:none!important;}
+#mceu_31 {display:none!important;}
+
 .table-striped>tbody>tr>td{
     border:none;
 }
-.article img{
-    width: 250px;
-    height: 190px;
-}
-.textWhite a{
-    color:white;
-    margin: auto;
-}
-.produit{
-height: 400px;
-background-color: white;
-}
-.produit button{ 
- overflow: wrap;
+/*sticky header position*/
+.sticky.is-sticky {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
 }
 
-.navBoutique{
-    padding-right: 0px ;
-    padding-left: 0px ;
-
-}
-.search button,input{
-margin-top: 7px;
-margin-left: 15px;
-}
-.rechercher { 
-    position: relative; 
-}
- .rechercher input[type="text"] {
-  position: absolute; left: 0; width: 100%; 
- }
-
-.rechercher button[type="submit"] { 
-    position: absolute; right: -4px; 
+body {
+  min-height: 1200px;
 }
