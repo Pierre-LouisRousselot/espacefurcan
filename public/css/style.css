@@ -177,6 +177,13 @@ img.logoLinkedin{
 .card {
     background: #f8f7f7;
     border-radius: 2px;
+    height: 200px;
+    margin: 4rem;
+}
+.cardProduit{
+    height: 10px
+    background-color: #f8f7f7;
+    border-radius: 2px;
 }
 
 .card-1 {
@@ -253,5 +260,29 @@ div#slider figure {
     margin: auto;
 }
 .produit{
-    margin-bottom: : 50px;
+height: 400px;
+background-color: white;
+}
+.produit button{ 
+ overflow: wrap;
+}
+
+.navBoutique{
+    padding-right: 0px ;
+    padding-left: 0px ;
+
+}
+.search button,input{
+margin-top: 7px;
+margin-left: 15px;
+}
+.rechercher { 
+    position: relative; 
+}
+ .rechercher input[type="text"] {
+  position: absolute; left: 0; width: 100%; 
+ }
+
+.rechercher button[type="submit"] { 
+    position: absolute; right: -4px; 
 }
