@@ -1,15 +1,4 @@
 <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-<script>tinymce.init({
-    branding:'false',
-    plugins:"autoresize, image",
-    elementpath:'false',
-    language_url:'../public/js/fr_FR.js',
-    language:'fr_FR',
-    paste_data_images:'true',
-    selector:'textarea'
-    //content_css:"css/content.css"
-});</script>
-
 {{ content() }}
 
 <div class="page-header">
@@ -53,7 +42,6 @@
 
 <div id="form">
     {{ form('pages/index', 'id': 'pageForm', 'onbeforesubmit': 'return false') }}
-
     <div class="control-group">
         <div class="controls">
             {{ form.render('idPage', ['class': 'form-control']) }}
@@ -62,9 +50,6 @@
         </div>
     </div>
     <br>
-    <div class="form-actions">
-        {# {{ submit_button('Valider', 'class': 'btn btn-primary', 'onclick': 'savePage()') }} #}
-    </div>
 </form>
 <button class="btn btn-primary" onclick="savePage()">Valider</button>
 </div>
