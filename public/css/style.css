@@ -9,9 +9,6 @@ body{
     min-height: 100%;
     font-family: "Helvetica Neue", Arial, sans-serif;
 }
-.container-content{
-    min-height: 75vh;
-}
 .footerText{
     text-align: center;
 }
