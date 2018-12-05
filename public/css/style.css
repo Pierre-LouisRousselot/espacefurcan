@@ -15,6 +15,18 @@ body{
 .footerText{
     text-align: center;
 }
+/*.sidebar{
+    margin-top: 30px;
+    background-color: blue;
+    float: right;
+    width: 350px;
+    height: 350px;
+    margin-right: 30px;
+
+}*/
+.ajoutPanier button{
+   display: inline-block;
+}
 footer {
     background-color:black;
     color : white;
@@ -266,4 +278,40 @@ div#slider figure {
 
 body {
   min-height: 1200px;
+}
+
+.article img{
+    width: 250px;
+    height: 190px;
+}
+.textWhite a{
+    color:white;
+    margin: auto;
+}
+.produit{
+height: 400px;
+background-color: white;
+}
+.produit button{
+ overflow: wrap;
+}
+
+.navBoutique{
+    padding-right: 0px ;
+    padding-left: 0px ;
+
+}
+.search button,input{
+margin-top: 7px;
+margin-left: 15px;
+}
+.rechercher {
+    position: relative;
+}
+ .rechercher input[type="text"] {
+  position: absolute; left: 0; width: 100%;
+ }
+
+.rechercher button[type="submit"] {
+    position: absolute; right: -4px;
 }
