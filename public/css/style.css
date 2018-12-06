@@ -278,7 +278,6 @@ body {
 }
 
 .article img{
-    width: 250px;
     height: 190px;
 }
 .textWhite a{
@@ -311,4 +310,12 @@ margin-left: 15px;
 
 .rechercher button[type="submit"] {
     position: absolute; right: -4px;
+}
+input[type="file"] {
+    display: none;
+}
+.label-file{
+    color: #0762b1;
+    size:20px;
+    font-weight: 600;
 }
