@@ -13,16 +13,16 @@ body{
     text-align: center;
 }
 /*.sidebar{
-    margin-top: 30px;
-    background-color: blue;
-    float: right;
-    width: 350px;
-    height: 350px;
-    margin-right: 30px;
+margin-top: 30px;
+background-color: blue;
+float: right;
+width: 350px;
+height: 350px;
+margin-right: 30px;
 
 }*/
 .ajoutPanier button{
-   display: inline-block;
+    display: inline-block;
 }
 footer {
     background-color:black;
@@ -274,7 +274,7 @@ div#slider figure {
 }
 
 body {
-  min-height: 1200px;
+    min-height: 1200px;
 }
 
 .article img{
@@ -285,11 +285,11 @@ body {
     margin: auto;
 }
 .produit{
-height: 400px;
-background-color: white;
+    height: 400px;
+    background-color: white;
 }
 .produit button{
- overflow: wrap;
+    overflow: wrap;
 }
 
 .navBoutique{
@@ -298,24 +298,84 @@ background-color: white;
 
 }
 .search button,input{
-margin-top: 7px;
-margin-left: 15px;
+    margin-left: 15px;
 }
 .rechercher {
     position: relative;
 }
- .rechercher input[type="text"] {
-  position: absolute; left: 0; width: 100%;
- }
+.rechercher input[type="text"] {
+    position: absolute; left: 0; width: 100%;
+}
 
 .rechercher button[type="submit"] {
     position: absolute; right: -4px;
 }
 input[type="file"] {
-    display: none;
+    /* display: none; */
+}
+.input-informations{
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
+.control-label{
+    font-weight: 600;
 }
 .label-file{
     color: #0762b1;
     size:20px;
     font-weight: 600;
+}
+.label-file:hover{
+    cursor:pointer;
+}
+.label-file-plus{
+    background-color: #0762b1;
+    width: 30px;
+    line-height: 1;
+    text-align: center;
+    font-size: 30px;
+    border-radius: 20px;
+    margin-left: 10px;
+}
+.label-file-plus{
+    cursor:pointer;
+}
+.jfilestyle input {
+    border: none;
+    background: white;
+    color: #0762b1;
+    font-weight: 600;
+    width: 500px !important;
+}
+.focus-jfilestyle{
+    display: none;
+}
+.delete-file{
+    vertical-align: middle;
+    color: red;
+    width: 30px;
+    line-height: 1;
+    text-align: center;
+    font-size: 30px !important;
+    border-radius: 20px;
+    margin-left: 10px;
+    display: inherit !important;
+}
+.delete-file:hover{
+    color: red;
+}
+.add-file{
+    vertical-align: middle;
+    color: #0762b1;
+    width: 30px;
+    line-height: 1;
+    text-align: center;
+    font-size: 30px !important;
+    border-radius: 20px;
+    margin-left: 10px;
+    display: inherit !important;
+}
+.add-file:hover{
+    color: #0762b1;
+    cursor: pointer;
 }

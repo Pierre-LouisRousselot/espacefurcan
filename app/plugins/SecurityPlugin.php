@@ -75,7 +75,7 @@ class SecurityPlugin extends Plugin
 					'informatique' => ['index'],
 					'products'     => ['index','addProduct'],
 					'pages'        => ['displayPage'],
-					'profile'      => ['index','informations'],
+					'profile'      => ['index','informations','deleteFile','editFile'],
 					'register'     => ['index'],
 					'errors'       => ['show401', 'show404', 'show500'],
 					'session'      => ['index', 'register', 'start', 'end'],
