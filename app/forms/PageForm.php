@@ -8,10 +8,11 @@ class PageForm extends Form
 {
     public function initialize($entity = null, $options = null)
     {
-        //Ip caché
+        //Id caché
         $id = new Hidden('idPage');
         $this->add($id);
 
+        //Id de la catégorie de page, caché
         $id = new Hidden('idCatePage');
         $this->add($id);
 
