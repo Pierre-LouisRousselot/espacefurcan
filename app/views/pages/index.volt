@@ -6,14 +6,14 @@
 </div>
 <div class="page_menu">
     <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1"
         data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             Sélectionner la page
             <span class="caret"></span>
         </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
             {{ drop }}
-        </ul>
+        </div>
     </div>
     <div>
         <button id="addPageButton" class="btn btn-primary" onclick="addPage()">Ajouter une page</button>

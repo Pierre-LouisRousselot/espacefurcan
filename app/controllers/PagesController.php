@@ -68,12 +68,12 @@ class PagesController extends ControllerBase
         $drop ='';
         $catpage = CatePages::find();
         foreach($catpage as $idService => $detailService){
-            $drop .='<li class="dropdown-header">'.$detailService->nom_CatePage.'</li>';
+            $drop .='<h5 class="dropdown-header">'.$detailService->nom_CatePage.'</h5>';
             $page = Pages::find([
                 "conditions" => "id_CatePage =" .$detailService->id_CatePage
             ]);
             foreach ($page as $idPage => $value) {
-                $drop .='<li><a onclick="loadPage('.$value->id_Page.')" href="#">'.$value->titre_Page.'</a></li>';
+                $drop .='<a class="dropdown-item" onclick="loadPage('.$value->id_Page.')" href="#">'.$value->titre_Page.'</a>';
             }
         }
         $this->view->drop = $drop;
