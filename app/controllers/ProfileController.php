@@ -19,6 +19,7 @@ class ProfileController extends ControllerBase
 
         //Query the active user
         $user = Users::findFirst($auth['id']);
+        // var_dump($user);die;
         $form = new UsersForm((object)
         ['id_Users' => $auth['id']],
         ['edit' => true]);
@@ -56,26 +57,39 @@ class ProfileController extends ControllerBase
             $repeatNewPassword = $this->request->getPost('repeatNewPassword', ['string', 'striptags']);
             $image_path = '../public/img-status/' . $user->nom_Users . '/';
             $files = $this->request->getUploadedFiles();
-            // var_dump($files);die;
-            if (!is_dir($image_path)){
-                mkdir($image_path);
-                if ($this->request->hasFiles()) {
-                    // var_dump("test");die;
-                    $files = $this->request->getUploadedFiles();
-                    foreach ($files as $file) {
-                        // Move the file into the application
-                        $file->moveTo($image_path . $file->getName());
-                    }
-                }
-            }else{
-                if ($this->request->hasFiles()) {
-                    $files = $this->request->getUploadedFiles();
 
-                    foreach ($files as $file) {
-                        $file->moveTo($image_path . $file->getName());
+            if ($password != NULL){
+
+                if (file_exists($image_path) == false ){
+                    mkdir($image_path);
+                    if ($this->request->hasFiles()) {
+                        // var_dump("test");die;
+                        $files = $this->request->getUploadedFiles();
+                        foreach ($files as $file) {
+                            // Move the file into the application
+                            $file->moveTo($image_path . $file->getName());
+                            $user->file_Users = $file->getName();
+                        }
+                    }
+                }else {
+                    if ($this->request->hasFiles()) {
+                        $files = $this->request->getUploadedFiles();
+
+                        foreach ($files as $file) {
+                            $file->moveTo($image_path . $file->getName());
+                            $user->file_Users = $file->getName();
+                        }
                     }
                 }
             }
+            // var_dump($user->file_Users);die;
+
+
+            // if($user->file_Users == ''){
+            //     $user->file_Users = " ";
+            // }else{
+            //
+            // }
 
             $user->nom_Users = $name;
             $user->mail_Users = $email;
@@ -85,9 +99,9 @@ class ProfileController extends ControllerBase
             $user->ville_Users = $ville;
             $user->postal_Users = $postal;
 
+
             $data = $this->request->getPost();
             if (!$form->isValid($data, $user)) {
-                // var_dump($user);
                 var_dump($email);
                 foreach ($form->getMessages() as $message) {
                     $this->flash->error($message);
@@ -115,7 +129,28 @@ class ProfileController extends ControllerBase
         }
 
         $this->view->form = $form;
+        $this->view->user = $user;
     }
+
+    public function deleteFileAction($file){
+        //Get session info
+        $auth = $this->session->get('auth');
+
+        //Query the active user
+        $user = Users::findFirst($auth['id']);
+        $image_path = '../public/img-status/' . $user->nom_Users . '/';
+        $user->file_Users = NULL;
+        $user->update();
+        unlink($image_path . $file);
+
+        return $this->dispatcher->forward(
+            [
+                "controller" => "profile",
+                "action"     => "informations",
+            ]
+        );
+    }
+
 
 
 }
