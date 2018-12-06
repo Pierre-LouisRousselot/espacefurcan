@@ -14,17 +14,13 @@ class ProductsController extends ControllerBase
     }
 
 
-    public function indexAction()
-    {
+    public function indexAction() {
 
       $produits = Produits::find();
-
-         // foreach ($produits as $produit) {
-         //     // var_dump($produit->id_Produit);
       $this->view->produits = $produits;
+ }
+  
 
-
-  }
   public function AddProductAction(){
 
 

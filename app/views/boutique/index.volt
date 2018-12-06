@@ -1,86 +1,135 @@
 
 </div>
-<div class="container-fluid navBoutique">
-
-	<!-- navigation de la boutique -->
-
-	<nav class="navbar navbar-light search" style="background-color: #e3f2fd;">
-		<a href=""class="navbar-brand">Portable</a>
-		<a href=""class="navbar-brand">Pc de bureau</a>
-		<a href=""class="navbar-brand">Imprimante</a>
-		<a href=""class="navbar-brand">Ecran</a>
-		<a href=""class="navbar-brand">Tablette</a>
-		<a href=""class="navbar-brand">Smartphone</a>
-		<a href=""class="navbar-brand">Clavier/Souris</a>
-		<a href=""class="navbar-brand">Accessoire</a>
-		<form class="form-inline">
-			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-		</form>
-	</nav>
-
-	<!-- Fin de navigation de la boutique -->
-
-	
-	<div class="text-center" style="color:blue">
-		<h2>Nos derniers articles</h2>
-	</div><br>
+   
 	<div class="row">
-		<div class="col-lg-2 centrer">
+		<div class="col-lg-3 centrer">
 
-			<h4>Affiner vos recherches</h4><br>
-			<nav class="navbar navbar-light bg-light">
-				<form class="form-inline">
-					<input class="form-control mr-sm-2" type="search" placeholder="Prix" aria-label="Search">
+			<div class="dropdown">
+				<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<h6>Catégories</h6>
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					<a class="dropdown-item" href="#">Pc de bureau</a>
+					<a class="dropdown-item" href="#">Pc portable</a>
+					<a class="dropdown-item" href="#">Ecran</a>
+					<a class="dropdown-item" href="#">Imprimante</a>
+					<a class="dropdown-item" href="#">Tablette</a>
+					<a class="dropdown-item" href="#">Smartphone</a>
+					<a class="dropdown-item" href="#">Clavier</a>
+					<a class="dropdown-item" href="#">Souris</a>
+					<a class="dropdown-item" href="#">Accessoires</a>
+				</div>
+			</div><br><br>
 
-				</form>
-			</nav>
-		</div>
+			<h5>Affiner vos recherches</h5><br>
+			
+			<!-- test affiner recherche -->
 
-		<div class="col-lg-10">
-			<div class="row article textWhite">
+			<div class="filter-sidebar sidebar">
+				<div class="row card-body py-2 mb-3 bg-dark twhite">
+					<h5><i class="fa fa-car"></i>Affiner vos résultats</h5>
+				</div>    
+				<div class="form-group">
+					<select class="form-control" id="conditionsselect1">
+						<option>Prix</option>
+						<option>New</option>
+						<option>Used</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<select class="form-control" id="conditionsselect2">
+						<option>Marque</option>
+						<option>Compact</option>
+						<option>Convertible</option>
+						<option>Coupe</option>
+						<option>Off-road</option>
+						<option>Sedan</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<select class="form-control" id="make1">
+						<option>Annéé</option>
+						<option>Ford</option>
+						<option>Hyundai</option>
+						<option>Kia</option>
+						<option>Honda</option>
+						<option>Skoda</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<select class="form-control" id="make1">
+						<option>Taille disque dur</option>
+						<option>Accord</option>
+						<option>Camry</option>
+						<option>Civic</option>
+						<option>Rapid</option>
+						<option>Octavia</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<select class="form-control" id="mileage1">
+						<option>Mémoire RAM</option>
+						<option>< 5000</option>
+						<option>5000-10000</option>
+						<option>10000-15000</option>
+						<option>15000-20000</option>
+						<option>20000-25000</option>
+						<option>> 25000</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<select class="form-control" id="year1">
+						<option>Année</option>
+						<option>2000</option>
+						<option>2001</option>
+						<option>2002</option>
+						<option>2003</option>
+						<option>2004</option>
+						<option>2005</option>
+						<option>2006</option>
+						<option>2007</option>
+						<option>2008</option>
+						<option>2009</option>
+						<option>2010</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<select class="form-control" id="make1">
+						<option>Transmission</option>
+						<option>Automatic</option>
+						<option>Manaul</option>
+						<option>Semi-Automatic</option>
+					</select>
+				</div>
+				<hr>
+				<button type="btn" class="btn btn-primary">Rechercher</button>
 
-				<!-- boucle for pour afficher tous les produits -->
-				{% for produit in produits %}
-				<!-- debut de col-lg-4 -->
-				<div class="col-lg-4 produit">
-					<!-- <div class="card-deck"> -->
-						
-						<button type="button" class="btn btn-white" data-toggle="modal" data-target="#exampleModalCenter">
-							<h3>{{ produit.nom_Produit}}</h3>
-							{{ image(produit.image_path)}}
-							<h5><span>{{ produit.prix_Produit}} € </span></h5>
-							<p class="card-text">{{ produit.descri_Produit}}</p>
-						</button>
-						<!-- Button trigger modal -->
-				<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-						<div class="modal-dialog modal-dialog-centered" role="document">
-							<div class="modal-content">
-								<div class="modal-header">
-										<h5 class="modal-title" id="exampleModalCenterTitle">{{ produit.nom_Produit}}</h5>
-										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-											<span aria-hidden="true"></span>
-											
-										</button>
-								</div>
-									<div class="modal-body">
-										{{ produit.descri_Produit}}
-									</div>
-									<div class="modal-footer">
-										<h2><span>{{ produit.prix_Produit}} € </span></h2>
-										<button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
-										<button type="button" class="btn btn-primary">Ajouter au panier</button>
-									</div>
-							</div>
-						</div>
-					</div>
+</div>
+</div>
+
+<div class="col-lg-9">
+	<div class="row article textWhite">
+
+		<!-- boucle for pour afficher tous les produits -->
+		{% for produit in produits %}
+		<!-- debut de col-lg-4 -->
+		<div class="col-lg-4 produit">
+			<!-- <div class="card-deck"> -->
+
+				<h3>{{ produit.nom_Produit}}</h3>
+				{{ image(produit.image_path)}}
+				<h5><span>{{ produit.prix_Produit}} € </span></h5>
+				<p class="card-text descriLimit">{{ produit.descri_Produit}}</p>
+
+				<!-- Button trigger modal --><img class="img-fluid mr-sm-5" id="loupe" src="../image_produit/loupe-50x50.jpg"  alt="oeil" class= "" data-toggle= "modal" data-target= "#exampleModalLong-{{ produit.id_Produit}}" > <button type="button" class="btn btn-success">Ajouter au panier </button><!-- Modal --> <div class= "modal fade" id= "exampleModalLong-{{ produit.id_Produit}}" tabindex= "-1" role= "dialog" aria-labelledby= "exampleModalLongTitle" aria-hidden= "true" > <div class= "modal-dialog" role= "document" > <div class= "modal-content" > <div class= "modal-header" > <h5 class= "modal-title" id= "exampleModalLongTitle" > {{produit.nom_Produit}} </h5> <button type= "button" class= "close" data-dismiss= "modal" aria-label= "Close" > <span aria-hidden= "true" > &times; </span> </button> </div> <div class= "modal-body" > {{ produit.descri_Produit}} </div> <div class= "modal-footer" > <h3> Prix : {{produit.prix_Produit}} € </h3><button type= "button" class= "btn btn-danger" data-dismiss= "modal" > Fermer </button> <button type= "button" class= "btn btn-primary" > Ajouter au panier </button> </div> </div> </div> </div> 
 
 				</div>
-					<!-- 	</div> -->	
-					{% endfor %}
-					</div>
-				</div>
+				<!-- 	</div> -->	
+				{% endfor %}
 			</div>
-			</div><br><br><!-- fin de la div container -->
+		</div>
+	</div>
+</div><br><br><!-- fin de la div container -->
 
 
 

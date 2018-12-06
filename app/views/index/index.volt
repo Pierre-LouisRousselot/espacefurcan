@@ -1,7 +1,7 @@
 {{ content() }}
 <!-- Début de carousel -->
 
-<!-- <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+<div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
       <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(15).jpg" alt="First slide">
@@ -21,10 +21,10 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
-</div> -->
+</div>
 
 <!-- fin du carroussel -->
-<div class="container-fluid">
+<!-- <div class="container-fluid carousselAccueil">
   <div id="slider">
     <figure>
       <img src="{{ url() }}/images/1.jpg">
@@ -34,7 +34,7 @@
       <img src="{{ url() }}/images/1.jpg">
     </figure>
   </div>
-</div>
+</div> -->
 
 <!-- test pagination -->
 

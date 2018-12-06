@@ -1,0 +1,44 @@
+.produit {
+
+width: 40%;
+
+}
+.centrer{
+	padding-left: 50px;
+}
+.centrer button{
+	width: 70%;
+	height: 40px;
+
+}
+.centrer form{
+	width: 100%;
+}
+.descriLimit{
+	
+  
+    overflow: hidden;
+  
+}
+.article #loupe{
+	height: 40px;
+	border-radius:50%;
+}
+
+.twhite {color:#fff;}
+/* Breadcum bar */
+.bg-grey {background:#efefef}
+.breadcrumb {background: none; margin: 0;font-weight: 300;padding-left: 0; font-size: 13px;}
+.breadcrumb a {color: #999;}
+.breadcrumb > .active {color: #696969;}
+.breadcrumb > li + li::before {content: "\203A";color: #999;padding: 0 8px;
+
+}
+.sidebar{
+	width: 70%;
+}
+
+.carousselAccueil img{
+	height: 20px;
+	width:100%;
+}
