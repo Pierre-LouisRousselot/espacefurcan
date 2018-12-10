@@ -40,7 +40,7 @@ margin-right: 30px;
     left: 0;
     text-align: center;
     width:100%;
-    
+
 }
 .aligner{
     text-align: center;
@@ -281,9 +281,6 @@ div#slider figure {
     width: 100%;
 }
 
-body {
-    min-height: 1200px;
-}
 
 .article img{
     height: 190px;
