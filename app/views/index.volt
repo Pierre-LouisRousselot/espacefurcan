@@ -6,7 +6,7 @@
     {{ stylesheet_link('css/bootstrap.min.css') }}
     {{ stylesheet_link('css/style.css') }}
 
-     {{ stylesheet_link('css/style-perso.css') }}
+    {{ stylesheet_link('css/style-perso.css') }}
     {{ stylesheet_link('//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css') }}
     <link href="css/jquery-filestyle.min.js">
     {# <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/datatables.min.css"/> #}
@@ -73,48 +73,50 @@
 
 
     <!-- Debut du footer -->
-    <footer>
 
-        <div class="container containerFooter">
-            <div class="row">
-                <div class="col-xl-12 text-white footerText">
-                    <p>
-                        L'association "Espace Furcan" a pour but de promouvoir la Formation et l’Action sociale, particulièrement en mettant en œuvre des activités de lutte contre la fracture numérique, les difficultés scolaires et l’exclusion sociale.
-                        <address>
-                            <b>Espace Furcan - Rue Notre dame 123, 1140 Bruxelles</b> <br>
-                            {{ link_to("tel:+3222568549", "<b>Téléphone : +32 02 256 85 49</b>", "class": "text-white mb-3")}}
-                        </address>
-                    </p>
-                </div>
+</body>
+<footer id="footer">
+
+    <div class="container containerFooter">
+        <div class="row">
+            <div class="col-xl-12 text-white footerText">
+                <p>
+                    L'association "Espace Furcan" a pour but de promouvoir la Formation et l’Action sociale, particulièrement en mettant en œuvre des activités de lutte contre la fracture numérique, les difficultés scolaires et l’exclusion sociale.
+                    <address>
+                        <b>Espace Furcan - Rue Notre dame 123, 1140 Bruxelles</b> <br>
+                        {{ link_to("tel:+3222568549", "<b>Téléphone : +32 02 256 85 49</b>", "class": "text-white mb-3")}}
+                    </address>
+                </p>
             </div>
         </div>
-
-        <!--     une div qui enveloppe le logo et tout les logos sociaux
-        affichage du logo dans le footer.
-    -->
-    <!-- <div class="row"> -->
-    <div class="col-md-6">
-        <div>
-            <!--         <img class="logoFurcan" src="../images/mm.png" alt="image">
-        -->        </div>
     </div>
 
-    <!--  fin d'affichage du logo dans le footer. -->
+    <!--     une div qui enveloppe le logo et tout les logos sociaux
+    affichage du logo dans le footer.
+-->
+<!-- <div class="row"> -->
+<div class="col-md-6">
+    <div>
+        <!--         <img class="logoFurcan" src="../images/mm.png" alt="image">
+    -->        </div>
+</div>
 
-    <div class="col-md-6 sociaux">
-        <div class="facebook">
-            {{ link_to("https://facebook.com/espacefurcan/", "target": "_blank","local": FALSE, image('/images/facebook-logo.png', "class": "logoFacebook")) }}
-        </div>
-        <div>
-            {{ link_to("https://twitter.com/AsblEspace", "target": "_blank","local": FALSE, image('/images/twitter-logo-100x100.png', "class": "logoTwitter")) }}
-        </div>
-        <div>
-            {{ link_to("https://www.instagram.com/espace_furcan_asbl/", "target": "_blank","local": FALSE, image('/images/logo-instagram.png', "class": "logoInstagram")) }}
-        </div>
-        <div>
-            {{ link_to("https://www.instagram.com/espace_furcan_asbl/", "target": "_blank","local": FALSE, image('/images/linkedin-icon-25.png', "class": "logoLinkedin")) }}
-        </div>
+<!--  fin d'affichage du logo dans le footer. -->
+
+<div class="col-md-6 sociaux">
+    <div class="facebook">
+        {{ link_to("https://facebook.com/espacefurcan/", "target": "_blank","local": FALSE, image('/images/facebook-logo.png', "class": "logoFacebook")) }}
     </div>
+    <div>
+        {{ link_to("https://twitter.com/AsblEspace", "target": "_blank","local": FALSE, image('/images/twitter-logo-100x100.png', "class": "logoTwitter")) }}
+    </div>
+    <div>
+        {{ link_to("https://www.instagram.com/espace_furcan_asbl/", "target": "_blank","local": FALSE, image('/images/logo-instagram.png', "class": "logoInstagram")) }}
+    </div>
+    <div>
+        {{ link_to("https://www.instagram.com/espace_furcan_asbl/", "target": "_blank","local": FALSE, image('/images/linkedin-icon-25.png', "class": "logoLinkedin")) }}
+    </div>
+</div>
 </div>
 
 <div class="container text-center">
@@ -135,5 +137,4 @@
 </div>
 <!-- Fin du footer -->
 </footer>
-</body>
 </html>
