@@ -1,10 +1,12 @@
-
-
-<h1 style="color:blue;text-align:center;"> Liste des produits </h1><br>
+<link rel="stylesheet" type="text/css" href="/espacefurcan/public/css/bootstrap-table.min.css">
+<h2> Gestion des produits</h2>
 
 {{ link_to("products/addProduct","Ajouter","class": "btn btn-success btn-lg")}}
 
-<table id="example" class="table table-sm table-dark">
+<table id="table"
+        data-toggle="table"
+        data-search="true"
+        data-show-columns="true">
 
   <thead>
 
@@ -21,6 +23,7 @@
       <th scope="col">Modifier</th>
     </tr>
   </thead>
+
     <tbody>
   {% for produit in produits %}
 
@@ -32,7 +35,7 @@
       <td> {{ produit.stock_Produit}}</td>
       <td> {{ produit.dateAjout_Produit}}</td>
       <td> {{ produit.id_Categorie}}</td>
-      <td> {{ image(produit.image_path,'style':'height:50px')}}</td>
+      <td> {{ image(produit.image_Produit,'style':'height:50px')}}</td>
       <td>{{ link_to("products/delete/" ~ produit.id_Produit, image('images/delete-wood-50x50.png','style':'height:30px')) }}</td>
       <td>{{ link_to("products/edit/" ~ produit.id_Produit,'Modifier','class':'btn btn-warning btn-lg') }}</td>
  </tr>
@@ -41,3 +44,7 @@
   {% endfor %}
     </tbody>
 </table>
+<script src="/espacefurcan/public/js/jquery.min.js"></script>
+<script src="/espacefurcan/public/js/bootstrap.min.js"></script>
+<script src="/espacefurcan/public/js/bootstrap-table.min.js"></script>
+<script src="/espacefurcan/public/js/bootstrap-table-fr-FR.js"></script>

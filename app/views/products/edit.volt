@@ -8,7 +8,6 @@
 
 <fieldset>
 
-
  <input type="hidden" id="id_Produit" name="id_Produit" value="{{produit.id_Produit}}">
 
  <div class="control-group">
@@ -16,7 +15,7 @@
     <div class="controls">
         {{ form.render('nom_Produit', ['class': 'form-control']) }}
         <p class="help-block"></p>
-        <div class="alert alert-warning" id="nom_alert">
+        <div hidden class="alert alert-warning" id="nom_alert">
             Veuillez entrez le nom du produit
         </div>
     </div>
@@ -27,7 +26,7 @@
     <div class="controls">
         {{ form.render('prix_Produit', ['class': 'form-control']) }}
         <p class="help-block">(requis)</p>
-        <div class="alert alert-warning" id="prix_alert">
+        <div hidden class="alert alert-warning" id="prix_alert">
            Veuillez entrez le prix du produit.
        </div>
    </div>
@@ -38,7 +37,7 @@
     <div class="controls">
         {{ form.render('descri_Produit', ['class': 'form-control']) }}
         <p class="help-block">(requis)</p>
-        <div class="alert alert-warning" id="description_alert">
+        <div hidden class="alert alert-warning" id="description_alert">
          Veuillez entrez la description du produit.
      </div>
  </div>
@@ -49,7 +48,7 @@
     <div class="controls">
         {{ form.render('stock_Produit', ['class': 'form-control']) }}
         <p class="help-block">(requis)</p>
-        <div class="alert alert-warning" id="stock_alert">
+        <div hidden class="alert alert-warning" id="stock_alert">
            veuillez entrez le nombre de produit en stock.
        </div>
    </div>
@@ -60,7 +59,7 @@
     <div class="controls">
         {{ form.render('id_Categorie', ['class': 'form-control']) }}
         <p class="help-block">(requis)</p>
-        <div class="alert alert-warning" id="categorie_alert">
+        <div hidden class="alert alert-warning" id="categorie_alert">
             Veuillez entrez la catégorie du produit
         </div>
     </div>
@@ -73,7 +72,7 @@
  {{ file_field("file", "size": "30", "class": "span6") }}
 
 </div>
- <div class="alert alert-warning" id="categorie_alert">
+ <div hidden class="alert alert-warning" id="categorie_alert">
             Veuillez entrez l'image du produit
         </div>
 <br>
@@ -83,7 +82,7 @@
 
 <div class="form-actions">
     {{ submit_button('Modifier', 'class': 'btn btn-primary') }}
-    <p class="help-block">En vous inscrivant, vous acceptez les termes d'utilisations et de confidentialités.</p>
+    <p hidden class="help-block">En vous inscrivant, vous acceptez les termes d'utilisations et de confidentialités.</p>
 </div>
 
 </fieldset>
