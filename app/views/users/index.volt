@@ -30,9 +30,9 @@
     </tbody>
 </table>
 {{ link_to("users/search", '<i class="icon-fast-backward"></i> First', "class": "btn") }}
-{{ link_to("users/search?page=" ~ page.before,' Previous', "class": "btn") }}
-{{ link_to("users/search?page=" ~ page.next,' Next', "class": "btn") }}
-{{ link_to("users/search?page=" ~ page.last, 'Last', "class": "btn") }}
+{{ link_to("users/index?page=" ~ page.before,' Previous', "class": "btn") }}
+{{ link_to("users/index?page=" ~ page.next,' Next', "class": "btn") }}
+{{ link_to("users/index?page=" ~ page.last, 'Last', "class": "btn") }}
 <span class="help-inline">{{ page.current }}/{{ page.total_pages }}</span>
 <p> {{ page.items|length }} users in total.</p>
 {# {{ content() }}
