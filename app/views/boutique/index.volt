@@ -35,7 +35,7 @@
 		<div class="row article textWhite">
 
 			<!-- boucle for pour afficher tous les produits -->
-			{% for produit in produits %}
+			{% for produit in page.items %}
 			<!-- debut de col-lg-4 -->
 			<div class="col-lg-4 produit">
 				<!-- <div class="card-deck"> -->
@@ -57,13 +57,13 @@
 		<nav aria-label="Page navigation example">
 			<ul class="pagination justify-content-center">
 				<li class="page-item disabled">
-					{{ link_to("boutique" ~ page.before,' Précédente', "class": "btn btn-success") }}
+					{{ link_to("boutique/index?page=" ~ page.before,' Précédente', "class": "btn btn-success") }}
 				</li>
 				<li class="page-item"><a class="page-link" href="#">1</a></li>
 				<li class="page-item"><a class="page-link" href="#">2</a></li>
 				<li class="page-item"><a class="page-link" href="#">3</a></li>
 				<li class="page-item">
-					{{ link_to("boutique" ~ page.next,' Suivant', "class": "btn btn-success") }}
+					{{ link_to("boutique/index?page=" ~ page.next,' Suivant', "class": "btn btn-success") }}
 				</li>
 			</ul>
 		</nav>

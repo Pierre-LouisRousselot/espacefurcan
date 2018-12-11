@@ -3,6 +3,8 @@
 // use Phalcon\Paginator\Adapter\Model as Paginator;
 use Phalcon\Flash;
 use Phalcon\Forms\Element\File;
+use Phalcon\Paginator\Adapter\Model as Paginator;
+
 
 
 class ProductsController extends ControllerBase
@@ -18,6 +20,49 @@ class ProductsController extends ControllerBase
 
         $produits = Produits::find();
         $this->view->produits = $produits;
+
+
+         // Pagination
+ 
+  
+
+    $numberPage = 1;
+      
+    if ($this->request->isPost()) {
+      $query = Criteria::fromInput($this->di, "produits", $this->request->getPost());
+      $this->persistent->searchParams = $query->getParams();
+    } else {
+      $numberPage = $this->request->getQuery("page", "int");
+      
+   
+
+    $parameters = [];
+
+    $produits = produits::find($parameters);
+   
+    if (count($produits) == 0) {
+      $this->flash->notice("La recherche est vide");
+
+      return $this->dispatcher->forward(
+        [
+          "controller" => "products",
+          "action"     => "index",
+        ]
+      );
+    }
+
+    $paginator = new Paginator([
+      "data"  => $produits,
+      "limit" => 12,
+      "page"  => $numberPage
+    ]);
+    //var_dump($paginator);die();
+
+    $this->view->page = $paginator->getPaginate();
+    $this->view->produit = $produits;
+    //var_dump($this);die();
+
+}
     }
 
 
@@ -37,30 +82,6 @@ class ProductsController extends ControllerBase
             $dateAjout = $this->request->getPost('dateAjout_Produit', ['date', 'striptags']);
             $id_Categorie = $this->request->getPost('id_Categorie', ['int', 'striptags']);
 
-<<<<<<< HEAD
-        $produits = new Produits();
-        if ($this->request->hasFiles()) {
-           $files = $this->request->getUploadedFiles();
-            
-
-           foreach ($files as $file) {
-                   // Move the file into the application
-               $file->moveTo('../public/image_produit/' . $file->getName());
-               $produits->image_produit = 'public/image_produit/' . $file->getName();
-           }
-       }
-       $produits->nom_Produit = $name;
-       $produits->prix_Produit = $prix;
-       $produits->descri_Produit = $description;
-       $produits->stock_Produit = $stock;
-       $produits->dateAjout_Produit = $dateAjout;
-       $produits->id_Categorie = $id_Categorie;
-       $produits->dateAjout_Produit = new Phalcon\Db\RawValue('now()');
-       if ($produits->save() == false) {
-
-        foreach ($produits->getMessages() as $message) {
-            $this->flash->error((string) $message);
-=======
 
             $produits = new Produits();
             if ($this->request->hasFiles()) {
@@ -92,7 +113,7 @@ class ProductsController extends ControllerBase
                 die;
                 //$form->clear();
             }
->>>>>>> 56e295674bcf09ae1b4f8473492753e69ef09dd2
+
         }
 
 
@@ -216,29 +237,13 @@ class ProductsController extends ControllerBase
         $image_produit = '../public/image_produit/';
 
         if ($this->request->hasFiles()) {
-<<<<<<< HEAD
-           $files = $this->request->getUploadedFiles();
-               //var_dump('test');die();
 
-           foreach ($files as $file) {
-                   // Move the file into the application
-               $file->moveTo('../public/image_produit/' . $file->getName());
-               $produit->image_produit = 'public/image_produit/' . $file->getName();
-           }
-       }
-        //var_dump($produit->save());
-
-       if (!$form->isValid($data, $produit)) {
-        foreach ($form->getMessages() as $message) {
-            $this->flash->error($message);
-=======
             $files = $this->request->getUploadedFiles();
             foreach ($files as $file) {
                 // Move the file into the application
                 $file->moveTo($image_produit . $file->getName());
                 $produit->image_Produit =  $file->getName();
             }
->>>>>>> 56e295674bcf09ae1b4f8473492753e69ef09dd2
         }
 
 

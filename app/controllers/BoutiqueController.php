@@ -31,11 +31,12 @@ class BoutiqueController extends ControllerBase
        //var_dump($numberPage);die();
     if ($this->request->isPost()) {
       $query = Criteria::fromInput($this->di, "produits", $this->request->getPost());
-      $this->persistent->searchParams = $query->getParams();   //var_dump($numberPage);die();
+      $this->persistent->searchParams = $query->getParams();//var_dump($numberPage);die();
     } else {
       $numberPage = $this->request->getQuery("page", "int");
+       //var_dump($this->request);die();
     }
-    //var_dump($numberPage);die();
+   
 
     $parameters = [];
 
@@ -54,17 +55,18 @@ class BoutiqueController extends ControllerBase
 
     $paginator = new Paginator([
       "data"  => $produits,
-      "limit" => 10,
+      "limit" => 9,
       "page"  => $numberPage
     ]);
     //var_dump($paginator);die();
 
     $this->view->page = $paginator->getPaginate();
-    $this->view->boutique = $produits;
+    $this->view->produit = $produits;
     //var_dump($this);die();
 
 
 
   }
-
 }
+
+ 
