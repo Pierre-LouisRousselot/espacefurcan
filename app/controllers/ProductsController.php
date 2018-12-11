@@ -65,8 +65,7 @@ class ProductsController extends ControllerBase
                 }
             } else {
                 $this->flash->success('Votre produit a été rajouter avec succès');
-                die;
-                //$form->clear();
+                $form->clear();
             }
         }
 

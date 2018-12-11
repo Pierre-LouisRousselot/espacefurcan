@@ -1,5 +1,4 @@
-
-</div>
+<link rel="stylesheet" type="text/css" href="/espacefurcan/public/css/boutique.css">
 
 <div class="row">
   <div class="col-lg-3 centrer">
@@ -116,10 +115,10 @@
       <div class="col-lg-4 produit">
         <!-- <div class="card-deck"> -->
 
-        <h3>{{ produit.nom_Produit}}</h3>
-        {{ image(produit.image_Produit)}}
-        <h5><span>{{ produit.prix_Produit}} € </span></h5>
-        <p class="card-text descriLimit">{{ produit.descri_Produit}}</p>
+        <h3 class="product_name">{{ produit.nom_Produit}}</h3>
+        {{ image("public/image_produit/" ~ produit.image_Produit, 'class':'img_product')}}
+        <span class="price_product">{{ produit.prix_Produit}} € </span>
+        <p class="card-text_descriLimit">{{ produit.descri_Produit}}</p>
 
         <!-- Button trigger modal --><button type="button" alt="oeil" data-toggle= "modal" data-target= "#exampleModalLong-{{ produit.id_Produit}}" class="large material-icons" > loupe </button> <button type="button" class="large material-icons">add_shopping_cart </button>
         <!-- Modal -->
