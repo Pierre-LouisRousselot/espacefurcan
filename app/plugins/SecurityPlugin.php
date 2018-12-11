@@ -58,7 +58,7 @@ class SecurityPlugin extends Plugin
 				$privateResources = [
 					'admin'        => ['index','users','products','school'],
 					'users'		   => ['index','delete', 'edit','save','search'],
-					'products'     => ['index','delete', 'edit','save','search'],
+					'products'     => ['index','delete', 'edit','save','search', 'deleteImageProduct'],
 					'school'	   => ['index'],
 					'services'     => ['index'],
 					'pages'        => ['index', 'loadTiny', 'savePage', 'addPage', 'delPage', 'postAcceptor'],

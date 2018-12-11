@@ -28,17 +28,20 @@ class BoutiqueController extends ControllerBase
   
 
     $numberPage = 1;
+       //var_dump($numberPage);die();
     if ($this->request->isPost()) {
-      $query = Criteria::fromInput($this->di, "Boutique", $this->request->getPost());
-      $this->persistent->searchParams = $query->getParams();
+      $query = Criteria::fromInput($this->di, "produits", $this->request->getPost());
+      $this->persistent->searchParams = $query->getParams();   //var_dump($numberPage);die();
     } else {
       $numberPage = $this->request->getQuery("page", "int");
     }
+    //var_dump($numberPage);die();
 
     $parameters = [];
 
-    $boutique = produits::find($parameters);
-    if (count($boutique) == 0) {
+    $produits = produits::find($parameters);
+    //var_dump($produits);die();
+    if (count($produits) == 0) {
       $this->flash->notice("La recherche est vide");
 
       return $this->dispatcher->forward(
@@ -50,13 +53,16 @@ class BoutiqueController extends ControllerBase
     }
 
     $paginator = new Paginator([
-      "data"  => $boutique,
-      "limit" => 5,
+      "data"  => $produits,
+      "limit" => 10,
       "page"  => $numberPage
     ]);
+    //var_dump($paginator);die();
 
     $this->view->page = $paginator->getPaginate();
-    $this->view->boutique = $boutique;
+    $this->view->boutique = $produits;
+    //var_dump($this);die();
+
 
 
   }

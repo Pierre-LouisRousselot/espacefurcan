@@ -16,28 +16,28 @@ class ProductsController extends ControllerBase
 
     public function indexAction() {
 
-      $produits = Produits::find();
-      $this->view->produits = $produits;
- }
-  
-
-  public function AddProductAction(){
+        $produits = Produits::find();
+        $this->view->produits = $produits;
+    }
 
 
-      $form = new ProductForm;
-      $imageFolder = 'public/image_produit/';
+    public function AddProductAction(){
+
+
+        $form = new ProductForm;
+        $imageFolder = 'public/image_produit/';
 
 
 
-      if ($this->request->isPost()) {
-        $name = $this->request->getPost('nom_Produit', ['string','striptags']);
-        $prix = $this->request->getPost('prix_Produit', ['float']);
-        $description = $this->request->getPost('descri_Produit', ['string', 'striptags']);
-        $stock = $this->request->getPost('stock_Produit', ['int', 'striptags']);
-        $dateAjout = $this->request->getPost('dateAjout_Produit', ['date', 'striptags']);
-        $id_Categorie = $this->request->getPost('id_Categorie', ['int', 'striptags']);
+        if ($this->request->isPost()) {
+            $name = $this->request->getPost('nom_Produit', ['string','striptags']);
+            $prix = $this->request->getPost('prix_Produit', ['float']);
+            $description = $this->request->getPost('descri_Produit', ['string', 'striptags']);
+            $stock = $this->request->getPost('stock_Produit', ['int', 'striptags']);
+            $dateAjout = $this->request->getPost('dateAjout_Produit', ['date', 'striptags']);
+            $id_Categorie = $this->request->getPost('id_Categorie', ['int', 'striptags']);
 
-
+<<<<<<< HEAD
         $produits = new Produits();
         if ($this->request->hasFiles()) {
            $files = $this->request->getUploadedFiles();
@@ -60,17 +60,45 @@ class ProductsController extends ControllerBase
 
         foreach ($produits->getMessages() as $message) {
             $this->flash->error((string) $message);
+=======
+
+            $produits = new Produits();
+            if ($this->request->hasFiles()) {
+                $files = $this->request->getUploadedFiles();
+                //var_dump('test');die();
+
+                foreach ($files as $file) {
+                    // Move the file into the application
+                    $file->moveTo('../public/image_produit/' . $file->getName());
+                    $produits->image_Produit = $file->getName();
+                }
+            }
+            $produits->nom_Produit = $name;
+            $produits->prix_Produit = $prix;
+            $produits->descri_Produit = $description;
+            $produits->stock_Produit = $stock;
+            $produits->dateAjout_Produit = $dateAjout;
+            $produits->id_Categorie = $id_Categorie;
+            //$produits->image_path = $imageFolder . $image_produit;
+            //var_dump($image_produit->image_path);die;
+            $produits->dateAjout_Produit = new Phalcon\Db\RawValue('now()');
+            if ($produits->save() == false) {
+                //var_dump($produits->getMessages());die;
+                foreach ($produits->getMessages() as $message) {
+                    $this->flash->error((string) $message);
+                }
+            } else {
+                $this->flash->success('Votre produit a été rajouter avec succès');
+                die;
+                //$form->clear();
+            }
+>>>>>>> 56e295674bcf09ae1b4f8473492753e69ef09dd2
         }
-    } else {
-        $this->flash->success('Votre produit a été rajouter avec succès');
-        $form->clear();
+
+
+        $this->view->form = $form;
+
     }
-}
-
-
-$this->view->form = $form;
-
-}
 
     /**
     * Deletes an article
@@ -120,6 +148,13 @@ $this->view->form = $form;
         if (!$this->request->isPost()) {
 
             $produit = Produits::findFirstById_Produit($id);
+            $this->tag->setDefault('nom_Produit', $produit->nom_Produit);
+            $this->tag->setDefault('prix_Produit', $produit->prix_Produit);
+            $this->tag->setDefault('descri_Produit', $produit->descri_Produit);
+            $this->tag->setDefault('stock_Produit', $produit->stock_Produit);
+            $this->tag->setDefault('id_Categorie', $produit->id_Categorie);
+            $this->tag->setDefault('image_Produit', $produit->image_Produit);
+
             if (!$produit) {
                 //var_dump($produit);die();
                 $this->flash->error("Ce produit n'existe pas");
@@ -134,10 +169,10 @@ $this->view->form = $form;
             $this->view->produit = $produit;
             //var_dump($produit);die();
             $form = new ProductForm((object)
-                ['id_Produit' => $id]);
+            ['id_Produit' => $id]);
             //var_dump($form);die();
             $this->view->form = new ProductForm($produit,['edit' => true]);
-         // var_dump($this->view->form);die;
+            // var_dump($this->view->form);die;
         }
     }
 
@@ -178,7 +213,10 @@ $this->view->form = $form;
         $this->view->form = $form;
 
         $data = $this->request->getPost();
+        $image_produit = '../public/image_produit/';
+
         if ($this->request->hasFiles()) {
+<<<<<<< HEAD
            $files = $this->request->getUploadedFiles();
                //var_dump('test');die();
 
@@ -193,51 +231,65 @@ $this->view->form = $form;
        if (!$form->isValid($data, $produit)) {
         foreach ($form->getMessages() as $message) {
             $this->flash->error($message);
+=======
+            $files = $this->request->getUploadedFiles();
+            foreach ($files as $file) {
+                // Move the file into the application
+                $file->moveTo($image_produit . $file->getName());
+                $produit->image_Produit =  $file->getName();
+            }
+>>>>>>> 56e295674bcf09ae1b4f8473492753e69ef09dd2
         }
 
-    }
 
-    if ($produit->save() == false) {
-        foreach ($produit->getMessages() as $message) {
-            $this->flash->error($message);
+        if (!$form->isValid($data, $produit)) {
+            foreach ($form->getMessages() as $message) {
+                $this->flash->error($message);
+            }
+
         }
 
+        if ($produit->save() == false) {
+            foreach ($produit->getMessages() as $message) {
+                $this->flash->error($message);
+            }
+
+        }
+
+        $form->clear();
+
+        $this->flash->success("Le produit a été modifié avec succès");
+
+        return $this->dispatcher->forward(
+            [
+                "controller" => "products",
+                "action"     => "index",
+            ]
+        );
     }
 
-    $form->clear();
+    public function deleteImageProductAction($id){
+        $produit = Produits::findFirstById_Produit($id);
+        $form = new ProductForm((object)
+        ['id_Produit' => $id]);
+        //var_dump($form);die();
+        $this->view->form = new ProductForm($produit,['edit' => true]);
+        $file = $produit->image_Produit;
 
-    $this->flash->success("Le produit a été modifié avec succès");
+        // var_dump($produit);die;
 
-    return $this->dispatcher->forward(
-        [
-            "controller" => "products",
-            "action"     => "index",
-        ]
-    );
-}
+        $image_path = '../public/image_produit/';
+        unlink($image_path . $file);
+        $produit->image_Produit = NULL;
+        $produit->save();
 
-    //  public function uploadAction()
-    // {
-
-
-    //     Check if the user has uploaded files
-    //     if ($this->request->hasFiles() == true) {
-    //         $image_produit = 'image_produit/';
-    //         var_dump($image_produit);die();
-
-    //         // Print the real file names and sizes
-    //         foreach ($this->request->getUploadedFiles() as $file) {
-    //             // $Photo = new Photo();
-    //             // $Photo->name = $file->getName();
-    //             // $Photo->size = $file->getSize();
-    //             // $Photo->save();
-
-    //             //Move the file into the application
-    //             $file->moveTo('../public/image_produit/' . $file->getName());
-    //             //$file->moveTo($image_produit . './public/image_produit/');
-    //         }
-    //     }
-    // }
+        return $this->dispatcher->forward(
+            [
+                "controller" => "products",
+                "action"     => "edit",
+            ]
+        );
+    }
 
 
 
