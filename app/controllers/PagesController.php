@@ -153,7 +153,7 @@ class PagesController extends ControllerBase
         /*******************************************************
          * Only these origins will be allowed to upload images *
          ******************************************************/
-        $accepted_origins = array("http://localhost", "http://192.168.1.1", "http://example.com");
+        $accepted_origins = array("http://localhost", "http://192.168.1.1", "http://espacefurcan.be");
 
         /*********************************************
         * Change this line to set the upload folder *
@@ -161,8 +161,7 @@ class PagesController extends ControllerBase
 
         $url = new Url();
         $url->setBaseUri('');
-        $imageFolder = $url->getStatic('../public/images/');
-
+        $imageFolder = $url->getStatic('../public/images-page/');
 
         reset ($_FILES);
         $temp = current($_FILES);
