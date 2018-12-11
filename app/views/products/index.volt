@@ -36,7 +36,7 @@
       <td> {{ produit.stock_Produit}}</td>
       <td> {{ produit.dateAjout_Produit}}</td>
       <td> {{ produit.id_Categorie}}</td>
-      <td> {{ image(produit.image_Produit,'style':'height:50px')}}</td>
+      <td> {{ image("image_produit/" ~ produit.image_Produit,'style':'height:50px')}}</td>
       <td>{{ link_to("products/edit/" ~ produit.id_Produit,"edit" ,"class": "large material-icons") }}</td>
       <td>{{ link_to("products/delete/" ~ produit.id_Produit,"delete" ,"class": "large material-icons") }}</td>
  </tr>

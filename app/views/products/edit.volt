@@ -77,7 +77,7 @@
     </div>
     <br>
     {% if produit.image_Produit is not empty %}
-
+    
         {{ image("public/image_produit/" ~ produit.image_Produit, 'style': "height: 100px")}}
         {{ link_to('products/deleteImageProduct/' ~ produit.id_Produit, '<i class="material-icons delete-file">remove_circle</i>') }}
 

@@ -1,6 +1,4 @@
 {{ content() }}
-{{ elements.getUser() }}
-
 <ul class="pager">
     <li class="previous pull-left">
         {{ link_to("users/index", "&larr; Go Back") }}
