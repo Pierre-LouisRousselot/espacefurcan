@@ -1,8 +1,8 @@
-
-</div>
+<link rel="stylesheet" type="text/css" href="/espacefurcan/public/css/boutique.css">
 
 
 <div class="row">
+
 	<div class="col-lg-3 centrer">
 
 		<nav aria-label="breadcrumb">
@@ -72,3 +72,6 @@
 
 
 
+
+
+    

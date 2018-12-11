@@ -56,7 +56,8 @@ class ProductsController extends ControllerBase
       "limit" => 12,
       "page"  => $numberPage
     ]);
-    //var_dump($paginator);die();
+    //var_dump($paginator);die();+
+    
 
     $this->view->page = $paginator->getPaginate();
     $this->view->produit = $produits;
