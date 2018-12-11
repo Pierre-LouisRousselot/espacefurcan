@@ -58,7 +58,7 @@ class SecurityPlugin extends Plugin
 				$privateResources = [
 					'admin'        => ['index','users','products','school'],
 					'users'		   => ['index','delete', 'edit','save','search'],
-					'products'     => ['index','delete', 'edit','save','search', 'deleteImageProduct'],
+					'products'     => ['index','delete', 'edit','save','search'],
 					'school'	   => ['index'],
 					'services'     => ['index'],
 					'pages'        => ['index', 'loadTiny', 'savePage', 'addPage', 'delPage', 'postAcceptor'],
@@ -79,7 +79,7 @@ class SecurityPlugin extends Plugin
 					'register'     => ['index'],
 					'errors'       => ['show401', 'show404', 'show500'],
 					'session'      => ['index', 'register', 'start', 'end'],
-					'boutique'     => ['index','edit'],
+					'boutique'     => ['index'],
 				];
 
 				foreach ($publicResources as $resource => $actions) {

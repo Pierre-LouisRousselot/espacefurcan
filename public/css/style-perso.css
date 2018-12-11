@@ -42,3 +42,8 @@ width: 40%;
 	height: 20px;
 	width:100%;
 }
+table.dataTable tbody tr{
+	background-color: black !important;
+
+}
+
