@@ -49,7 +49,10 @@
 
   {% endfor %}
     </tbody>
+
 </table>
+
+{{ produits }}
 <script src="/espacefurcan/public/js/jquery.min.js"></script>
 <script src="/espacefurcan/public/js/bootstrap.min.js"></script>
 <script src="/espacefurcan/public/js/bootstrap-table.min.js"></script>
