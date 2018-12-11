@@ -5,13 +5,16 @@
 
 	<div class="col-lg-3 centrer">
 
-		<nav aria-label="breadcrumb">
+		<!-- <nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="#">Accueil</a></li>
 				<li class="breadcrumb-item"><a href="#">Boutique</a></li>
 				<li class="breadcrumb-item active" aria-current="page">Data</li>
 			</ol>
-		</nav>
+		</nav> -->
+
+		<label for="">Categories</label>
+		<input type="text" name="pseudo" id="search">
 
 		<div class="dropdown"><br>
 			<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -19,10 +22,15 @@
 			</button>
 			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
+				
+
 				{% for categorie in categories %}
 
-				<a class="dropdown-item" href="#">{{ categorie.nom_Categorie }}</a>
+				<a class="dropdown-item" id="categorieFilter" href="#"><span>{{ categorie.nom_Categorie }}</span></a>
+
+
 				{% endfor %}
+				console.log(categories);
 			</div>
 
 			
@@ -74,4 +82,3 @@
 
 
 
-    
