@@ -69,8 +69,8 @@
            {# <label for="email">Fichier</label> #}
            {# <div class="input"> #}
                {{ file_field("file", "size": "30", "class": "span6") }}
-               <div class="alert" id="email_alert">
-                   <strong>Warning!</strong> Please enter your email
+               <div class="alert" id="email_alert" style="color:red" >
+                   <strong>Attention </strong> Veuillez entrez un format de fichier pdf jpg jpeg svp
                </div>
            {# </div> #}
        </div>

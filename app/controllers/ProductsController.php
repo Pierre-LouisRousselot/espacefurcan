@@ -41,12 +41,12 @@ class ProductsController extends ControllerBase
         $produits = new Produits();
         if ($this->request->hasFiles()) {
            $files = $this->request->getUploadedFiles();
-               //var_dump('test');die();
+            
 
            foreach ($files as $file) {
                    // Move the file into the application
                $file->moveTo('../public/image_produit/' . $file->getName());
-               $produits->image_path = 'public/image_produit/' . $file->getName();
+               $produits->image_produit = 'public/image_produit/' . $file->getName();
            }
        }
        $produits->nom_Produit = $name;
@@ -55,11 +55,9 @@ class ProductsController extends ControllerBase
        $produits->stock_Produit = $stock;
        $produits->dateAjout_Produit = $dateAjout;
        $produits->id_Categorie = $id_Categorie;
-            //$produits->image_path = $imageFolder . $image_produit;
-            //var_dump($image_produit->image_path);die;
        $produits->dateAjout_Produit = new Phalcon\Db\RawValue('now()');
        if ($produits->save() == false) {
-                //var_dump($produits->getMessages());die;
+
         foreach ($produits->getMessages() as $message) {
             $this->flash->error((string) $message);
         }
@@ -187,7 +185,7 @@ $this->view->form = $form;
            foreach ($files as $file) {
                    // Move the file into the application
                $file->moveTo('../public/image_produit/' . $file->getName());
-               $produit->image_path = 'public/image_produit/' . $file->getName();
+               $produit->image_produit = 'public/image_produit/' . $file->getName();
            }
        }
         //var_dump($produit->save());

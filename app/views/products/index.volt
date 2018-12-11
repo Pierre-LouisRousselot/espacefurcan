@@ -32,7 +32,7 @@
       <td> {{ produit.stock_Produit}}</td>
       <td> {{ produit.dateAjout_Produit}}</td>
       <td> {{ produit.id_Categorie}}</td>
-      <td> {{ image(produit.image_path,'style':'height:50px')}}</td>
+      <td> {{ image(produit.image_Produit,'style':'height:50px')}}</td>
       <td>{{ link_to("products/delete/" ~ produit.id_Produit, image('images/delete-wood-50x50.png','style':'height:30px')) }}</td>
       <td>{{ link_to("products/edit/" ~ produit.id_Produit,'Modifier','class':'btn btn-warning btn-lg') }}</td>
  </tr>
