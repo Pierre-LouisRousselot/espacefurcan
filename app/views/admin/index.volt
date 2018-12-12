@@ -53,9 +53,9 @@
 </div>
 
         <div class="col-lg-3 card card-1">
-            <a href="./">
+            <a href="./right/index">
             <i class="material-icons logo-page">receipt</i>
-            <p class="texte-page">GERER LES COMMANDES ICI!</p>
+            <p class="texte-page">GERER LES DROITS UTILISATEURS ICI!</p>
     </a>
 </div>
 
