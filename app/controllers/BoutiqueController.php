@@ -13,6 +13,26 @@ class BoutiqueController extends ControllerBase
 		parent::initialize();
 	}
 
+  public function catAction($id){
+
+      $content = Produits::find([
+      
+
+          "conditions" => "id_categorie = " . $id
+      ]);
+        //var_dump($content);die();
+      //$catContent = [
+
+          //"nom" => $content[0]->nom__Categorie
+
+     // ];
+      //var_dump($catContent);die;
+       $this->view->produits = $content;
+      //return json_encode($catContent);
+
+
+  }
+
   public function indexAction()
   {
 
@@ -23,25 +43,29 @@ class BoutiqueController extends ControllerBase
     $categories = Categories::find();
     $this->view->categories = $categories;
 
+    // test de categorie
+
+
+
+    // fin de test de categorie
+
     // Pagination
- 
-  
 
     $numberPage = 1;
-       //var_dump($numberPage);die();
+  
     if ($this->request->isPost()) {
       $query = Criteria::fromInput($this->di, "produits", $this->request->getPost());
-      $this->persistent->searchParams = $query->getParams();//var_dump($numberPage);die();
+      $this->persistent->searchParams = $query->getParams();
     } else {
       $numberPage = $this->request->getQuery("page", "int");
-       //var_dump($this->request);die();
+     
     }
    
 
     $parameters = [];
 
     $produits = produits::find($parameters);
-    //var_dump($produits);die();
+   
     if (count($produits) == 0) {
       $this->flash->notice("La recherche est vide");
 
@@ -58,11 +82,11 @@ class BoutiqueController extends ControllerBase
       "limit" => 9,
       "page"  => $numberPage
     ]);
-    //var_dump($paginator);die();
+ 
 
     $this->view->page = $paginator->getPaginate();
     $this->view->produit = $produits;
-    //var_dump($this);die();
+
 
 
 

@@ -13,8 +13,7 @@
 			</ol>
 		</nav> -->
 
-		<label for="">Categories</label>
-		<input type="text" name="pseudo" id="search">
+	
 
 		<div class="dropdown"><br>
 			<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -26,11 +25,11 @@
 
 				{% for categorie in categories %}
 
-				<a class="dropdown-item" id="categorieFilter" href="#"><span>{{ categorie.nom_Categorie }}</span></a>
-
-
+				<a class="dropdown-item" id="categorieFilter" onclick="detailCat({{ categorie.id_Categorie }})" href="#"><span>{{ categorie.nom_Categorie }}</span></a>
+				
 				{% endfor %}
-				console.log(categories);
+				
+			
 			</div>
 
 			
@@ -77,7 +76,8 @@
 		</nav>
 
 	</div><br><br><!-- fin de la div container -->
-
+<script src="../public/js/jquery.min.js"></script>
+<script src="../public/js/boutique.js"></script>
 
 
 
