@@ -1,5 +1,6 @@
 <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
 {{ content() }}
+{{ stylesheet_link('css/pages.css') }}
 
 <div class="page-header">
     <h1>Gestion des pages</h1>
