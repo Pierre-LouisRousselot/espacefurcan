@@ -17,17 +17,12 @@ class BoutiqueController extends ControllerBase
 
       $content = Produits::find([
       
-
-          "conditions" => "id_categorie = " . $id
+          "conditions" => "id_Categorie = " . $id
       ]);
-        //var_dump($content);die();
-      //$catContent = [
 
-          //"nom" => $content[0]->nom__Categorie
+//      var_dump($content); die;
+      $this->view->produits = $content;
 
-     // ];
-      //var_dump($catContent);die;
-       $this->view->produits = $content;
       //return json_encode($catContent);
 
 

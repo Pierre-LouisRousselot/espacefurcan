@@ -13,7 +13,7 @@
 			</ol>
 		</nav> -->
 
-	
+
 
 		<div class="dropdown"><br>
 			<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -21,15 +21,15 @@
 			</button>
 			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-				
-
 				{% for categorie in categories %}
 
-				<a class="dropdown-item" id="categorieFilter" onclick="detailCat({{ categorie.id_Categorie }})" href="#"><span>{{ categorie.nom_Categorie }}</span></a>
+				<!--<a class="dropdown-item" id="categorieFilter"  href="cat/"><span>{{ categorie.nom_Categorie }}</span></a> -->
+
+				{{ link_to('boutique/cat/' ~ categorie.id_Categorie ,categorie.nom_Categorie) }}<br>
 				
 				{% endfor %}
 				
-			
+
 			</div>
 
 			
@@ -76,8 +76,8 @@
 		</nav>
 
 	</div><br><br><!-- fin de la div container -->
-<script src="../public/js/jquery.min.js"></script>
-<script src="../public/js/boutique.js"></script>
+	<script src="../public/js/jquery.min.js"></script>
+	<script src="../public/js/boutique.js"></script>
 
 
 

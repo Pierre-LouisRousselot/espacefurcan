@@ -26,46 +26,46 @@ class ProductsController extends ControllerBase
  
   
 
-    $numberPage = 1;
+//     $numberPage = 1;
       
-    if ($this->request->isPost()) {
-      $query = Criteria::fromInput($this->di, "produits", $this->request->getPost());
-      $this->persistent->searchParams = $query->getParams();
-    } else {
-      $numberPage = $this->request->getQuery("page", "int");
+//     if ($this->request->isPost()) {
+//       $query = Criteria::fromInput($this->di, "produits", $this->request->getPost());
+//       $this->persistent->searchParams = $query->getParams();
+//     } else {
+//       $numberPage = $this->request->getQuery("page", "int");
       
    
 
-    $parameters = [];
+//     $parameters = [];
 
-    $produits = produits::find($parameters);
+//     $produits = produits::find($parameters);
    
-    if (count($produits) == 0) {
-      $this->flash->notice("La recherche est vide");
+//     if (count($produits) == 0) {
+//       $this->flash->notice("La recherche est vide");
 
-      return $this->dispatcher->forward(
-        [
-          "controller" => "products",
-          "action"     => "index",
-        ]
-      );
-    }
+//       return $this->dispatcher->forward(
+//         [
+//           "controller" => "products",
+//           "action"     => "index",
+//         ]
+//       );
+//     }
 
-    $paginator = new Paginator([
-      "data"  => $produits,
-      "limit" => 12,
-      "page"  => $numberPage
-    ]);
-    //var_dump($paginator);die();+
+//     $paginator = new Paginator([
+//       "data"  => $produits,
+//       "limit" => 12,
+//       "page"  => $numberPage
+//     ]);
+//     //var_dump($paginator);die();+
     
 
-    $this->view->page = $paginator->getPaginate();
-    $this->view->produit = $produits;
-    //var_dump($this);die();
+//     $this->view->page = $paginator->getPaginate();
+//     $this->view->produit = $produits;
+//     //var_dump($this);die();
 
+// }
+//     }
 }
-    }
-
 
     public function AddProductAction(){
 
