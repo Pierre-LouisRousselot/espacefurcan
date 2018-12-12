@@ -2,6 +2,7 @@ $("#form").hide();
 $("#titrePage").hide();
 $("#dropdown").hide();
 $("#delPageButton").hide();
+$("#idPage").val("");
 
 $(document).ready(function () {
   /**
