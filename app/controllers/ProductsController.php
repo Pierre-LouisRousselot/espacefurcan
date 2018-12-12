@@ -3,6 +3,8 @@
 // use Phalcon\Paginator\Adapter\Model as Paginator;
 use Phalcon\Flash;
 use Phalcon\Forms\Element\File;
+use Phalcon\Paginator\Adapter\Model as Paginator;
+
 
 
 class ProductsController extends ControllerBase
@@ -18,6 +20,50 @@ class ProductsController extends ControllerBase
 
         $produits = Produits::find();
         $this->view->produits = $produits;
+
+
+         // Pagination
+ 
+  
+
+    $numberPage = 1;
+      
+    if ($this->request->isPost()) {
+      $query = Criteria::fromInput($this->di, "produits", $this->request->getPost());
+      $this->persistent->searchParams = $query->getParams();
+    } else {
+      $numberPage = $this->request->getQuery("page", "int");
+      
+   
+
+    $parameters = [];
+
+    $produits = produits::find($parameters);
+   
+    if (count($produits) == 0) {
+      $this->flash->notice("La recherche est vide");
+
+      return $this->dispatcher->forward(
+        [
+          "controller" => "products",
+          "action"     => "index",
+        ]
+      );
+    }
+
+    $paginator = new Paginator([
+      "data"  => $produits,
+      "limit" => 12,
+      "page"  => $numberPage
+    ]);
+    //var_dump($paginator);die();+
+    
+
+    $this->view->page = $paginator->getPaginate();
+    $this->view->produit = $produits;
+    //var_dump($this);die();
+
+}
     }
 
 
@@ -68,6 +114,7 @@ class ProductsController extends ControllerBase
                 die;
                 //$form->clear();
             }
+
         }
 
 
@@ -191,6 +238,7 @@ class ProductsController extends ControllerBase
         $image_produit = '../public/image_produit/';
 
         if ($this->request->hasFiles()) {
+
             $files = $this->request->getUploadedFiles();
             foreach ($files as $file) {
                 // Move the file into the application

@@ -26,7 +26,7 @@
   </thead>
 
     <tbody>
-  {% for produit in produits %}
+  {% for produit in page.items %}
 
     <tr>
       <td> {{ produit.id_Produit }}</td>
@@ -37,14 +37,31 @@
       <td> {{ produit.dateAjout_Produit}}</td>
       <td> {{ produit.id_Categorie}}</td>
       <td> {{ image("image_produit/" ~ produit.image_Produit,'style':'height:50px')}}</td>
+
       <td>{{ link_to("products/edit/" ~ produit.id_Produit,"edit" ,"class": "large material-icons") }}</td>
       <td>{{ link_to("products/delete/" ~ produit.id_Produit,"delete" ,"class": "large material-icons") }}</td>
+
  </tr>
 
 
   {% endfor %}
     </tbody>
-</table>
+</table><br><br>
+
+<nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+          {{ link_to("products/index?page=" ~ page.before,' Précédente', "class": "btn btn-success") }}
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          {{ link_to("products/index?page=" ~ page.next,' Suivant', "class": "btn btn-success") }}
+        </li>
+      </ul>
+    </nav><br>
+
 <script src="/espacefurcan/public/js/jquery.min.js"></script>
 <script src="/espacefurcan/public/js/bootstrap.min.js"></script>
 <script src="/espacefurcan/public/js/bootstrap-table.min.js"></script>
