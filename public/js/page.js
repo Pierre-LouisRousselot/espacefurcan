@@ -2,6 +2,7 @@ $("#form").hide();
 $("#titrePage").hide();
 $("#dropdown").hide();
 $("#delPageButton").hide();
+$("#idPage").val("");
 
 $(document).ready(function () {
   /**
@@ -11,7 +12,7 @@ $(document).ready(function () {
         //content_css:"css/content.css"
         selector:'textarea',
         branding:'false',
-        plugins:"autoresize, image",
+        plugins:"autoresize, image, table",
         elementpath:'false',
         language_url:'../public/js/fr_FR.js',
         language:'fr_FR',

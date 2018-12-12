@@ -22,7 +22,8 @@ class ProfileController extends ControllerBase
         // var_dump($user);die;
         $form = new UsersForm((object)
         ['id_Users' => $auth['id']],
-        ['edit' => true]);
+        ['profile' => true]);
+        // var_dump($form);die;
 
         $this->view->form = $form;
         // var_dump($form);die();

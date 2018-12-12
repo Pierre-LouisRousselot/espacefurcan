@@ -384,3 +384,11 @@ input[type="file"] {
     color: #0762b1;
     cursor: pointer;
 }
+.search-user{
+    margin-top: 5%;
+    font-size: 22px;
+    font-weight: 600;
+}
+.search-user p{
+    text-decoration: underline;
+}

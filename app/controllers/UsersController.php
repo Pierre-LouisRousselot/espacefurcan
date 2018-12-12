@@ -158,7 +158,7 @@ class UsersController extends ControllerBase
                 );
             }
             $this->view->user = $user;
-            $form = new UsersForm((object)['id_Users' => $id]);
+            $form = new UsersForm((object)['id_Users' => $id], ['edit' => true]);
             $this->view->form = $form;
         }
     }
@@ -195,7 +195,8 @@ class UsersController extends ControllerBase
             );
         }
 
-        $form = new UsersForm;
+        // $form = new UsersForm;
+        $form = new UsersForm((object)['id_Users' => $id], ['edit' => true]);
         $this->view->form = $form;
         $data = $this->request->getPost();
         $file = $this->request->getUploadedFiles();
