@@ -52,7 +52,7 @@ class AdminController extends ControllerBase
     }
 
     /**
-    * shox all users
+    * Gestion soutien scolaire
     *
     */
     public function schoolAction()
@@ -60,6 +60,21 @@ class AdminController extends ControllerBase
         return $this->dispatcher->forward(
             [
                 "controller" => "school",
+                "action"     => "index",
+            ]
+        );
+
+    }
+
+    /**
+    * Gestion soutien scolaire
+    *
+    */
+    public function rightAction()
+    {
+        return $this->dispatcher->forward(
+            [
+                "controller" => "right",
                 "action"     => "index",
             ]
         );
