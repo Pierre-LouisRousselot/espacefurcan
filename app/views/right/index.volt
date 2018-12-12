@@ -26,7 +26,15 @@
 {% if user is not empty %}
 <div class="search-user">
     <p>Utilisateur trouvé :</p>
-{{ user.nom_Users }} | {{ user.prenom_Users }} | {{ user.mail_Users }} | {{ user.dateCreation_Users }} | {{ user.id_Role }}
+{{ user.nom_Users }} | {{ user.prenom_Users }} | {{ user.mail_Users }} | {{ user.dateCreation_Users }}
+<span>
+    {{role}}
+
+</span>
+</div>
+{% else %}
+<div class="search-user">
+    <p>Aucun utilisateur n'a été trouvé</p>
 
 </div>
 

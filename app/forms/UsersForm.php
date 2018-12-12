@@ -16,9 +16,10 @@ class UsersForm extends Form
     {
 
         $this->add(new Hidden('id_Users'));
-        if (!isset($options['edit']))
+        if (isset($options['edit']))
         {
-
+            // echo "edit";
+            // var_dump($options);die;
             // Name
             $name = new Text('nom_Users');
             $name->setLabel('Votre nom complet');
@@ -76,9 +77,29 @@ class UsersForm extends Form
             );
             $file->setLabel("Ficher validation status");
             $this->add($file);
-        }
-        else {
 
+        }
+        elseif (isset($options['search']))
+        {
+
+            // Email
+            $email = new Text('mail_Users');
+            $email->setLabel('E-Mail');
+            $email->setFilters('email');
+            $email->addValidators([
+                new PresenceOf([
+                    'message' => 'Adresse mail requise'
+                ]),
+                new Email([
+                    'message' => 'Adresse mail invalide'
+                ])
+            ]);
+            $this->add($email);
+
+        }
+        elseif ($options['profile'] == true ){
+            // echo "test";
+            // var_dump($options);die;
             // Name
             $name = new Text('name');
             $name->setLabel('Votre nom complet');
