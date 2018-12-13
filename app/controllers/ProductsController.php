@@ -23,23 +23,23 @@ class ProductsController extends ControllerBase
 
 
          // Pagination
- 
-  
+
+
 
     $numberPage = 1;
-      
+
     if ($this->request->isPost()) {
       $query = Criteria::fromInput($this->di, "produits", $this->request->getPost());
       $this->persistent->searchParams = $query->getParams();
     } else {
       $numberPage = $this->request->getQuery("page", "int");
-      
-   
+
+
 
     $parameters = [];
 
     $produits = produits::find($parameters);
-   
+
     if (count($produits) == 0) {
       $this->flash->notice("La recherche est vide");
 
@@ -57,7 +57,7 @@ class ProductsController extends ControllerBase
       "page"  => $numberPage
     ]);
     //var_dump($paginator);die();+
-    
+
 
     $this->view->page = $paginator->getPaginate();
     $this->view->produit = $produits;
