@@ -3,7 +3,7 @@
 
 <div class="row">
 
-	<div class="col-lg-3 centrer">
+	<div class="col-lg-3 affinerRecherche">
 
 		<!-- <nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
@@ -28,18 +28,48 @@
 				{{ link_to('boutique/cat/' ~ categorie.id_Categorie ,categorie.nom_Categorie) }}<br>
 				
 				{% endfor %}
-				
-
 			</div>
 
 			
 		</div><br><br>
 
+
 		<h5>Affiner vos recherches</h5><br>
+
+		<div class="form-group">
+			<div class="form-group">
+				<label for="exampleSelect1">Marque</label>
+				<select class="form-control" id="exampleSelect1">
+					{% for produit in produits %}
+					
+					<option> {{ link_to('boutique/cat/'  ~  produit.nom_Produit,produit.nom_Produit) }} </option>
+
+					{% endfor %}
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label for="exampleSelect1">Prix</label>
+				<select class="form-control" id="exampleSelect1">
+					<option>Entre 0 et 99 € </option>
+					<option>Entre 100 et 199 € </option>
+					<option>Entre 200 et 299 € </option>
+					<option>Entre 300 et 399 € </option>
+					<option>Entre 400 et 499 € </option>
+				</select>
+			</div>
+
+			<label for="customRange1">Prix</label>
+			<input type="range" class="custom-range"  min="0" max="5" id="customRange1">
+
+
+			
+			
+		</div>
 
 	</div>
 	<div class="col-lg-9">
-		<div class="row article textWhite">
+		<div class="row article">
 
 			<!-- boucle for pour afficher tous les produits -->
 			{% for produit in page.items %}
@@ -48,7 +78,7 @@
 				<!-- <div class="card-deck"> -->
 
 					<h3>{{ produit.nom_Produit}}</h3>
-					{{ image(produit.image_Produit)}}
+					{{ image("public/image_Produit/" ~ produit.image_Produit)}}
 					<h5><span>{{ produit.prix_Produit}} € </span></h5>
 					<p class="card-text descriLimit">{{ produit.descri_Produit}}</p>
 					
@@ -61,21 +91,25 @@
 			</div>
 		</div>
 
-		<nav aria-label="Page navigation example">
-			<ul class="pagination justify-content-center">
-				<li class="page-item disabled">
-					{{ link_to("boutique/index?page=" ~ page.before,' Précédente', "class": "btn btn-success") }}
-				</li>
-				<li class="page-item"><a class="page-link" href="#">1</a></li>
-				<li class="page-item"><a class="page-link" href="#">2</a></li>
-				<li class="page-item"><a class="page-link" href="#">3</a></li>
-				<li class="page-item">
-					{{ link_to("boutique/index?page=" ~ page.next,' Suivant', "class": "btn btn-success") }}
-				</li>
-			</ul>
-		</nav>
 
 	</div><br><br><!-- fin de la div container -->
+
+	<div class="pagination">
+			<nav aria-label="Page navigation example ">
+				<ul>
+					<li class="page-item disabled">
+						{{ link_to("boutique/index?page=" ~ page.before,' Précédente', "class": "btn btn-success") }}
+					</li>
+					<li class="page-item"><a class="page-link" href="#">1</a></li>
+					<li class="page-item"><a class="page-link" href="#">2</a></li>
+					<li class="page-item"><a class="page-link" href="#">3</a></li>
+					<li class="page-item">
+						{{ link_to("boutique/index?page=" ~ page.next,' Suivant', "class": "btn btn-success") }}
+					</li>
+				</ul>
+			</nav>
+		</div>
+
 	<script src="../public/js/jquery.min.js"></script>
 	<script src="../public/js/boutique.js"></script>
 

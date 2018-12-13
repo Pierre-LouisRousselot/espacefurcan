@@ -23,18 +23,9 @@ class ProductsController extends ControllerBase
 
 
          // Pagination
- 
-  
-
-   
-    
-
-    $this->view->page = $paginator->getPaginate();
-    $this->view->produit = $produits;
-    //var_dump($this);die();
 
 }
-    }
+    
 
 
     public function AddProductAction(){

@@ -23,10 +23,26 @@ class BoutiqueController extends ControllerBase
 //      var_dump($content); die;
       $this->view->produits = $content;
 
+       $categories = Categories::find();
+    $this->view->categories = $categories;
+
+
       //return json_encode($catContent);
 
 
   }
+
+  public function marqueAction($marque){
+
+    $marque = Produits::find([
+
+        "conditions" => "nom_Produit = " . $marque
+    ]);
+
+    $this->view->marques = $marque;
+  }
+
+
 
   public function indexAction()
   {
