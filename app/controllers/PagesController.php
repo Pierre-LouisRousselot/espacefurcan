@@ -59,31 +59,40 @@ class PagesController extends ControllerBase
         ];
         //var_dump($pageContent);die;
         return json_encode($pageContent);
-    }
+      }
 
-    /**
-     * Récupere les données du Dropdown
-     */
-    private function addDrop(){
+      /**
+      * Récupere les données du Dropdown
+      */
+      private function addDrop(){
         $drop ='';
         $catpage = CatePages::find();
         foreach($catpage as $idService => $detailService){
+          if($detailService->id_CatePage != 3){
             $drop .='<h5 class="dropdown-header">'.$detailService->nom_CatePage.'</h5>';
             $page = Pages::find([
-                "conditions" => "id_CatePage =" .$detailService->id_CatePage
+              "conditions" => "id_CatePage =" .$detailService->id_CatePage
             ]);
             foreach ($page as $idPage => $value) {
-                $drop .='<a class="dropdown-item" onclick="loadPage('.$value->id_Page.')" href="#">'.$value->titre_Page.'</a>';
+              $drop .='<a class="dropdown-item" onclick="loadPage('.$value->id_Page.')" href="#">'.$value->titre_Page.'</a>';
             }
+          } else {
+            $drop .='<div class="dropdown-divider"></div>';
+            $page = Pages::find([
+              "conditions" => "id_CatePage =" .$detailService->id_CatePage
+            ]);
+            $value = $page[0];
+            $drop .='<a class="dropdown-item" onclick="loadPage('.$value->id_Page.')" href="#">'.$value->titre_Page.'</a>';
+          }
         }
         $this->view->drop = $drop;
-    }
+      }
 
-    /**
-     * Permet de sauvegarder le contenu d'une page statique dans la bdd
-     */
-    public function savePageAction()
-    {
+      /**
+      * Permet de sauvegarder le contenu d'une page statique dans la bdd
+      */
+      public function savePageAction()
+      {
 
         if( isset($_POST['id']) && isset($_POST['content']) && isset($_POST['title'])&& isset($_POST['idCate']) ){
 
