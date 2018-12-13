@@ -1,0 +1,6 @@
+.card-text_descriLimit{
+  width: 255px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
