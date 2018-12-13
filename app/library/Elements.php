@@ -31,7 +31,8 @@ class Elements extends Component
             ],
             'formations' => [
                 'caption' => 'Formations',
-                'action' => 'index'
+                'action' => 'index',
+                'drop' => 3
             ],
             'boutique' => [
                 'caption' => 'Boutique',
@@ -114,7 +115,7 @@ class Elements extends Component
             echo '<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">';
             echo '<ul class="navbar-nav pull-right', $position, '">';
             foreach ($menu as $controller => $option) {
-                if (isset($option['drop'])){
+                if (isset($option['drop']) && $option['drop'] != 3){
                     echo '<li class="nav-item dropdown">';
                     echo '<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'.$option['caption'].' </a>';
 
@@ -139,6 +140,14 @@ class Elements extends Component
                 }
                 if (!isset($option['drop'])){
                     echo $this->tag->linkTo([$controller . '/' . $option['action'], $option['caption'], "class" => "nav-link"]);
+                }else if ($option['drop'] == 3){
+
+                  $drop = Pages::find([
+                      "conditions" => "id_CatePage = 3"
+                  ]);
+
+
+                  echo $this->tag->linkTo(['pages/displayPage/' . $drop[0]->id_Page, $option['caption'], "class" => "nav-link"]);
                 }
                 echo '</li>';
             }

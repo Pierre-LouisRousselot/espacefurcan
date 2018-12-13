@@ -55,6 +55,9 @@ $(document).ready(function () {
  * @param  {int} $id [id de la page à charger]
  */
 function loadPage($id) {
+  $("#titrePage").hide();
+  $("#delPageButton").hide();
+
     $.ajax({
         url : 'loadTiny/'+$id,
         type : 'GET',
@@ -65,8 +68,10 @@ function loadPage($id) {
             $("#idPage").val($id);
             $("#idCatePage").val(data.cate),
             $("#form").show();
-            $("#titrePage").show();
-            $("#delPageButton").show();
+            if ($("#idCatePage").val() != 3) {
+              $("#titrePage").show();
+              $("#delPageButton").show();
+            }
         },
         error : function(resultat, statut, erreur){
         }
