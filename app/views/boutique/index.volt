@@ -5,13 +5,15 @@
 
 	<div class="col-lg-3 centrer">
 
-		<nav aria-label="breadcrumb">
+		<!-- <nav aria-label="breadcrumb">
 			<ol class="breadcrumb">
 				<li class="breadcrumb-item"><a href="#">Accueil</a></li>
 				<li class="breadcrumb-item"><a href="#">Boutique</a></li>
 				<li class="breadcrumb-item active" aria-current="page">Data</li>
 			</ol>
-		</nav>
+		</nav> -->
+
+
 
 		<div class="dropdown"><br>
 			<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -21,8 +23,13 @@
 
 				{% for categorie in categories %}
 
-				<a class="dropdown-item" href="#">{{ categorie.nom_Categorie }}</a>
+				<!--<a class="dropdown-item" id="categorieFilter"  href="cat/"><span>{{ categorie.nom_Categorie }}</span></a> -->
+
+				{{ link_to('boutique/cat/' ~ categorie.id_Categorie ,categorie.nom_Categorie) }}<br>
+				
 				{% endfor %}
+				
+
 			</div>
 
 			
@@ -69,9 +76,9 @@
 		</nav>
 
 	</div><br><br><!-- fin de la div container -->
+	<script src="../public/js/jquery.min.js"></script>
+	<script src="../public/js/boutique.js"></script>
 
 
 
 
-
-    

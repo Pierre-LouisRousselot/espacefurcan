@@ -26,7 +26,7 @@
   </thead>
 
     <tbody>
-  {% for produit in page.items %}
+  {% for produit in produits %}
 
     <tr>
       <td> {{ produit.id_Produit }}</td>
@@ -48,19 +48,7 @@
     </tbody>
 </table><br><br>
 
-<nav aria-label="Page navigation example">
-      <ul class="pagination justify-content-center">
-        <li class="page-item disabled">
-          {{ link_to("products/index?page=" ~ page.before,' Précédente', "class": "btn btn-success") }}
-        </li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item">
-          {{ link_to("products/index?page=" ~ page.next,' Suivant', "class": "btn btn-success") }}
-        </li>
-      </ul>
-    </nav><br>
+
 
 <script src="/espacefurcan/public/js/jquery.min.js"></script>
 <script src="/espacefurcan/public/js/bootstrap.min.js"></script>

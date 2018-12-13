@@ -81,7 +81,7 @@ class SecurityPlugin extends Plugin
 				['index','informations','deleteFile','editFile'],
 				['show401', 'show404', 'show500'],
 				['index', 'register', 'start', 'end'],
-				['index'],
+				['index','cat'],
 				['index','edit'],
 				['index'],
 			];
@@ -95,7 +95,7 @@ class SecurityPlugin extends Plugin
 				['index','informations','deleteFile','editFile'],
 				['show401', 'show404', 'show500'],
 				['index', 'register', 'start', 'end'],
-				['index'],
+				['index','cat'],
 				['index','edit'],
 				['index'],
 			];
@@ -109,7 +109,7 @@ class SecurityPlugin extends Plugin
 				['index','informations','deleteFile','editFile'],
 				['show401', 'show404', 'show500'],
 				['index', 'register', 'start', 'end'],
-				['index'],
+				['index','cat'],
 				['index'],
 				[''],
 			];
@@ -124,7 +124,7 @@ class SecurityPlugin extends Plugin
 				['index','informations','deleteFile','editFile'],
 				['show401', 'show404', 'show500'],
 				['index', 'register', 'start', 'end'],
-				['index'],
+				['index','cat'],
 				['index'],
 				[''],
 			];
