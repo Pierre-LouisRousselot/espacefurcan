@@ -26,6 +26,7 @@ class ProductsController extends ControllerBase
 
 
 
+
     $numberPage = 1;
 
     if ($this->request->isPost()) {
@@ -64,7 +65,7 @@ class ProductsController extends ControllerBase
     //var_dump($this);die();
 
 }
-    }
+    
 
 
     public function AddProductAction(){
