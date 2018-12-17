@@ -1,6 +1,68 @@
 
 <div class="row">
 	<div class="col-lg-3">
+		
+		<div class="dropdown"><br>
+			<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<h6>Catégories</h6>
+			</button>
+			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+				{% for categorie in categories %}
+
+				<!--<a class="dropdown-item" id="categorieFilter"  href="cat/"><span>{{ categorie.nom_Categorie }}</span></a> -->
+
+				{{ link_to('boutique/cat/' ~ categorie.id_Categorie ,categorie.nom_Categorie) }}<br>
+				
+				{% endfor %}
+			</div>
+			<div class="form-group">
+				<label for="exampleSelect1">Marque</label>
+				<select class="form-control" id="exampleSelect1">
+					{% for produit in produits %}
+					
+					<option> {{ link_to('boutique/cat/'  ~  produit.nom_Produit,produit.nom_Produit) }} </option>
+
+					{% endfor %}
+				</select>
+			</div>
+			
+			<fieldset>
+				<legend>Mémore RAM</legend>
+				<div class="form-group">
+					<div class="custom-control custom-radio">
+						<input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked="">
+						<label class="custom-control-label" for="customRadio1">4 RAM</label>
+					</div>
+					<div class="custom-control custom-radio">
+						<input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+						<label class="custom-control-label" for="customRadio2">8 RAm</label>
+					</div>
+					<div class="custom-control custom-radio">
+						<input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
+						<label class="custom-control-label" for="customRadio3">8 RAM</label><br>
+					</div>
+				</div>
+			</fieldset><br>
+			<fieldset>
+				<legend>Disque dur</legend>
+				<div class="form-group">
+					<div class="custom-control custom-radio">
+						<input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" checked="">
+						<label class="custom-control-label" for="customRadio1">250 GB</label>
+					</div>
+					<div class="custom-control custom-radio">
+						<input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+						<label class="custom-control-label" for="customRadio2">500GB</label>
+					</div>
+					<div class="custom-control custom-radio">
+						<input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
+						<label class="custom-control-label" for="customRadio3">1 TERA</label>
+					</div>
+				</div>
+			</fieldset>
+		</div><br><br>
+
 
 	</div>
 	<div class="col-lg-9">
@@ -17,11 +79,13 @@
 				<!-- Button trigger modal --><img class="img-fluid mr-sm-5" id="loupe" src="../image_produit/loupe-50x50.jpg"  alt="oeil" class= "" data-toggle= "modal" data-target= "#exampleModalLong-{{ produit.id_Produit}}" > <button type="button" class="btn btn-success"> Ajouter au panier </button><!-- Modal --> <div class= "modal fade" id= "exampleModalLong-{{ produit.id_Produit}}" tabindex= "-1" role= "dialog" aria-labelledby= "exampleModalLongTitle" aria-hidden= "true" > <div class= "modal-dialog" role= "document" > <div class= "modal-content" > <div class= "modal-header" > <h5 class= "modal-title" id= "exampleModalLongTitle" > {{produit.nom_Produit}} </h5> <button type= "button" class= "close" data-dismiss= "modal" aria-label= "Close" > <span aria-hidden= "true" > &times; </span> </button> </div> <div class= "modal-body" > {{ produit.descri_Produit}} </div> <div class= "modal-footer" > <h3> Prix : {{produit.prix_Produit}} € </h3><button type= "button" class= "btn btn-danger" data-dismiss= "modal" > Fermer </button> <button type= "button" class= "btn btn-primary" > Ajouter au panier </button> </div> </div> </div> </div> 
 
 			</div>
-	
+
 			{% endfor %}
 
 		</div>
 	</div>
+
+	
 </div>
 
 <!-- Pagination -->

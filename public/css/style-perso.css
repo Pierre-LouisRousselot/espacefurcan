@@ -1,6 +1,6 @@
 .produit {
 
-width: 40%;
+width: 100%;
 
 }
 .centrer{
@@ -24,16 +24,6 @@ width: 40%;
 	height: 40px;
 	border-radius:50%;
 }
-
-.twhite {color:#fff;}
-/* Breadcum bar */
-.bg-grey {background:#efefef}
-.breadcrumb {background: none; margin: 0;font-weight: 300;padding-left: 0; font-size: 13px;}
-.breadcrumb a {color: #999;}
-.breadcrumb > .active {color: #696969;}
-.breadcrumb > li + li::before {content: "\203A";color: #999;padding: 0 8px;
-
-}
 .sidebar{
 	width: 70%;
 }
@@ -46,4 +36,15 @@ table.dataTable tbody tr{
 	background-color: black !important;
 
 }
+.container{
+	max-width: 100%;
+}
+.pagination{
+
+display: flex;
+flex-direction: row;
+list-style: : none;
+color: red;
+}
+
 
