@@ -1,6 +1,37 @@
 #dropdownMenu1{
     margin-bottom: 5px
 }
-.MsoNormal code{
+.MsoNormal p{
     font-size: 17px !important;
+}
+.btn-add-page{
+	background: none;
+	border : none;
+}
+.btn-add-page:focus{
+	outline: none;
+	box-shadow: none;
+}
+.btn-add-page i{
+	font-size: 50px;
+}
+.btn-del-page{
+	background: none;
+	border : none;
+}
+.btn-del-page:focus{
+	outline: none;
+	box-shadow: none;
+}
+.btn-del-page i{
+	font-size: 50px;
+}
+.sel-categ{
+	margin: 15px;
+	padding : 7px;
+	border-radius: 15px;
+}
+.sel-categ:focus{
+	outline: none;
+	box-shadow: none;
 }
