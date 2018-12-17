@@ -67,13 +67,12 @@ class SecurityPlugin extends Plugin
 				'session',
 				'boutique',
 				'register',
-				'right',
 			];
 
 
 			$superAdmin = [
 				['index'],
-				['index','delete', 'edit','save','search'],
+				['index','delete', 'edit','save','search','deleteFile','display','validationStatut'],
 				['index','users','products','school','right'],
 				['index','delete', 'edit','save','search', 'deleteImageProduct'],
 				['index'],
@@ -83,11 +82,10 @@ class SecurityPlugin extends Plugin
 				['index', 'register', 'start', 'end'],
 				['index'],
 				['index','edit'],
-				['index'],
 			];
 			$admin = [
 				['index'],
-				['index','delete', 'edit','save','search'],
+				['index','delete', 'edit','save','search','deleteFile','display','validationStatut'],
 				['index','users','products','school'],
 				['index','delete', 'edit','save','search', 'deleteImageProduct'],
 				['index'],
@@ -97,7 +95,6 @@ class SecurityPlugin extends Plugin
 				['index', 'register', 'start', 'end'],
 				['index'],
 				['index','edit'],
-				['index'],
 			];
 			$user = [
 				['index'],
@@ -111,7 +108,6 @@ class SecurityPlugin extends Plugin
 				['index', 'register', 'start', 'end'],
 				['index'],
 				['index'],
-				[''],
 			];
 
 			$guest = [
@@ -126,7 +122,6 @@ class SecurityPlugin extends Plugin
 				['index', 'register', 'start', 'end'],
 				['index'],
 				['index'],
-				[''],
 			];
 			//Tableau de ressources pour les super admins
 			$superAdminRessources = array_combine($controllersRessources,$superAdmin);
