@@ -5,6 +5,7 @@ use Phalcon\Forms\Element\Text;
 use Phalcon\Forms\Element\Password;
 use Phalcon\Forms\Element\Hidden;
 use Phalcon\Forms\Element\File;
+use Phalcon\Forms\Element\Select;
 use Phalcon\Validation\Validator\PresenceOf;
 use Phalcon\Validation\Validator\Email;
 use Phalcon\Validation\Validator\StringLength;
@@ -15,9 +16,10 @@ class UsersForm extends Form
     public function initialize($entity = null, $options = null)
     {
 
-        $this->add(new Hidden('id_Users'));
+
         if (isset($options['edit']))
         {
+            $this->add(new Hidden('id_Users'));
             // echo "edit";
             // var_dump($options);die;
             // Name
@@ -69,19 +71,26 @@ class UsersForm extends Form
             $postal->setLabel('Code postal');
             $this->add($postal);
 
-            $file = new File(
-                "file",
-                [
-                    "placeholder" => ""
-                ]
-            );
-            $file->setLabel("Ficher validation status");
-            $this->add($file);
+            // $file = new File(
+            //     "file",
+            //     [
+            //         "placeholder" => ""
+            //     ]
+            // );
+            // $file->setLabel("Ficher validation status");
+            // $this->add($file);
+            $role = new Select('id_Role',Roles::find(),['using' => ['id_Role', 'nom_Role']]);
+            $role->setLabel('Niveau rôle utilisateur');
+            $this->add($role);
+
+            $statut = new Select('id_Statut',Statuts::find(),['using' => ['id_Statut', 'type_Statut']]);
+            $statut->setLabel('Statut de l\'utilisateur');
+            $this->add($statut);
 
         }
         elseif (isset($options['search']))
         {
-
+            // var_dump($options);die;
             // Email
             $email = new Text('mail_Users');
             $email->setLabel('E-Mail');
@@ -97,7 +106,7 @@ class UsersForm extends Form
             $this->add($email);
 
         }
-        elseif ($options['profile'] == true ){
+        elseif (isset($options['profile'])){
             // echo "test";
             // var_dump($options);die;
             // Name
