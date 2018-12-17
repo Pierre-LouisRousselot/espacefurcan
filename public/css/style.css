@@ -392,3 +392,23 @@ input[type="file"] {
 .search-user p{
     text-decoration: underline;
 }
+.form-user select{
+    background-color: grey;
+    border-radius: 10px;
+    color: white;
+    height: 35px;
+}
+.form-user select:focus{
+    outline:none;
+}
+
+
+
+.form-user .form-8 label{
+    font-weight: 900;
+    padding-right: 10px;
+}
+.form-user .form-9 label{
+    font-weight: 900;
+    padding-right: 10px;
+}
