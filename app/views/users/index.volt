@@ -1,37 +1,16 @@
 {{ content() }}
 
-<h1>All Users</h1>
-<table id="example" class="table table-bordered table-striped"  data-page-length='10'>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nom</th>
-            <th>Adresse mail</th>
-            <th>Téléphone </th>
-            <th>Date inscription</th>
-            <th>Date dernière connexion </th>
-            <th>Edition</th>
-            <th>Suppression</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for user in page.items %}
-        <tr>
-            <td>{{ user.id_Users }}</td>
-            <td>{{ user.nom_Users }}</td>
-            <td>{{ user.mail_Users }}</td>
-            <td>{{ user.tel_Users }}</td>
-            <td>{{ user.dateCreation_Users }}</td>
-            <td>{{ user.dateLastCo_Users }}</td>
-            <td>{{ link_to("users/edit/" ~ user.id_Users, '@') }}</td>
-            <td>{{ link_to("users/delete/" ~ user.id_Users, 'X') }}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-{{ link_to("users/index?page=" ~ page.first,'First', "class": "btn") }}
-{{ link_to("users/index?page=" ~ page.before,'Previous', "class": "btn") }}
-{{ link_to("users/index?page=" ~ page.next,'Next', "class": "btn") }}
-{{ link_to("users/index?page=" ~ page.last, 'Last', "class": "btn") }}
-<span class="help-inline">{{ page.current }}/{{ page.total_pages }}</span>
-<p> {{ page.items|length }} users in total.</p>
+<h2>Liste des utilisateurs</h2>
+<p>Il y a
+    <b>{{users|length}}
+    </b>
+    utilisateurs inscrits sur votre site
+</p>
+{{ link_to("users/display","Liste des utilisateurs inscrits sur votre site avec leurs informations") }}
+<h2>Liste des utilisateurs dont le statut doit être vérifier</h2>
+<p>Il y a
+    <b>{{users_validation|length}}
+    </b>
+    utilisateurs dont le statut n'a pas été validé
+    {{ link_to("users/validationStatut","Validez leur statut") }}
+</p>
