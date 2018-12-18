@@ -20,23 +20,43 @@ function showArticle($article){
 		pageSize : 6,
 		callback: function(data, pagination) {
 			// template method of yourself
-			var html = '<div class="col-lg-4 produit">';
+
+			var html ="";
+
 			$.each(data, function (index, item) {
+			 	html += '<div class="col-lg-4 produit" style="display:inline-block">';
 				html += '<h3>' + item.nom_Produit + '</h3>';
 				html += '<img src="public/image_Produit/' + item.image_Produit + '">';
 				html += '<h5><span>' + item.prix_Produit + '€ </span></h5>';
 				html += '<p class="card-text descriLimit">' + item.descri_Produit + '</p>';
+				html += '</div>'
+
 			});
 
-			html += '</div>'
-			$('.row_article').prev().html(html);
+			$('.data-container').html(html);
 		}
 	});
 	listeNow = $article;
 }
 
-function filtre($id){
-	articles = listeArticle.filter(article => article.id_Categorie == $id);
-	console.log($id, articles);
-	showArticle(articles);
+function refresh(){
+	showArticle(listeArticle);
+	$("#SelectCat").val("0");
+	$("#SelectMarque").val("0");
+}
+
+function filtre(){
+	var marque = $("#SelectMarque").val();
+	var cate = $("#SelectCat").val();
+	var liste = listeArticle;
+	console.log(marque);
+	console.log(cate);
+	if (marque != null) {
+		liste = liste.filter(article => article.id_Marque == marque);
+	}
+
+	if (cate != null){
+		liste = liste.filter(article => article.id_Categorie == cate);
+	}
+	showArticle(liste);
 }
