@@ -20,7 +20,7 @@
         <button id="addPageButton" class="btn btn-add-page" onclick="addPage()"><i class="material-icons">add_box</i></button>
     </div>
     <div>
-        <input id="titrePage"></input>
+        <input id="titrePage" class="sel-titre" placeholder="Titre page"></input>
     </div>
     <div>
         <button id="delPageButton" class="btn btn-del-page" onclick="delPage()"><i class="material-icons">delete_forever</i></button>
@@ -52,7 +52,9 @@
     </div>
     <br>
 </form>
-<button class="btn btn-primary" onclick="savePage()">Valider</button>
+<div class="btn-val-page">
+    <button id="val-page" class="btn btn-primary" onclick="savePage()">Valider</button>
+</div>
 </div>
 <br>
 <script src="../public/js/jquery.min.js"></script>
