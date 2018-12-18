@@ -13,48 +13,48 @@ class BoutiqueController extends ControllerBase
 		parent::initialize();
 	}
 
-  public function catAction($id){
+	public function catAction($id){
 
-      $content = Produits::find([
+		$content = Produits::find([
 
-          "conditions" => "id_Categorie = " . $id
-      ]);
+			"conditions" => "id_Categorie = " . $id
+		]);
 
-//      var_dump($content); die;
-      $this->view->produits = $content;
+		//      var_dump($content); die;
+		$this->view->produits = $content;
 
-       $categories = Categories::find();
-    $this->view->categories = $categories;
-
-
-      //return json_encode($catContent);
+		$categories = Categories::find();
+		$this->view->categories = $categories;
 
 
-  }
+		//return json_encode($catContent);
 
-  public function marqueAction($marque){
 
-    $marque = Produits::find([
+	}
 
-        "conditions" => "nom_Produit = " . $marque
-    ]);
+	public function marqueAction($marque){
 
-    $this->view->marques = $marque;
-  }
+		$marque = Produits::find([
 
-public function showArticleAction(){
-	$produits = Produits::find();
-	return json_encode($produits); die;
-}
+			"conditions" => "nom_Produit = " . $marque
+		]);
 
-  public function indexAction()
-  {
+		$this->view->marques = $marque;
+	}
 
-    $produits = Produits::find();
-    $this->view->produits = $produits;
+	public function showArticleAction(){
+		$produits = Produits::find();
+		return json_encode($produits); die;
+	}
 
-    $categories = Categories::find();
-    $this->view->categories = $categories;
+	public function indexAction()
+	{
 
-  }
+		$marques = Marques::find();
+		$this->view->marques = $marques;
+
+		$categories = Categories::find();
+		$this->view->categories = $categories;
+
+	}
 }
