@@ -80,7 +80,7 @@ class SecurityPlugin extends Plugin
 				['index','informations','deleteFile','editFile'],
 				['show401', 'show404', 'show500'],
 				['index', 'register', 'start', 'end'],
-				['index','showArticle'],
+				['index','showArticle','produit','marque'],
 				['index','edit'],
 			];
 			$admin = [
@@ -93,7 +93,7 @@ class SecurityPlugin extends Plugin
 				['index','informations','deleteFile','editFile'],
 				['show401', 'show404', 'show500'],
 				['index', 'register', 'start', 'end'],
-				['index','showArticle'],
+				['index','showArticle','produit','marque'],
 				['index','edit'],
 			];
 			$user = [
@@ -106,7 +106,7 @@ class SecurityPlugin extends Plugin
 				['index','informations','deleteFile','editFile'],
 				['show401', 'show404', 'show500'],
 				['index', 'register', 'start', 'end'],
-				['index','showArticle'],
+				['index','showArticle','produit','marque'],
 				['index'],
 			];
 
@@ -120,7 +120,7 @@ class SecurityPlugin extends Plugin
 				['index','informations','deleteFile','editFile'],
 				['show401', 'show404', 'show500'],
 				['index', 'register', 'start', 'end'],
-				['index','showArticle'],
+				['index','showArticle','produit','marque'],
 				['index'],
 			];
 			//Tableau de ressources pour les super admins
