@@ -8,71 +8,82 @@ use Phalcon\Paginator\Factory;
 
 class BoutiqueController extends ControllerBase
 {
-   public function initialize()
-   {
-       $this->tag->setTitle('Bienvenue');
-       parent::initialize();
-   }
+ public function initialize()
+ {
+   $this->tag->setTitle('Bienvenue');
+   parent::initialize();
+ }
 
 
-   public function produitAction($id){
+ public function produitAction($id){
 
-       $produit = Produits::findFirst([
+   $produit = Produits::findFirst([
 
-           "conditions" => "id_Produit = " . $id
-       ]);
+     "conditions" => "id_Produit = " . $id
+   ]);
 
-       $this->view->produit = $produit;
+   $this->view->produit = $produit;
 
-       $categories = Categories::findFirst([
+   $categories = Categories::findFirst([
 
-           "conditions" => "id_Categorie = " . $produit->id_Categorie
+     "conditions" => "id_Categorie = " . $produit->id_Categorie
 
-       ]);
-       $this->view->categories = $categories;
-
-
-       $nom = $categories->tag_Categorie;
+   ]);
+   $this->view->categories = $categories;
 
 
-       $detailProduit = $nom::findFirst([
-
-           "conditions" => "id_Produit = "  . $id
+   $nom = $categories->tag_Categorie;
 
 
-       ]);
-       $tab = $detailProduit->toArray();
+   $detailProduit = $nom::findFirst([
+
+     "conditions" => "id_Produit = "  . $id
 
 
-       $this->view->detailProduit = $tab;
+   ]);
+   $tab = $detailProduit->toArray();
 
 
-   }
+   $this->view->detailProduit = $tab;
+   $avis = Avis::findFirst([ 'conditions' => "id_Produit = " . $id ]);
+
+   $phql = 'SELECT Users.nom_Users FROM Users
+   INNER JOIN Avis ON Avis.id_Users = Users.id_Users
+   WHERE Users.id_Users=' . $avis->id_Users;
+
+   $users = $this->modelsManager->executeQuery($phql);
+            //La requete renvoie un tableau d'user
+  
+  $user = $users[0];
+  $this->view->nom_User = $user;
+  $this->view->avis = $avis;
+
+ }
 
 
-   public function marqueAction($marque){
+ public function marqueAction($marque){
 
-       $marque = Produits::find([
+   $marque = Produits::find([
 
-           "conditions" => "nom_Produit = " . $marque
-       ]);
+     "conditions" => "nom_Produit = " . $marque
+   ]);
 
-       $this->view->marques = $marque;
-   }
+   $this->view->marques = $marque;
+ }
 
-   public function showArticleAction(){
-       $produits = Produits::find();
-       return json_encode($produits); die;
-   }
+ public function showArticleAction(){
+   $produits = Produits::find();
+   return json_encode($produits); die;
+ }
 
-   public function indexAction()
-   {
+ public function indexAction()
+ {
 
-       $marques = Marques::find();
-       $this->view->marques = $marques;
+   $marques = Marques::find();
+   $this->view->marques = $marques;
 
-       $categories = Categories::find();
-       $this->view->categories = $categories;
+   $categories = Categories::find();
+   $this->view->categories = $categories;
 
-   }
+ }
 }
