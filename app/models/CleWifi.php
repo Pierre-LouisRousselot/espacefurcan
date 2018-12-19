@@ -2,7 +2,7 @@
 
 use Phalcon\Mvc\Model;
 
-class CleWifi extends Model
+class Clewifi extends Model
 {
     /**
      * @var integer

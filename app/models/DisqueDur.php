@@ -2,7 +2,7 @@
 
 use Phalcon\Mvc\Model;
 
-class DisqueDur extends Model
+class Disquedur extends Model
 {
     /**
      * @var integer

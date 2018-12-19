@@ -2,7 +2,7 @@
 
 use Phalcon\Mvc\Model;
 
-class CarteSd extends Model
+class Cartesd extends Model
 {
     /**
      * @var integer

@@ -2,7 +2,7 @@
 
 use Phalcon\Mvc\Model;
 
-class OrdinateurFixe extends Model
+class Ordinateurfixe extends Model
 {
     /**
      * @var integer
