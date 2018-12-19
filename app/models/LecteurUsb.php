@@ -2,7 +2,7 @@
 
 use Phalcon\Mvc\Model;
 
-class LecteurUsb extends Model
+class Lecteurusb extends Model
 {
     /**
      * @var integer
