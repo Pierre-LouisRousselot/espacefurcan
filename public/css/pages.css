@@ -1,0 +1,55 @@
+#dropdownMenu1{
+    margin-bottom: 5px
+}
+.MsoNormal p{
+    font-size: 17px !important;
+}
+.btn-add-page{
+	background: none;
+	border : none;
+}
+.btn-add-page:focus{
+	outline: none;
+	box-shadow: none;
+}
+.btn-add-page i{
+	font-size: 50px;
+}
+.btn-del-page{
+	background: none;
+	border : none;
+}
+.btn-del-page:focus{
+	outline: none;
+	box-shadow: none;
+}
+.btn-del-page i{
+	font-size: 50px;
+}
+.sel-categ{
+	margin: 15px;
+	padding : 7px;
+	border-radius: 10px;
+	width: 250px;
+}
+.sel-categ:focus{
+	outline: none;
+	box-shadow: none;
+}
+.sel-titre{
+	border-radius: 10px;
+	margin: 15px;
+	padding: 3px;
+	width: 250px;
+}
+.sel-titre:focus{
+	outline: none;
+	box-shadow: none;
+}
+#dropdownMenu1{
+	margin: 15px;
+	width: 250px;
+}
+.btn-val-page{
+	margin-left: 50%;
+}

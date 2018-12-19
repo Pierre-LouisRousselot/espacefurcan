@@ -3,11 +3,11 @@
 <head>
     <meta charset="utf-8">
     {{ get_title() }}
+    {{ stylesheet_link('//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css') }}
     {{ stylesheet_link('css/bootstrap.min.css') }}
     {{ stylesheet_link('css/style.css') }}
 
     {{ stylesheet_link('css/style-perso.css') }}
-    {{ stylesheet_link('//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css') }}
     {{ javascript_include('js/jquery.min.js') }}
     <link href="css/jquery-filestyle.min.js">
     {# <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.3.1/dt-1.10.18/datatables.min.css"/> #}

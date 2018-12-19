@@ -67,37 +67,34 @@ class SecurityPlugin extends Plugin
 				'session',
 				'boutique',
 				'register',
-				'right',
 			];
 
 
 			$superAdmin = [
 				['index'],
-				['index','delete', 'edit','save','search'],
+				['index','delete', 'edit','save','search','deleteFile','display','validationStatut'],
 				['index','users','products','school','right'],
-				['index','delete', 'edit','save','search', 'deleteImageProduct'],
+				['index','delete', 'edit','save','search', 'deleteImageProduct','addProduct'],
 				['index'],
 				['displayPage','index', 'loadTiny', 'savePage', 'addPage', 'delPage', 'postAcceptor'],
 				['index','informations','deleteFile','editFile'],
 				['show401', 'show404', 'show500'],
 				['index', 'register', 'start', 'end'],
-				['index','cat'],
+				['index','showArticle'],
 				['index','edit'],
-				['index'],
 			];
 			$admin = [
 				['index'],
-				['index','delete', 'edit','save','search'],
+				['index','delete', 'edit','save','search','deleteFile','display','validationStatut'],
 				['index','users','products','school'],
-				['index','delete', 'edit','save','search', 'deleteImageProduct'],
+				['index','delete', 'edit','save','search', 'deleteImageProduct','addProduct'],
 				['index'],
 				['displayPage','index', 'loadTiny', 'savePage', 'addPage', 'delPage', 'postAcceptor'],
 				['index','informations','deleteFile','editFile'],
 				['show401', 'show404', 'show500'],
 				['index', 'register', 'start', 'end'],
-				['index','cat'],
+				['index','showArticle'],
 				['index','edit'],
-				['index'],
 			];
 			$user = [
 				['index'],
@@ -109,9 +106,8 @@ class SecurityPlugin extends Plugin
 				['index','informations','deleteFile','editFile'],
 				['show401', 'show404', 'show500'],
 				['index', 'register', 'start', 'end'],
-				['index','cat'],
+				['index','showArticle'],
 				['index'],
-				[''],
 			];
 
 			$guest = [
@@ -124,9 +120,8 @@ class SecurityPlugin extends Plugin
 				['index','informations','deleteFile','editFile'],
 				['show401', 'show404', 'show500'],
 				['index', 'register', 'start', 'end'],
-				['index','cat'],
+				['index','showArticle'],
 				['index'],
-				[''],
 			];
 			//Tableau de ressources pour les super admins
 			$superAdminRessources = array_combine($controllersRessources,$superAdmin);

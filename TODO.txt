@@ -2,3 +2,4 @@ A faire :
 
     - Ajout time code à la fin des fichiers stocker en bdd et sur le serveur (evite fichier identique)
     - Optimiser la modale de la boutique en la faisant plutôt en js. (évite de charger les modales au lancement de la page)
+    - Faire en sorte que tout ce qu'il y a dans le tableau guest de SecurityPlugin se trouve dans les autres tableaux sans avoir à les ajouter

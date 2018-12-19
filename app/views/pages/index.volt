@@ -1,5 +1,6 @@
 <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
 {{ content() }}
+{{ stylesheet_link('css/pages.css') }}
 
 <div class="page-header">
     <h1>Gestion des pages</h1>
@@ -8,7 +9,7 @@
     <div class="dropdown">
         <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1"
         data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            Sélectionner la page
+            Modifier une page existante
             <span class="caret"></span>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -16,22 +17,22 @@
         </div>
     </div>
     <div>
-        <button id="addPageButton" class="btn btn-primary" onclick="addPage()">Ajouter une page</button>
+        <button id="addPageButton" class="btn btn-add-page" onclick="addPage()"><i class="material-icons">add_box</i></button>
     </div>
     <div>
-        <input id="titrePage"></input>
+        <input id="titrePage" class="sel-titre" placeholder="Titre page"></input>
     </div>
     <div>
-        <button id="delPageButton" class="btn btn-primary" onclick="delPage()">Supprimer la page</button>
+        <button id="delPageButton" class="btn btn-del-page" onclick="delPage()"><i class="material-icons">delete_forever</i></button>
     </div>
 </div>
 <div>
     <div>
-        <span id="warndrop" hidden>Veuillez séléctionner une catégorie.</span>
+        <span id="warndrop" hidden>Veuillez sélectionner une catégorie.</span>
     </div>
     <div>
-        <select id="dropdown">
-            <option value="0">Selectionner une catégorie</option>
+        <select id="dropdown" class="sel-categ">
+            <option value="0">Sélectionner une catégorie</option>
             <option value="1">Services</option>
             <option value="2">Informatique</option>
         </select>
@@ -51,7 +52,9 @@
     </div>
     <br>
 </form>
-<button class="btn btn-primary" onclick="savePage()">Valider</button>
+<div class="btn-val-page">
+    <button id="val-page" class="btn btn-primary" onclick="savePage()">Valider</button>
+</div>
 </div>
 <br>
 <script src="../public/js/jquery.min.js"></script>

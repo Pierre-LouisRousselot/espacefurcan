@@ -15,3 +15,6 @@ class Marques extends Model
     public $nom_Marque;
 
 }
+
+
+

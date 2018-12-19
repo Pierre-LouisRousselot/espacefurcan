@@ -1,4 +1,3 @@
-
 <?php
 
 use Phalcon\Paginator\Adapter\Model as Paginator;
@@ -9,144 +8,71 @@ use Phalcon\Paginator\Factory;
 
 class BoutiqueController extends ControllerBase
 {
-	public function initialize()
-	{
-		$this->tag->setTitle('Bienvenue');
-		parent::initialize();
-	}
-
- public function indexAction()
- {
-
-  $produits = Produits::find();
-  $this->view->produits = $produits;
+   public function initialize()
+   {
+       $this->tag->setTitle('Bienvenue');
+       parent::initialize();
+   }
 
 
-  $categories = Categories::find();
-  $this->view->categories = $categories;
+   public function produitAction($id){
 
-  $marques = Marques::find();
-  $this->view->marques = $marques;
+       $produit = Produits::findFirst([
 
+           "conditions" => "id_Produit = " . $id
+       ]);
 
-// Pagination //
-  $numberPage = 1;
+       $this->view->produit = $produit;
 
-  if ($this->request->isPost()) {
-    $query = Criteria::fromInput($this->di, "produits", $this->request->getPost());
-    $this->persistent->searchParams = $query->getParams();
-  } else {
-    $numberPage = $this->request->getQuery("page", "int");
+       $categories = Categories::findFirst([
 
-  }
+           "conditions" => "id_Categorie = " . $produit->id_Categorie
+
+       ]);
+       $this->view->categories = $categories;
 
 
-  $parameters = [];
-
-  $produits = produits::find($parameters);
-
-  if (count($produits) == 0) {
-    $this->flash->notice("La recherche est vide");
-
-    return $this->dispatcher->forward(
-      [
-        "controller" => "Boutique",
-        "action"     => "index",
-      ]
-    );
-  }
-
-  $paginator = new Paginator([
-    "data"  => $produits,
-    "limit" => 9,
-    "page"  => $numberPage
-  ]);
+       $nom = $categories->tag_Categorie;
 
 
-  $this->view->page = $paginator->getPaginate();
-  $this->view->produit = $produits;
+       $detailProduit = $nom::findFirst([
+
+           "conditions" => "id_Produit = "  . $id
 
 
+       ]);
+       $tab = $detailProduit->toArray();
 
 
-}
-
-public function catAction($id){
-
-  $content = Produits::find([
-
-    "conditions" => "id_Categorie = " . $id
-  ]);
-
-  $marques = Marques::find();
+       $this->view->detailProduit = $tab;
 
 
-
-  $this->view->marques = $marques;
-
-  $categories = Categories::find();
-  $this->view->categories = $categories;
+   }
 
 
-  $this->view->produits = $content;
-  $this->view->categories = $categories;
+   public function marqueAction($marque){
 
-}
+       $marque = Produits::find([
 
-public function marqueAction($marque){
+           "conditions" => "nom_Produit = " . $marque
+       ]);
 
+       $this->view->marques = $marque;
+   }
 
-  $produits = Produits::find([
+   public function showArticleAction(){
+       $produits = Produits::find();
+       return json_encode($produits); die;
+   }
 
-    "conditions" => "id_Marque = " . $marque
-  ]);
+   public function indexAction()
+   {
 
-  $marques = Marques::find();
+       $marques = Marques::find();
+       $this->view->marques = $marques;
 
- //var_dump($marques);die();
+       $categories = Categories::find();
+       $this->view->categories = $categories;
 
-  $this->view->marques = $marques;
-
-  $this->view->produits = $produits;
-  
-  $categories = Categories::find();
-  $this->view->categories = $categories;
-
-
-}
-
-public function produitAction($id){
-
-  $produit = Produits::findFirst([
-
-   "conditions" => "id_Produit = " . $id
- ]);
-
-  $this->view->produit = $produit;
-
-   $categories = Categories::findFirst([
-
-    "conditions" => "id_Categorie = " . $produit->id_Categorie
-
-  ]);
-  $this->view->categories = $categories;
-
-
-  $nom = $categories->tag_Categorie;
-
-
-    $detailProduit = $nom::findFirst([
-
-      "conditions" => "id_Produit = "  . $id 
-
-
-    ]);
-    $tab = $detailProduit->toArray();
-
-    
-    $this->view->detailProduit = $tab;
- 
-
-}
-
+   }
 }
