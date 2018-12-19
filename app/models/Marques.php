@@ -9,4 +9,12 @@ class Marques extends Model
      */
     public $id_Marque;
 
+    /**
+     * @var string
+     */
+    public $nom_Marque;
+
 }
+
+
+

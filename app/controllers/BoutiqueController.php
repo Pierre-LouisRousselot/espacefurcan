@@ -1,60 +1,78 @@
-
 <?php
 
 use Phalcon\Paginator\Adapter\Model as Paginator;
 use Phalcon\Paginator\Factory;
 
 
+
+
 class BoutiqueController extends ControllerBase
 {
-	public function initialize()
-	{
-		$this->tag->setTitle('Bienvenue');
-		parent::initialize();
-	}
-
-	public function catAction($id){
-
-		$content = Produits::find([
-
-			"conditions" => "id_Categorie = " . $id
-		]);
-
-		//      var_dump($content); die;
-		$this->view->produits = $content;
-
-		$categories = Categories::find();
-		$this->view->categories = $categories;
+   public function initialize()
+   {
+       $this->tag->setTitle('Bienvenue');
+       parent::initialize();
+   }
 
 
-		//return json_encode($catContent);
+   public function produitAction($id){
+
+       $produit = Produits::findFirst([
+
+           "conditions" => "id_Produit = " . $id
+       ]);
+
+       $this->view->produit = $produit;
+
+       $categories = Categories::findFirst([
+
+           "conditions" => "id_Categorie = " . $produit->id_Categorie
+
+       ]);
+       $this->view->categories = $categories;
 
 
-	}
+       $nom = $categories->tag_Categorie;
 
-	public function marqueAction($marque){
 
-		$marque = Produits::find([
+       $detailProduit = $nom::findFirst([
 
-			"conditions" => "nom_Produit = " . $marque
-		]);
+           "conditions" => "id_Produit = "  . $id
 
-		$this->view->marques = $marque;
-	}
 
-	public function showArticleAction(){
-		$produits = Produits::find();
-		return json_encode($produits); die;
-	}
+       ]);
+       $tab = $detailProduit->toArray();
 
-	public function indexAction()
-	{
 
-		$marques = Marques::find();
-		$this->view->marques = $marques;
+       $this->view->detailProduit = $tab;
 
-		$categories = Categories::find();
-		$this->view->categories = $categories;
 
-	}
+   }
+
+
+   public function marqueAction($marque){
+
+       $marque = Produits::find([
+
+           "conditions" => "nom_Produit = " . $marque
+       ]);
+
+       $this->view->marques = $marque;
+   }
+
+   public function showArticleAction(){
+       $produits = Produits::find();
+       return json_encode($produits); die;
+   }
+
+   public function indexAction()
+   {
+
+       $marques = Marques::find();
+       $this->view->marques = $marques;
+
+       $categories = Categories::find();
+       $this->view->categories = $categories;
+
+   }
 }
