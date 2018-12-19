@@ -29,6 +29,8 @@ function showArticle($article){
 				html += '<img src="public/image_Produit/' + item.image_Produit + '">';
 				html += '<h5><span>' + item.prix_Produit + '€ </span></h5>';
 				html += '<p class="card-text descriLimit">' + item.descri_Produit + '</p>';
+				html += '<button type="button" class="large material-icons" onclick ="detailProduct('+ item.id_Produit +')"> loupe </button>';
+				html += '<button type="button" class="large material-icons" onclick="addCart(' + item.id_Produit + ')"> add_shopping_cart </button>';
 				html += '</div>'
 
 			});
@@ -37,6 +39,10 @@ function showArticle($article){
 		}
 	});
 	listeNow = $article;
+}
+
+function detailProduct($id){
+	window.location.href ='/espacefurcan/boutique/produit/' + $id;
 }
 
 function refresh(){
