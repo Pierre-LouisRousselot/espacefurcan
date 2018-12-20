@@ -21,54 +21,12 @@ class ProductsController extends ControllerBase
         $produits = Produits::find();
         $this->view->produits = $produits;
 
+        // Pagination
 
-         // Pagination
-
-
-
-
-    $numberPage = 1;
-
-    if ($this->request->isPost()) {
-      $query = Criteria::fromInput($this->di, "produits", $this->request->getPost());
-      $this->persistent->searchParams = $query->getParams();
-    } else {
-      $numberPage = $this->request->getQuery("page", "int");
-
-
-
-    $parameters = [];
-
-    $produits = produits::find($parameters);
-
-    if (count($produits) == 0) {
-      $this->flash->notice("La recherche est vide");
-
-      return $this->dispatcher->forward(
-        [
-          "controller" => "products",
-          "action"     => "index",
-        ]
-      );
-    }
-
-    $paginator = new Paginator([
-      "data"  => $produits,
-      "limit" => 12,
-      "page"  => $numberPage
-    ]);
-    //var_dump($paginator);die();+
-
-
-    $this->view->page = $paginator->getPaginate();
-    $this->view->produit = $produits;
-    //var_dump($this);die();
-
-}
-    
-
-
-    public function AddProductAction(){
+       
+          $this->view->produit = $produits;
+  }
+      public function AddProductAction(){
 
 
         $form = new ProductForm;
@@ -192,7 +150,7 @@ class ProductsController extends ControllerBase
             $this->view->produit = $produit;
             //var_dump($produit);die();
             $form = new ProductForm((object)
-            ['id_Produit' => $id]);
+                ['id_Produit' => $id]);
             //var_dump($form);die();
             $this->view->form = new ProductForm($produit,['edit' => true]);
             // var_dump($this->view->form);die;
@@ -278,7 +236,7 @@ class ProductsController extends ControllerBase
     public function deleteImageProductAction($id){
         $produit = Produits::findFirstById_Produit($id);
         $form = new ProductForm((object)
-        ['id_Produit' => $id]);
+            ['id_Produit' => $id]);
         //var_dump($form);die();
         $this->view->form = new ProductForm($produit,['edit' => true]);
         $file = $produit->image_Produit;
