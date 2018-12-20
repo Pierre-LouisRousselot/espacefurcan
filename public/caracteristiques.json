@@ -1,0 +1,322 @@
+{
+    "1" : [
+        {
+            "nom" : "Système d'exploitation",
+            "type" : "string",
+            "nullable" : false
+        },
+        {
+            "nom" : "Processeur",
+            "type" : "string",
+            "nullable" : false
+        },
+        {
+            "nom" : "RAM",
+            "type" : "int",
+            "nullable" : false
+        },
+        {
+            "nom" : "Capacité du disque dur",
+            "type" : "int",
+            "nullable" : false
+        },
+        {
+            "nom" : "Taille de l'écran",
+            "type" : "int",
+            "nullable" : false
+        },
+        {
+            "nom" : "Nombre de ports USB",
+            "type" : "int",
+            "nullable" : false
+        },
+        {
+            "nom" : "Connecteurs vidéo",
+            "type" : "string",
+            "nullable" : false
+        }
+    ],
+    "2" : [
+        {
+            "nom" : "Système d'exploitation",
+            "type" : "string",
+            "nullable" : false
+        },
+        {
+            "nom" : "Processeur",
+            "type" : "string",
+            "nullable" : false
+        },
+        {
+            "nom" : "RAM",
+            "type" : "int",
+            "nullable" : false
+        },
+        {
+            "nom" : "Capacité du disque dur",
+            "type" : "int",
+            "nullable" : false
+        },
+        {
+            "nom" : "Nombre de ports USB",
+            "type" : "int",
+            "nullable" : false
+        },
+        {
+            "nom" : "Connecteurs vidéo",
+            "type" : "string",
+            "nullable" : false
+        }
+    ],
+    "3" : [
+        {
+            "nom" : "Taille de l'écran",
+            "type" : "int",
+            "nullable" : false
+        },
+        {
+            "nom" : "Processeur",
+            "type" : "string",
+            "nullable" : false
+        },
+        {
+            "nom" : "Connecteurs vidéo",
+            "type" : "string",
+            "nullable" : false
+        }
+    ],
+    "4" : [
+        {
+            "nom" : "Type de souris",
+            "type" : "string",
+            "nullable" : false
+        },
+        {
+            "nom" : "Résolution optique",
+            "type" : "int",
+            "nullable" : true
+        },
+        {
+            "nom" : "Nombre de boutons",
+            "type" : "int",
+            "nullable" : true
+        }
+    ],
+    "5" : [
+        {
+            "nom" : "Interface avec l'ordinateur",
+            "type" : "string",
+            "nullable" : false
+        },
+        {
+            "nom" : "Capacité",
+            "type" : "int",
+            "nullable" : false
+        }
+    ],
+    "6" : [
+        {
+            "nom" : "Types de cartes pouvant être lues",
+            "type" : "string",
+            "nullable" : false
+        },
+        {
+            "nom" : "Débit de lecture",
+            "type" : "int",
+            "nullable" : true
+        }
+    ],
+    "7" : [
+        {
+            "nom" : "Longueur du câble",
+            "type" : "int",
+            "nullable" : false
+        },
+        {
+            "nom" : "Connecteur",
+            "type" : "string",
+            "nullable" : false
+        }
+    ],
+    "8" : [
+        {
+            "nom" : "Longueur du câble",
+            "type" : "int",
+            "nullable" : false
+        },
+        {
+            "nom" : "Entrées audio",
+            "type" : "string",
+            "nullable" : false
+        }
+    ],
+    "9" : [
+        {
+            "nom" : "Type de téléphone",
+            "type" : "string",
+            "nullable" : false
+        },
+        {
+            "nom" : "Taille de l'écran",
+            "type" : "int",
+            "nullable" : false
+        },
+        {
+            "nom" : "Formats SIM",
+            "type" : "string",
+            "nullable" : false
+        },
+        {
+            "nom" : "Processeur",
+            "type" : "string",
+            "nullable" : true
+        },
+        {
+            "nom" : "Type de mémoire flash",
+            "type" : "string",
+            "nullable" : false
+        },
+        {
+            "nom" : "Résolution photo",
+            "type" : "int",
+            "nullable" : true
+        },
+        {
+            "nom" : "Taille mémoire vive",
+            "type" : "int",
+            "nullable" : true
+        },
+        {
+            "nom" : "Mémoire",
+            "type" : "int",
+            "nullable" : true
+        },
+        {
+            "nom" : "Capacité de la batterie",
+            "type" : "int",
+            "nullable" : true
+        },
+        {
+            "nom" : "Couleur",
+            "type" : "string",
+            "nullable" : true
+        }
+    ],
+    "10" : [
+        {
+            "nom" : "Interface avec l'ordinateur",
+            "type" : "string",
+            "nullable" : false
+        },
+        {
+            "nom" : "Norme du clavier",
+            "type" : "string",
+            "nullable" : false
+        }
+    ],
+    "11" : [
+        {
+            "nom" : "Taille de l'écran",
+            "type" : "int",
+            "nullable" : false
+        },
+        {
+            "nom" : "Système d'exploitation",
+            "type" : "string",
+            "nullable" : false
+        },
+        {
+            "nom" : "Processeur",
+            "type" : "string",
+            "nullable" : true
+        },
+        {
+            "nom" : "Port(s) d'extension(s)",
+            "type" : "string",
+            "nullable" : true
+        },
+        {
+            "nom" : "Résolution photo",
+            "type" : "int",
+            "nullable" : true
+        },
+        {
+            "nom" : "RAM",
+            "type" : "int",
+            "nullable" : true
+        },
+        {
+            "nom" : "Capacité de la mémoire",
+            "type" : "int",
+            "nullable" : true
+        },
+        {
+            "nom" : "Capacité de la batterie",
+            "type" : "int",
+            "nullable" : true
+        },
+        {
+            "nom" : "Capacité de la batterie",
+            "type" : "int",
+            "nullable" : true
+        },
+        {
+            "nom" : "Couleur",
+            "type" : "string",
+            "nullable" : true
+        }
+    ],
+    "12" : [
+        {
+            "nom" : "Type de Disque",
+            "type" : "string",
+            "nullable" : false
+        },
+        {
+            "nom" : "Connectiques",
+            "type" : "string",
+            "nullable" : false
+        },
+        {
+            "nom" : "Capacité",
+            "type" : "int",
+            "nullable" : false
+        }
+    ],
+    "13" : [
+        {
+            "nom" : "Capacité",
+            "type" : "int",
+            "nullable" : false
+        },
+        {
+            "nom" : "Type de carte",
+            "type" : "string",
+            "nullable" : false
+        },
+        {
+            "nom" : "Adapateur",
+            "type" : "string",
+            "nullable" : true
+        }
+    ],
+    "14" : [
+        {
+            "nom" : "Type de clé Wi-Fi",
+            "type" : "string",
+            "nullable" : false
+        },
+        {
+            "nom" : "Débit",
+            "type" : "int",
+            "nullable" : false
+        }
+    ],
+    "15" : [
+        {
+            "nom" : "Interface avec l'ordinateur",
+            "type" : "string",
+            "nullable" : false
+        }
+    ]
+}
