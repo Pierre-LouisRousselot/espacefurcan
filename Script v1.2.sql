@@ -416,7 +416,8 @@ CREATE TABLE Avis(
   id_Users         Int NOT NULL ,
   id_Produit       Int NOT NULL ,
   commentaire_Avis Varchar (255) NOT NULL ,
-  note_Avis        Int NOT NULL
+  note_Avis        Int NOT NULL,
+  date_Avis        Datetime NOT NULL
   ,CONSTRAINT Avis_PK PRIMARY KEY (id_Users,id_Produit)
 
   ,CONSTRAINT Avis_Users_FK FOREIGN KEY (id_Users) REFERENCES Users(id_Users)
@@ -449,4 +450,4 @@ INSERT INTO `disquedur` (`id_Produit`, `type_Disque`, `usb_Disque`, `taille_Disq
 INSERT INTO `tablette` (`id_Produit`, `tailleEcran_Tablette`, `os_Tablette`, `proc_Tablette`, `sd_Tablette`, `photo_Tablette`, `ram_Tablette`, `rom_Tablette`, `batterie_Tablette`, `couleur_Tablette`) VALUES ('13', '11', 'Android Nougatine', NULL, 'Non', NULL, NULL, '124', NULL, 'Bleue');
 INSERT INTO `commandes` (`id_Commande`, `paiement_Commande`, `date_Commande`, `prix_Commande`, `remise_Commande`, `id_Users`) VALUES (NULL, 'Carte bancaire', '2018-12-05 00:00:00', '41', '21', '1'), (NULL, 'Carte bancaire', '2018-12-05 00:00:00', '541', '0', '2');
 INSERT INTO `commandesdetails` (`id_Produit`, `id_Commande`) VALUES ('4', '1'), ('5', '1'), ('1', '2'), ('2', '2'), ('6', '2');
-INSERT INTO `avis` (`id_Produit`, `id_Users`, `commentaire_Avis`, `note_Avis`) VALUES ('5', '1', 'Mais.. Mais... Mais c\'est un pokémon !!', '5'), ('4', '1', 'Bof', '3'), ('1', '2', 'Ok', '2'), ('2', '2', 'Pamal', '4'), ('6', '2', 'Je vois la vie différemment maintenant !', '5');
+INSERT INTO `avis` (`id_Produit`, `id_Users`, `commentaire_Avis`, `note_Avis`, `date_Avis`) VALUES ('5', '1', 'Mais.. Mais... Mais c\'est un pokémon !!', '5','2018-12-05 00:00:00' ), ('4', '1', 'Bof', '3','2018-12-05 00:00:00'), ('1', '2', 'Ok', '2','2018-12-05 00:00:00'), ('2', '2', 'Pamal', '4','2018-12-05 00:00:00'), ('6', '2', 'Je vois la vie différemment maintenant !', '5','2018-12-05 00:00:00');

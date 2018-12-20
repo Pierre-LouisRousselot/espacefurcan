@@ -2,7 +2,7 @@
 
 use Phalcon\Mvc\Model;
 
-class CleUsb extends Model
+class Cleusb extends Model
 {
     /**
      * @var integer

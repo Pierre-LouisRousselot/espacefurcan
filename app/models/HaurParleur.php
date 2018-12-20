@@ -2,7 +2,7 @@
 
 use Phalcon\Mvc\Model;
 
-class HaurParleur extends Model
+class Haurparleur extends Model
 {
     /**
      * @var integer
