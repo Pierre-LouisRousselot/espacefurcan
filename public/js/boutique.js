@@ -26,7 +26,7 @@ function showArticle($article){
 			$.each(data, function (index, item) {
 			 	html += '<div class="col-lg-4 produit" style="display:inline-block">';
 				html += '<h3>' + item.nom_Produit + '</h3>';
-				html += '<img src="public/image_Produit/' + item.image_Produit + '">';
+				html += '<img style="width:200px;height:200px;" src="/espacefurcan/public/image_Produit/' + item.image_Produit + '">';
 				html += '<h5><span>' + item.prix_Produit + '€ </span></h5>';
 				html += '<p class="card-text descriLimit">' + item.descri_Produit + '</p>';
 				html += '<button type="button" class="large material-icons" onclick ="detailProduct('+ item.id_Produit +')"> loupe </button>';

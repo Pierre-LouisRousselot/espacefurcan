@@ -54,8 +54,9 @@
 <div class="row shadow p-3 mb-5 bg-white rounded">
 	<div class="col-lg-3">
 		<h5> {{ nom_User.nom_Users }} </h5>
-		<h5>Posté le </h5>
-		<p>Note obtenue  {{avis.note_Avis}} / 10 </p>
+		<h5>Posté le {{ avis.date_Avis }}</h5>
+		<p>Note obtenue  {{ avis.note_Avis }} / 10 </p>
+		
 	</div>
 	<div class="col-lg-6" style="text-align:center;">
 		<p> {{ avis.commentaire_Avis }}</p>
@@ -72,7 +73,7 @@
 
 </div>
 
- <!--  fin de gestion Avis et commentaire -->
+<!--  fin de gestion Avis et commentaire -->
 
 
 
