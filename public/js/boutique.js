@@ -66,3 +66,13 @@ function filtre(){
 	}
 	showArticle(liste);
 }
+
+$(document).ready(function() {
+
+	
+	$('#b1').click(function(){
+		$('.donneAvis').slideToggle(2000);
+	})
+
+
+});

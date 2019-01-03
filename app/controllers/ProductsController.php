@@ -23,10 +23,13 @@ class ProductsController extends ControllerBase
 
         // Pagination
 
-       
-          $this->view->produit = $produits;
-  }
-      public function AddProductAction(){
+        
+        $this->view->produit = $produits;
+    }
+
+
+//
+    public function AddProductAction(){
 
 
         $form = new ProductForm;
